@@ -5,6 +5,7 @@ require('ts-node').register({ transpileOnly: true });
 
 const PRESENTATIONS_DIR = path.resolve(__dirname, '../presentations');
 const TEMPLATE_PATH = path.resolve(__dirname, '../templates/presentation-template.html');
+const INDEX_TEMPLATE_PATH = path.resolve(__dirname, '../templates/index-template.html');
 
 interface Section {
     title: string;
@@ -122,6 +123,40 @@ function buildLegacyPresentation(config: PresentationConfig): { slides: string; 
     return { slides: config.slides || '', markdown };
 }
 
+interface PresentationEntry {
+    dir: string;
+    title: string;
+    loc?: string;
+}
+
+function generateRootIndex(presentations: PresentationEntry[]): void {
+    if (!fs.existsSync(INDEX_TEMPLATE_PATH)) {
+        console.error('Index template not found');
+        return;
+    }
+
+    const template = fs.readFileSync(INDEX_TEMPLATE_PATH, 'utf-8');
+
+    const presentationsHtml = presentations
+        .filter(p => !p.dir.startsWith('_'))
+        .sort((a, b) => b.dir.localeCompare(a.dir))
+        .map(p => `
+            <a href="./${p.dir}/" class="presentation-card">
+                <div class="presentation-info">
+                    <div class="presentation-title">${p.title}</div>
+                    <div class="presentation-meta">${p.dir}${p.loc ? ` · ${p.loc}` : ''}</div>
+                </div>
+                <span class="presentation-arrow">→</span>
+            </a>`)
+        .join('\n');
+
+    const html = template.replace('{{presentations}}', presentationsHtml || '<p class="empty-state">No presentations found</p>');
+    const indexPath = path.join(PRESENTATIONS_DIR, 'index.html');
+
+    fs.writeFileSync(indexPath, html);
+    console.log(`Successfully generated root index: ${indexPath}`);
+}
+
 function buildPresentations(): void {
     if (!fs.existsSync(PRESENTATIONS_DIR)) {
         console.error('Presentations directory not found');
@@ -132,6 +167,8 @@ function buildPresentations(): void {
     const presentationDirs = fs.readdirSync(PRESENTATIONS_DIR).filter(file =>
         fs.statSync(path.join(PRESENTATIONS_DIR, file)).isDirectory()
     );
+
+    const builtPresentations: PresentationEntry[] = [];
 
     presentationDirs.forEach(dir => {
         const presentationTsPath = path.join(PRESENTATIONS_DIR, dir, 'index.ts');
@@ -181,10 +218,18 @@ function buildPresentations(): void {
 
             fs.writeFileSync(indexPath, html);
             console.log(`Successfully generated ${indexPath}`);
+
+            builtPresentations.push({
+                dir,
+                title: presentation.title || dir,
+                loc: presentation.loc
+            });
         } catch (error) {
             console.error(`Error building ${dir}:`, error);
         }
     });
+
+    generateRootIndex(builtPresentations);
 }
 
 buildPresentations();
