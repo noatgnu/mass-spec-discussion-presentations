@@ -11,6 +11,7 @@
     "pdf:all": "ts-node src/export-pdf.ts --all"
   },
   "dependencies": {
+    "qr-code-styling": "^1.9.2",
     "reveal.js": "^5.2.1"
   },
   "devDependencies": {

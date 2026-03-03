@@ -6,21 +6,12 @@
 
 		<title>{{title}}</title>
 
-		<link rel="stylesheet" href="../../node_modules/reveal.js/dist/reset.css">
-		<link rel="stylesheet" href="../../node_modules/reveal.js/dist/reveal.css">
-		<link rel="stylesheet" href="../../node_modules/reveal.js/dist/theme/black.css">
-
-		<script>
-			if (window.location.search.match(/print-pdf/gi)) {
-				var link = document.createElement('link');
-				link.rel = 'stylesheet';
-				link.href = '../../node_modules/reveal.js/css/print/pdf.css';
-				document.head.appendChild(link);
-			}
-		</script>
+		<link rel="stylesheet" href="../_assets/reveal.js/dist/reset.css">
+		<link rel="stylesheet" href="../_assets/reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="../_assets/reveal.js/dist/theme/black.css">
 
 		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="../../node_modules/reveal.js/plugin/highlight/monokai.css">
+		<link rel="stylesheet" href="../_assets/reveal.js/plugin/highlight/monokai.css">
 
 		<style>
 			:root {
@@ -289,6 +280,96 @@
 				text-shadow: 0 0 8px rgba(0, 119, 190, 0.4);
 			}
 
+			/* QR Code Button & Modal */
+			#qr-button {
+				position: fixed;
+				bottom: 20px;
+				left: 20px;
+				width: 40px;
+				height: 40px;
+				background: var(--dx-overlay);
+				border: 1px solid var(--dx-gold);
+				color: var(--dx-gold);
+				font-family: monospace;
+				font-size: 18px;
+				cursor: pointer;
+				z-index: 10001;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				transition: all 0.2s ease;
+				opacity: 0.6;
+			}
+			#qr-button:hover {
+				opacity: 1;
+				box-shadow: 0 0 15px rgba(255, 180, 0, 0.3);
+			}
+
+			#qr-modal {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(0, 0, 0, 0.95);
+				z-index: 20001;
+				display: none;
+				justify-content: center;
+				align-items: center;
+				backdrop-filter: blur(10px);
+				cursor: pointer;
+			}
+
+			#qr-content {
+				background: var(--dx-bg-gradient);
+				border: 1px solid var(--dx-gold);
+				padding: 30px;
+				text-align: center;
+				box-shadow: 0 0 50px rgba(255, 180, 0, 0.2);
+				animation: holo-entry 0.3s ease-out;
+			}
+
+			#qr-container {
+				width: 250px;
+				height: 250px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			#qr-container canvas {
+				border: none !important;
+				padding: 0 !important;
+				background: none !important;
+			}
+
+			#qr-title {
+				color: var(--dx-gold);
+				font-family: monospace;
+				font-size: 14px;
+				letter-spacing: 2px;
+				margin-bottom: 20px;
+				text-transform: uppercase;
+			}
+
+			#qr-url {
+				color: var(--dx-gold-dim);
+				font-family: monospace;
+				font-size: 11px;
+				margin-top: 20px;
+				word-break: break-all;
+				max-width: 280px;
+			}
+
+			#qr-dismiss {
+				color: var(--dx-gold);
+				font-family: monospace;
+				font-size: 12px;
+				letter-spacing: 2px;
+				margin-top: 20px;
+				opacity: 0.7;
+			}
+
 			/* Synthwave Canvas */
 			#synth-canvas {
 				position: fixed;
@@ -409,10 +490,22 @@
 			</div>
 		</div>
 
-		<script src="../../node_modules/reveal.js/dist/reveal.js"></script>
-		<script src="../../node_modules/reveal.js/plugin/notes/notes.js"></script>
-		<script src="../../node_modules/reveal.js/plugin/markdown/markdown.js"></script>
-		<script src="../../node_modules/reveal.js/plugin/highlight/highlight.js"></script>
+		<button id="qr-button" title="Show QR Code">⊞</button>
+
+		<div id="qr-modal">
+			<div id="qr-content">
+				<div id="qr-title">[ SCAN TO VIEW ]</div>
+				<div id="qr-container"></div>
+				<div id="qr-url"></div>
+				<div id="qr-dismiss">[ CLICK TO DISMISS ]</div>
+			</div>
+		</div>
+
+		<script src="../_assets/reveal.js/dist/reveal.js"></script>
+		<script src="../_assets/reveal.js/plugin/notes/notes.js"></script>
+		<script src="../_assets/reveal.js/plugin/markdown/markdown.js"></script>
+		<script src="../_assets/reveal.js/plugin/highlight/highlight.js"></script>
+		<script src="../_assets/qr-code-styling.js"></script>
 		<script>
 			Reveal.initialize({
 				hash: true,
@@ -623,6 +716,62 @@
 					currentSlide.querySelectorAll('h1, h2').forEach(glitchElement);
 				}
 			}, 500);
+
+			// QR Code Modal
+			const qrButton = document.getElementById('qr-button');
+			const qrModal = document.getElementById('qr-modal');
+			const qrContainer = document.getElementById('qr-container');
+			const qrUrlDisplay = document.getElementById('qr-url');
+			let qrCode = null;
+
+			function showQrCode() {
+				const url = window.location.href.split('#')[0];
+				const theme = document.documentElement.getAttribute('data-theme');
+				const goldColor = theme === 'light' ? '#0077be' : '#ffb400';
+
+				qrContainer.innerHTML = '';
+
+				qrCode = new QRCodeStyling({
+					width: 250,
+					height: 250,
+					type: 'canvas',
+					data: url,
+					dotsOptions: {
+						color: goldColor,
+						type: 'rounded'
+					},
+					backgroundOptions: {
+						color: '#0a0a0a'
+					},
+					cornersSquareOptions: {
+						color: goldColor,
+						type: 'extra-rounded'
+					},
+					cornersDotOptions: {
+						color: goldColor,
+						type: 'dot'
+					}
+				});
+
+				qrCode.append(qrContainer);
+				qrUrlDisplay.textContent = url;
+				qrModal.style.display = 'flex';
+			}
+
+			qrButton.addEventListener('click', showQrCode);
+			qrModal.addEventListener('click', () => {
+				qrModal.style.display = 'none';
+			});
+
+			window.addEventListener('keydown', (e) => {
+				if (e.key.toLowerCase() === 'q' && !e.ctrlKey && !e.metaKey) {
+					if (qrModal.style.display === 'flex') {
+						qrModal.style.display = 'none';
+					} else {
+						showQrCode();
+					}
+				}
+			});
 
 			const glitchChars = '!<>-_/[]{}—=+*^?#________';
 			function glitchElement(el) {

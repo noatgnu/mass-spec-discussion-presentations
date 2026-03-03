@@ -8,6 +8,7 @@ const TEMPLATE_PATH = path.resolve(__dirname, '../templates/presentation-templat
 const INDEX_TEMPLATE_PATH = path.resolve(__dirname, '../templates/index-template.html');
 const REVEAL_SRC = path.resolve(__dirname, '../node_modules/reveal.js');
 const REVEAL_DEST = path.resolve(PRESENTATIONS_DIR, '_assets/reveal.js');
+const ASSETS_DIR = path.resolve(PRESENTATIONS_DIR, '_assets');
 
 function copyRevealAssets(): void {
     const dirsToCreate = [
@@ -50,6 +51,13 @@ function copyRevealAssets(): void {
     });
 
     console.log('Copied reveal.js assets to _assets/reveal.js');
+
+    const qrSrc = path.resolve(__dirname, '../node_modules/qr-code-styling/lib/qr-code-styling.js');
+    const qrDest = path.join(ASSETS_DIR, 'qr-code-styling.js');
+    if (fs.existsSync(qrSrc)) {
+        fs.copyFileSync(qrSrc, qrDest);
+        console.log('Copied qr-code-styling.js to _assets/');
+    }
 }
 
 interface Section {
@@ -207,6 +215,8 @@ function buildPresentations(): void {
         console.error('Presentations directory not found');
         return;
     }
+
+    copyRevealAssets();
 
     const template = fs.readFileSync(TEMPLATE_PATH, 'utf-8');
     const presentationDirs = fs.readdirSync(PRESENTATIONS_DIR).filter(file =>
