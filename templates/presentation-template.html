@@ -1,0 +1,658 @@
+<!doctype html>
+<html lang="en" data-theme="{{theme}}">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>{{title}}</title>
+
+		<link rel="stylesheet" href="../../node_modules/reveal.js/dist/reset.css">
+		<link rel="stylesheet" href="../../node_modules/reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="../../node_modules/reveal.js/dist/theme/black.css">
+
+		<script>
+			if (window.location.search.match(/print-pdf/gi)) {
+				var link = document.createElement('link');
+				link.rel = 'stylesheet';
+				link.href = '../../node_modules/reveal.js/css/print/pdf.css';
+				document.head.appendChild(link);
+			}
+		</script>
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../../node_modules/reveal.js/plugin/highlight/monokai.css">
+
+		<style>
+			:root {
+				--dx-gold: #ffb400;
+				--dx-gold-dim: #cc9000;
+				--dx-black: #0a0a0a;
+				--dx-bg-gradient: radial-gradient(circle, #1a1a1a 0%, #050505 100%);
+				--dx-text: #ddd;
+				--dx-text-secondary: #ccc;
+				--dx-overlay: rgba(0,0,0,0.8);
+				--dx-scanline: rgba(255, 180, 0, 0.03);
+				--dx-laser-bg: rgba(255, 180, 0, 0.2);
+				--dx-holo-bg: rgba(255, 180, 0, 0.05);
+			}
+
+			[data-theme="light"] {
+				--dx-gold: #0077be;
+				--dx-gold-dim: #005a8d;
+				--dx-black: #f5f0e6;
+				--dx-bg-gradient: radial-gradient(circle, #f5f0e6 0%, #e8e0d0 100%);
+				--dx-text: #102a43;
+				--dx-text-secondary: #334e68;
+				--dx-overlay: rgba(245,240,230,0.85);
+				--dx-scanline: rgba(0, 119, 190, 0.05);
+				--dx-laser-bg: rgba(0, 119, 190, 0.2);
+				--dx-holo-bg: rgba(0, 119, 190, 0.05);
+			}
+
+			html, body {
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+				background-color: var(--dx-black) !important;
+			}
+
+			#dx-world {
+				width: 100%;
+				height: 100%;
+				background: var(--dx-bg-gradient);
+				transition: transform 0.1s ease-out;
+				transform-origin: 0 0;
+			}
+
+			/* Hexagon Tiling Background */
+			.reveal {
+				background:
+					linear-gradient(var(--dx-overlay), var(--dx-overlay)),
+					url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1NiIgaGVpZ2h0PSIxMDAiIHZpZXdCb3g9IjAgMCA1NiAxMDAiPgo8cGF0aCBkPSJNMjggNjZMMCA1MEwwIDBMMjggMTZNNjAgMEwzMiAxNkwzMiA1MEw2MCA2NlYwIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmI0MDAiIHN0cm9rZS13aWR0aD0iMC41IiBzdHJva2Utb3BhY2l0eT0iMC4xIi8+Cjwvc3ZnPg==');
+				background-repeat: repeat;
+			}
+
+			[data-theme="light"] .reveal {
+				background:
+					linear-gradient(var(--dx-overlay), var(--dx-overlay)),
+					url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1NiIgaGVpZ2h0PSIxMDAiIHZpZXdCb3g9IjAgMCA1NiAxMDAiPgo8cGF0aCBkPSJNMjggNjZMMCA1MEwwIDBMMjggMTZNNjAgMEwzMiAxNkwzMiA1MEw2MCA2NlYwIiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDc3YmUiIHN0cm9rZS13aWR0aD0iMC44IiBzdHJva2Utb3BhY2l0eT0iMC4xNSIvPgo8L3N2Zz4=');
+				background-repeat: repeat;
+			}
+
+			.reveal .slides {
+				font-size: 28px;
+				color: var(--dx-text);
+			}
+
+			.reveal h1, .reveal h2, .reveal h3 {
+				color: var(--dx-gold);
+				text-transform: uppercase;
+				letter-spacing: 2px;
+				text-shadow: 0 0 10px rgba(255, 180, 0, 0.3);
+				font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			}
+
+			/* Slanted Title Bar */
+			.reveal h1 { 
+				font-size: 2.5em; 
+				padding-bottom: 10px; 
+				position: relative;
+				display: inline-block;
+				margin-bottom: 30px;
+			}
+			.reveal h1::after {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: -10%;
+				width: 120%;
+				height: 4px;
+				background: var(--dx-gold);
+				transform: skewX(-45deg);
+			}
+
+			.reveal h2 { 
+				font-size: 1.6em; 
+				padding-left: 15px; 
+				position: relative;
+				border-left: 5px solid var(--dx-gold);
+			}
+			.reveal h2::before {
+				content: '';
+				position: absolute;
+				top: -5px;
+				left: -5px;
+				width: 20px;
+				height: 5px;
+				background: var(--dx-gold);
+				transform: skewX(-45deg);
+			}
+
+			.reveal h3 { font-size: 1.3em; color: var(--dx-gold-dim); }
+
+			.reveal p, .reveal li {
+				font-size: 0.9em;
+				line-height: 1.4;
+				color: var(--dx-text-secondary);
+			}
+
+			/* Triangle Bullets */
+			.reveal ul {
+				list-style-type: none;
+				margin-left: 0;
+			}
+			.reveal ul li::before {
+				content: "▶";
+				color: var(--dx-gold);
+				font-size: 0.7em;
+				margin-right: 15px;
+				vertical-align: middle;
+				display: inline-block;
+				transform: scaleY(0.8);
+				text-shadow: 0 0 5px var(--dx-gold);
+			}
+
+			.reveal b, .reveal strong {
+				color: var(--dx-gold);
+			}
+
+			.reveal a {
+				color: var(--dx-gold) !important;
+				text-decoration: underline;
+				transition: text-shadow 0.2s ease;
+			}
+			.reveal a:hover {
+				text-shadow: 0 0 10px var(--dx-gold);
+			}
+
+			/* Navigation Controls */
+			.reveal .controls {
+				color: var(--dx-gold) !important;
+			}
+			.reveal .progress {
+				color: var(--dx-gold) !important;
+				background: rgba(255, 180, 0, 0.1);
+			}
+			.reveal .progress span {
+				background: var(--dx-gold) !important;
+			}
+
+			/* Fractal Corner Brackets for Images */
+			.reveal img {
+				max-height: 500px;
+				border: none !important;
+				box-shadow: none !important;
+				background: none !important;
+				padding: 15px !important;
+				position: relative;
+				cursor: zoom-in;
+				background: 
+					linear-gradient(to right, var(--dx-gold) 2px, transparent 2px) 0 0,
+					linear-gradient(to bottom, var(--dx-gold) 2px, transparent 2px) 0 0,
+					linear-gradient(to left, var(--dx-gold) 2px, transparent 2px) 100% 0,
+					linear-gradient(to bottom, var(--dx-gold) 2px, transparent 2px) 100% 0,
+					linear-gradient(to right, var(--dx-gold) 2px, transparent 2px) 0 100%,
+					linear-gradient(to top, var(--dx-gold) 2px, transparent 2px) 0 100%,
+					linear-gradient(to left, var(--dx-gold) 2px, transparent 2px) 100% 100%,
+					linear-gradient(to top, var(--dx-gold) 2px, transparent 2px) 100% 100% !important;
+				background-repeat: no-repeat !important;
+				background-size: 15px 15px !important;
+				transition: transform 0.2s ease, filter 0.2s ease;
+			}
+			.reveal img:hover {
+				filter: brightness(1.2);
+				transform: scale(1.02);
+			}
+
+			.holo-img-container:hover .holo-img-hint {
+				opacity: 1 !important;
+				background: var(--dx-gold) !important;
+				color: black !important;
+				box-shadow: 0 0 10px var(--dx-gold);
+			}
+
+			/* HUD Elements (Fixed to screen) */
+			#dx-hud {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				pointer-events: none;
+				z-index: 10000;
+			}
+
+			.laser-pointer {
+				position: fixed;
+				width: 25px;
+				height: 25px;
+				background-color: var(--dx-laser-bg);
+				border: 1px solid var(--dx-gold);
+				border-radius: 50%;
+				pointer-events: none;
+				display: none;
+				box-shadow: 0 0 15px var(--dx-gold), inset 0 0 5px var(--dx-gold);
+				transform: translate(-50%, -50%);
+			}
+
+			.scanline {
+				width: 100%;
+				height: 2px;
+				background: var(--dx-scanline);
+				position: absolute;
+				top: 0;
+				animation: scanline 8s linear infinite;
+			}
+
+			@keyframes scanline {
+				0% { top: 0; }
+				100% { top: 100%; }
+			}
+
+			/* Metadata Readouts */
+			.metadata-readout {
+				position: absolute;
+				color: var(--dx-gold-dim);
+				font-family: monospace;
+				font-size: 10px;
+				opacity: 0.6;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+			}
+			#meta-top-left { top: 20px; left: 20px; text-align: left; }
+			#meta-top-right { top: 20px; right: 20px; text-align: right; }
+			#meta-bottom-left { bottom: 20px; left: 20px; text-align: left; }
+			
+			#zoomIndicator {
+				position: absolute;
+				bottom: 20px;
+				right: 20px;
+				color: var(--dx-gold);
+				font-family: monospace;
+				background: var(--dx-overlay);
+				padding: 5px 10px;
+				border: 1px solid var(--dx-gold);
+				display: none;
+				backdrop-filter: blur(5px);
+			}
+
+			.glitch-char {
+				color: var(--dx-gold);
+				text-shadow: 0 0 15px var(--dx-gold);
+				opacity: 0.9;
+				display: inline-block;
+				min-width: 0.5em;
+			}
+			[data-theme="light"] .glitch-char {
+				text-shadow: 0 0 8px rgba(0, 119, 190, 0.4);
+			}
+
+			/* Synthwave Canvas */
+			#synth-canvas {
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: 35%;
+				pointer-events: none;
+				z-index: 5;
+				opacity: 0.6;
+			}
+
+			/* HOLOGRAM LIGHTBOX */
+			#holo-lightbox {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(0,0,0,0.9);
+				z-index: 20000;
+				display: none;
+				justify-content: center;
+				align-items: center;
+				backdrop-filter: blur(15px);
+				cursor: zoom-out;
+			}
+
+			#holo-content {
+				position: relative;
+				max-width: 85%;
+				max-height: 85%;
+				padding: 40px;
+				border: 1px solid var(--dx-gold);
+				background: var(--dx-holo-bg);
+				box-shadow: 0 0 50px rgba(0,0,0,0.5), inset 0 0 30px rgba(255, 180, 0, 0.05);
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				animation: holo-entry 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+			}
+
+			@keyframes holo-entry {
+				0% { transform: scale(0.8) translateY(20px); opacity: 0; filter: brightness(2); }
+				100% { transform: scale(1) translateY(0); opacity: 1; filter: brightness(1); }
+			}
+
+			#holo-img {
+				max-width: 100%;
+				max-height: 70vh;
+				object-fit: contain;
+				border: 1px solid rgba(255, 180, 0, 0.3) !important;
+				padding: 0 !important;
+				background: none !important;
+			}
+
+			.holo-meta-tag {
+				position: absolute;
+				color: var(--dx-gold);
+				font-family: monospace;
+				font-size: 12px;
+				letter-spacing: 2px;
+				background: rgba(0,0,0,0.8);
+				padding: 2px 8px;
+				border: 1px solid var(--dx-gold);
+			}
+			#holo-tag-tl { top: -15px; left: -15px; }
+			#holo-tag-tr { top: -15px; right: -15px; }
+			#holo-tag-bl { bottom: -15px; left: -15px; }
+			#holo-tag-br { bottom: -15px; right: -15px; }
+
+			.holo-scanning-line {
+				position: absolute;
+				width: 100%;
+				height: 2px;
+				background: var(--dx-gold);
+				opacity: 0.2;
+				box-shadow: 0 0 15px var(--dx-gold);
+				top: 0;
+				animation: holo-scan 4s linear infinite;
+			}
+
+			@keyframes holo-scan {
+				0% { top: 0; }
+				100% { top: 100%; }
+			}
+		</style>
+	</head>
+	<body>
+		<div id="dx-world">
+			<canvas id="synth-canvas"></canvas>
+			<div class="reveal">
+				<div class="slides">
+					{{slides}}
+					{{markdown}}
+				</div>
+			</div>
+		</div>
+
+		<div id="dx-hud">
+			<div class="scanline"></div>
+			<div id="meta-top-left" class="metadata-readout">STATUS: <span id="status-display">ENCRYPTED</span><br>LOC: <span id="loc-display">{{loc}}</span></div>
+			<div id="meta-top-right" class="metadata-readout">TIME: <span id="clock-display">00:00:00</span><br>COORD: <span id="coord-display">SEC-01 / PG-01</span></div>
+			<div id="meta-bottom-left" class="metadata-readout">SYSTEM: INFOLINK v2.1<br>SIGNAL: NOMINAL</div>
+			<div class="laser-pointer" id="laserPointer"></div>
+			<div id="zoomIndicator">ZOOM: 2.0x</div>
+		</div>
+
+		<div id="holo-lightbox">
+			<div id="holo-content">
+				<div class="holo-scanning-line"></div>
+				<div id="holo-tag-tl" class="holo-meta-tag">ANALYZING...</div>
+				<div id="holo-tag-tr" class="holo-meta-tag">ID: 0x4F2</div>
+				<div id="holo-tag-bl" class="holo-meta-tag">DEPTH: 100%</div>
+				<div id="holo-tag-br" class="holo-meta-tag">ENCRYPTED</div>
+				<img id="holo-img" src="" alt="Hologram View">
+				<div style="margin-top: 20px; color: var(--dx-gold); font-family: monospace; font-size: 14px; letter-spacing: 3px;">[ DISMISS ]</div>
+			</div>
+		</div>
+
+		<script src="../../node_modules/reveal.js/dist/reveal.js"></script>
+		<script src="../../node_modules/reveal.js/plugin/notes/notes.js"></script>
+		<script src="../../node_modules/reveal.js/plugin/markdown/markdown.js"></script>
+		<script src="../../node_modules/reveal.js/plugin/highlight/highlight.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				slideNumber: false,
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+
+			const world = document.getElementById('dx-world');
+			const pointer = document.getElementById('laserPointer');
+			const zoomIndicator = document.getElementById('zoomIndicator');
+			const lightbox = document.getElementById('holo-lightbox');
+			const holoImg = document.getElementById('holo-img');
+			
+			let isPointerActive = false;
+			let isZoomActive = false;
+			let zoomLevel = 2.0;
+			let mouseX = 0;
+			let mouseY = 0;
+
+			function updateVisuals() {
+				if (isPointerActive) {
+					pointer.style.left = mouseX + 'px';
+					pointer.style.top = mouseY + 'px';
+				}
+
+				if (isZoomActive) {
+					world.style.transformOrigin = `${mouseX}px ${mouseY}px`;
+					world.style.transform = `scale(${zoomLevel})`;
+					zoomIndicator.style.display = 'block';
+					zoomIndicator.innerText = `ZOOM: ${zoomLevel.toFixed(1)}x`;
+				} else {
+					world.style.transform = 'scale(1)';
+					zoomIndicator.style.display = 'none';
+				}
+			}
+
+			// Lightbox Logic
+			document.addEventListener('click', (e) => {
+				if (e.target.tagName === 'IMG' && e.target.id !== 'holo-img') {
+					const img = e.target;
+					const filename = img.src.split('/').pop().split('#')[0].split('?')[0];
+					const isEncrypted = window.location.protocol === 'https:';
+					
+					holoImg.src = img.src;
+					
+					// Update Metadata Tags
+					const tagTl = document.getElementById('holo-tag-tl');
+					const titleText = img.alt || 'NO_DATA_READOUT';
+					tagTl.innerText = titleText;
+					tagTl.setAttribute('data-original-text', titleText); // Update cache for glitch effect
+					
+					document.getElementById('holo-tag-tr').innerText = `ID: ${filename}`;
+					document.getElementById('holo-tag-br').innerText = isEncrypted ? 'ENCRYPTED' : 'UNENCRYPTED';
+					
+					lightbox.style.display = 'flex';
+					glitchElement(tagTl);
+				} else if (lightbox.style.display === 'flex') {
+					lightbox.style.display = 'none';
+				}
+			});
+
+			window.addEventListener('mousemove', (e) => {
+				mouseX = e.clientX;
+				mouseY = e.clientY;
+				updateVisuals();
+			});
+
+			window.addEventListener('wheel', (e) => {
+				if (isZoomActive) {
+					e.preventDefault();
+					const delta = e.deltaY > 0 ? -0.2 : 0.2;
+					zoomLevel = Math.min(Math.max(zoomLevel + delta, 1.1), 5.0);
+					updateVisuals();
+				}
+			}, { passive: false });
+
+			window.addEventListener('keydown', (e) => {
+				const key = e.key.toLowerCase();
+				if (key === 'escape' && lightbox.style.display === 'flex') {
+					lightbox.style.display = 'none';
+				}
+				if (key === 'l') {
+					e.preventDefault();
+					e.stopImmediatePropagation();
+					isPointerActive = !isPointerActive;
+					pointer.style.display = isPointerActive ? 'block' : 'none';
+				}
+				if (key === 'm') {
+					e.preventDefault();
+					e.stopImmediatePropagation();
+					isZoomActive = !isZoomActive;
+					updateVisuals();
+				}
+			}, true);
+
+			// Metadata & HUD Logic
+			const clockDisplay = document.getElementById('clock-display');
+			const coordDisplay = document.getElementById('coord-display');
+			const statusDisplay = document.getElementById('status-display');
+			const locDisplay = document.getElementById('loc-display');
+
+			function updateClock() {
+				const now = new Date();
+				clockDisplay.innerText = now.toTimeString().split(' ')[0];
+			}
+			setInterval(updateClock, 1000);
+			updateClock();
+
+			statusDisplay.innerText = window.location.protocol === 'https:' ? 'ENCRYPTED' : 'UNENCRYPTED';
+			
+			if (locDisplay.innerText.trim() === '' || locDisplay.innerText.includes('{{loc}}')) {
+				fetch('https://api.ipify.org?format=json')
+					.then(response => response.json())
+					.then(data => { locDisplay.innerText = data.ip; })
+					.catch(() => { locDisplay.innerText = window.location.hostname; });
+			}
+
+			function updateMetadata() {
+				const indices = Reveal.getIndices();
+				const section = (indices.h + 1).toString().padStart(2, '0');
+				const page = (indices.v + 1).toString().padStart(2, '0');
+				coordDisplay.innerText = `SEC-${section} / PG-${page}`;
+			}
+			Reveal.on('slidechanged', updateMetadata);
+			updateMetadata();
+
+			const canvas = document.getElementById('synth-canvas');
+			const ctx = canvas.getContext('2d');
+			let particles = [];
+			let animationFrame;
+
+			function initSynth() {
+				canvas.width = window.innerWidth;
+				canvas.height = window.innerHeight * 0.35;
+				particles = [];
+				const particleCount = 150;
+				for (let i = 0; i < particleCount; i++) {
+					particles.push({
+						x: Math.random() * canvas.width,
+						y: Math.random() * canvas.height,
+						size: Math.random() * 2 + 1,
+						speed: Math.random() * 0.5 + 0.2,
+						offset: Math.random() * Math.PI * 2,
+						opacity: Math.random() * 0.5 + 0.2
+					});
+				}
+			}
+
+			function animateSynth() {
+				const theme = document.documentElement.getAttribute('data-theme');
+				const color = theme === 'light' ? '0, 119, 190' : '255, 180, 0';
+				ctx.clearRect(0, 0, canvas.width, canvas.height);
+				particles.forEach(p => {
+					p.x += p.speed;
+					if (p.x > canvas.width) p.x = 0;
+					const wave = Math.sin(p.x * 0.01 + p.offset) * 20;
+					const finalY = (canvas.height / 2) + wave;
+					ctx.fillStyle = `rgba(${color}, ${p.opacity})`;
+					ctx.beginPath();
+					ctx.arc(p.x, finalY + (p.y - canvas.height/2) * 0.5, p.size, 0, Math.PI * 2);
+					ctx.fill();
+					for (let j = particles.indexOf(p) + 1; j < particles.length; j++) {
+						const p2 = particles[j];
+						const wave2 = Math.sin(p2.x * 0.01 + p2.offset) * 20;
+						const y1 = finalY + (p.y - canvas.height/2) * 0.5;
+						const y2 = (canvas.height / 2) + wave2 + (p2.y - canvas.height/2) * 0.5;
+						const dx = p.x - p2.x;
+						const dy = y1 - y2;
+						const dist = Math.sqrt(dx * dx + dy * dy);
+						if (dist < 100) {
+							ctx.strokeStyle = `rgba(${color}, ${0.3 * (1 - dist/100)})`;
+							ctx.lineWidth = 0.8;
+							ctx.beginPath();
+							ctx.moveTo(p.x, y1);
+							ctx.lineTo(p2.x, y2);
+							ctx.stroke();
+						}
+					}
+				});
+				animationFrame = requestAnimationFrame(animateSynth);
+			}
+
+			Reveal.on('slidechanged', event => {
+				const titles = event.currentSlide.querySelectorAll('h1, h2');
+				titles.forEach(glitchElement);
+				const indices = Reveal.getIndices();
+				const isToc = event.currentSlide.id === 'toc' || event.currentSlide.querySelector('h2')?.innerText.toLowerCase().includes('table of contents');
+				if (indices.h === 0 || isToc) {
+					canvas.style.display = 'block';
+					if (!animationFrame) animateSynth();
+				} else {
+					canvas.style.display = 'none';
+				}
+			});
+
+			window.addEventListener('resize', initSynth);
+			initSynth();
+			
+			setTimeout(() => {
+				if (Reveal.getIndices().h === 0) {
+					canvas.style.display = 'block';
+					animateSynth();
+				} else {
+					canvas.style.display = 'none';
+				}
+				const currentSlide = Reveal.getCurrentSlide();
+				if (currentSlide) {
+					currentSlide.querySelectorAll('h1, h2').forEach(glitchElement);
+				}
+			}, 500);
+
+			const glitchChars = '!<>-_/[]{}—=+*^?#________';
+			function glitchElement(el) {
+				const originalText = el.getAttribute('data-original-text') || el.innerText;
+				if (!el.getAttribute('data-original-text')) el.setAttribute('data-original-text', originalText);
+				el.innerHTML = '';
+				const spans = originalText.split('').map(char => {
+					const span = document.createElement('span');
+					span.innerText = ' ';
+					el.appendChild(span);
+					return { span, char };
+				});
+				spans.forEach((item, index) => {
+					setTimeout(() => {
+						let iterations = 0;
+						const maxIterations = 5 + Math.floor(Math.random() * 10);
+						const interval = setInterval(() => {
+							if (iterations >= maxIterations) {
+								item.span.innerText = item.char;
+								item.span.classList.remove('glitch-char');
+								clearInterval(interval);
+							} else {
+								item.span.innerText = glitchChars[Math.floor(Math.random() * glitchChars.length)];
+								item.span.classList.add('glitch-char');
+								iterations++;
+							}
+						}, 30);
+					}, index * 40);
+				});
+			}
+		</script>
+	</body>
+</html>

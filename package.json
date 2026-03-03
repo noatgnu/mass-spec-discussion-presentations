@@ -1,0 +1,23 @@
+{
+  "name": "revealjs-presentation-generator",
+  "version": "1.0.0",
+  "description": "TypeScript-based Reveal.js presentation generator with components and multi-section support",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "generate": "ts-node src/index.ts",
+    "serve": "npx serve presentations",
+    "pdf": "ts-node src/export-pdf.ts",
+    "pdf:all": "ts-node src/export-pdf.ts --all"
+  },
+  "dependencies": {
+    "reveal.js": "^5.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^25.2.3",
+    "decktape": "^3.14.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.3"
+  },
+  "private": true
+}

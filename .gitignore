@@ -1,0 +1,31 @@
+# Dependencies
+/node_modules
+
+# Build outputs
+/dist
+/tmp
+/out-tsc
+
+# Generated presentation HTML (rebuilt on generate)
+presentations/*/index.html
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# PnP
+/.pnp
+.pnp.js
+
+# IDE
+.vscode/*
+.idea/*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Claude/AI
+.claude/*
+GEMINI.md
