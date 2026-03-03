@@ -283,25 +283,27 @@
 			/* QR Code Button & Modal */
 			#qr-button {
 				position: fixed;
-				bottom: 20px;
+				bottom: 80px;
 				left: 20px;
-				width: 40px;
-				height: 40px;
+				width: 32px;
+				height: 32px;
 				background: var(--dx-overlay);
-				border: 1px solid var(--dx-gold);
-				color: var(--dx-gold);
+				border: 1px solid var(--dx-gold-dim);
+				color: var(--dx-gold-dim);
 				font-family: monospace;
-				font-size: 18px;
+				font-size: 14px;
 				cursor: pointer;
 				z-index: 10001;
 				display: flex;
 				align-items: center;
 				justify-content: center;
 				transition: all 0.2s ease;
-				opacity: 0.6;
+				opacity: 0.5;
 			}
 			#qr-button:hover {
 				opacity: 1;
+				border-color: var(--dx-gold);
+				color: var(--dx-gold);
 				box-shadow: 0 0 15px rgba(255, 180, 0, 0.3);
 			}
 
