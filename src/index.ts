@@ -6,6 +6,51 @@ require('ts-node').register({ transpileOnly: true });
 const PRESENTATIONS_DIR = path.resolve(__dirname, '../presentations');
 const TEMPLATE_PATH = path.resolve(__dirname, '../templates/presentation-template.html');
 const INDEX_TEMPLATE_PATH = path.resolve(__dirname, '../templates/index-template.html');
+const REVEAL_SRC = path.resolve(__dirname, '../node_modules/reveal.js');
+const REVEAL_DEST = path.resolve(PRESENTATIONS_DIR, '_assets/reveal.js');
+
+function copyRevealAssets(): void {
+    const dirsToCreate = [
+        '_assets/reveal.js/dist',
+        '_assets/reveal.js/plugin/notes',
+        '_assets/reveal.js/plugin/markdown',
+        '_assets/reveal.js/plugin/highlight'
+    ];
+
+    dirsToCreate.forEach(dir => {
+        const fullPath = path.join(PRESENTATIONS_DIR, dir);
+        if (!fs.existsSync(fullPath)) {
+            fs.mkdirSync(fullPath, { recursive: true });
+        }
+    });
+
+    const filesToCopy = [
+        'dist/reset.css',
+        'dist/reveal.css',
+        'dist/reveal.js',
+        'dist/theme/black.css',
+        'plugin/notes/notes.js',
+        'plugin/markdown/markdown.js',
+        'plugin/highlight/highlight.js',
+        'plugin/highlight/monokai.css'
+    ];
+
+    filesToCopy.forEach(file => {
+        const src = path.join(REVEAL_SRC, file);
+        const dest = path.join(REVEAL_DEST, file);
+        const destDir = path.dirname(dest);
+
+        if (!fs.existsSync(destDir)) {
+            fs.mkdirSync(destDir, { recursive: true });
+        }
+
+        if (fs.existsSync(src)) {
+            fs.copyFileSync(src, dest);
+        }
+    });
+
+    console.log('Copied reveal.js assets to _assets/reveal.js');
+}
 
 interface Section {
     title: string;
