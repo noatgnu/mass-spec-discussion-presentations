@@ -5,6 +5,7 @@ export const presentation = {
     showToc: true,
     sections: [
         "curtain",
+        "curtain-mobile",
         "cauldron",
         "sdrf",
         "cupcake-vanilla"

@@ -3,6 +3,44 @@
  */
 
 /**
+ * Generates a styled QR code using the qr-code-styling library.
+ * This component requires the qr-code-styling library to be available in the presentation.
+ */
+export function QRCode(data: string, options: { size?: number, margin?: number } = {}): string {
+    const { size = 300, margin = 10 } = options;
+    const id = `qr-${Math.random().toString(36).substr(2, 9)}`;
+
+    return `
+<div id="${id}" class="qr-code-container" style="display: inline-block; background: white; padding: ${margin}px; border: 4px solid var(--dx-gold);"></div>
+<script>
+    (function() {
+        const checkLibrary = setInterval(() => {
+            if (window.QRCodeStyling) {
+                clearInterval(checkLibrary);
+                const qrCode = new QRCodeStyling({
+                    width: ${size},
+                    height: ${size},
+                    type: "svg",
+                    data: "${data}",
+                    dotsOptions: {
+                        color: "#000",
+                        type: "rounded"
+                    },
+                    backgroundOptions: {
+                        color: "#fff",
+                    },
+                    cornersSquareOptions: {
+                        type: "extra-rounded"
+                    }
+                });
+                qrCode.append(document.getElementById("${id}"));
+            }
+        }, 100);
+    })();
+</script>`;
+}
+
+/**
  * Generates an image wrapped in a holographic container with a zoom hint.
  */
 export function HoloImage(src: string, alt: string, height: string = '450px'): string {
