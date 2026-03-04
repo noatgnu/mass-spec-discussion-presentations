@@ -7,30 +7,39 @@
  * This component requires the qr-code-styling library to be available in the presentation.
  */
 export function QRCode(data: string, options: { size?: number, margin?: number } = {}): string {
-    const { size = 300, margin = 10 } = options;
+    const { size = 300, margin = 0 } = options;
     const id = `qr-${Math.random().toString(36).substr(2, 9)}`;
 
     return `
-<div id="${id}" class="qr-code-container" style="display: inline-block; background: white; padding: ${margin}px; border: 4px solid var(--dx-gold);"></div>
+<div id="${id}" class="qr-code-container" style="display: inline-block; padding: ${margin}px; border: 1px solid var(--dx-gold); background: var(--dx-black); box-shadow: 0 0 20px rgba(255, 180, 0, 0.1);"></div>
 <script>
     (function() {
         const checkLibrary = setInterval(() => {
             if (window.QRCodeStyling) {
                 clearInterval(checkLibrary);
+                const theme = document.documentElement.getAttribute('data-theme');
+                const goldColor = theme === 'light' ? '#0077be' : '#ffb400';
+                const bgColor = theme === 'light' ? '#f5f0e6' : '#0a0a0a';
+
                 const qrCode = new QRCodeStyling({
                     width: ${size},
                     height: ${size},
                     type: "svg",
                     data: "${data}",
                     dotsOptions: {
-                        color: "#000",
+                        color: goldColor,
                         type: "rounded"
                     },
                     backgroundOptions: {
-                        color: "#fff",
+                        color: "transparent",
                     },
                     cornersSquareOptions: {
+                        color: goldColor,
                         type: "extra-rounded"
+                    },
+                    cornersDotOptions: {
+                        color: goldColor,
+                        type: "dot"
                     }
                 });
                 qrCode.append(document.getElementById("${id}"));

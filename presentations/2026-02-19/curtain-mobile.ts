@@ -1,11 +1,10 @@
 import { HoloImage, QRCode } from '../../src/components';
 
 export const section = {
-    title: "Curtain Mobile: Analysis on the Go",
+    title: "Curtain iOS",
     slides: `
 <section>
     <h1>Curtain Mobile</h1>
-    <p>Bringing the power of Curtain visualization to iOS and Android devices.</p>
     <div style="display: flex; justify-content: center; align-items: center; gap: 40px; margin-top: 30px;">
         <div style="text-align: center;">
             <p style="color: var(--dx-gold); font-family: monospace; margin-bottom: 10px;">[ JOIN_TESTFLIGHT_BETA ]</p>
@@ -18,25 +17,17 @@ export const section = {
 <section>
     <h2>Mobile Interface</h2>
     <div style="display: flex; justify-content: center; align-items: flex-start; gap: 15px; margin-top: 20px;">
-        ${HoloImage('assets/Simulator Screenshot - iPhone 17 Pro Max - 2026-01-31 at 07.53.23.png', 'Mobile Home View', '450px')}
-        ${HoloImage('assets/Simulator Screenshot - iPhone 17 Pro Max - 2026-01-31 at 07.53.26.png', 'Collection Browser', '450px')}
-        ${HoloImage('assets/Simulator Screenshot - iPhone 17 Pro Max - 2026-01-31 at 07.53.30.png', 'Settings View', '450px')}
+        ${HoloImage('assets/Simulator Screenshot - iPhone 17 Pro Max - 2026-01-31 at 07.53.36.png', 'Interactive Plot View', '480px')}
+        ${HoloImage('assets/Simulator Screenshot - iPhone 17 Pro Max - 2026-01-31 at 07.53.49.png', 'Detailed View', '480px')}
     </div>
 </section>
 
 <section>
     <h2>Interactive Visualization</h2>
     <div style="display: flex; justify-content: center; align-items: flex-start; gap: 20px; margin-top: 10px;">
-        <div style="flex: 1; text-align: left;">
-            <p>Optimized interactive plots for touch interfaces.</p>
-            <ul>
-                <li><strong>Gesture Support:</strong> Pinch to zoom and swipe to pan across data points.</li>
-                <li><strong>Haptic Feedback:</strong> Immediate tactile response when selecting significant proteins.</li>
-                <li><strong>Adaptive UI:</strong> Layouts that adjust seamlessly between orientations.</li>
-            </ul>
-        </div>
-        ${HoloImage('assets/Simulator Screenshot - iPhone 17 Pro Max - 2026-01-31 at 07.53.36.png', 'Interactive Plot View', '480px')}
-        ${HoloImage('assets/Simulator Screenshot - iPhone 17 Pro Max - 2026-01-31 at 07.53.49.png', 'Detailed View', '480px')}
+        ${HoloImage('assets/Simulator Screenshot - iPhone 17 Pro Max - 2026-01-31 at 07.53.23.png', 'Mobile Home View', '450px')}
+        ${HoloImage('assets/Simulator Screenshot - iPhone 17 Pro Max - 2026-01-31 at 07.53.26.png', 'Collection Browser', '450px')}
+        ${HoloImage('assets/Simulator Screenshot - iPhone 17 Pro Max - 2026-01-31 at 07.53.30.png', 'Settings View', '450px')}
     </div>
 </section>
 
