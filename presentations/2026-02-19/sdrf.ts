@@ -4,12 +4,13 @@ export const section = {
     title: "SDRF & ASAP Data Standards",
     slides: `
 <section>
-    <h2>Sample and Data Relationship Format (SDRF)</h2>
+    <h2>Sample and Data Relationship Format (SDRF) for ASAP</h2>
     <p>A standardized format for describing proteomics sample metadata.</p>
     <ul>
         <li><strong>Origin:</strong> Developed by HUPO-PSI (Proteomics Standards Initiative)</li>
         <li><strong>Purpose:</strong> Machine-readable sample annotations for mass spectrometry data</li>
         <li><strong>Format:</strong> Tab-separated values (.tsv)</li>
+        <li><strong>ASAP adoption:</strong> part of the collection of documents required to be submitted for CRN Cloud</li>
     </ul>
 </section>
 
@@ -20,6 +21,7 @@ export const section = {
         <tbody>
             <tr><td><strong>Source</strong></td><td>Sample identifiers</td></tr>
             <tr><td><strong>Characteristics</strong></td><td>Biological attributes</td></tr>
+            <tr><td><strong>Special</strong></td><td>Including assay name, experiment types (metabolomics, proteomics, metaproteomics...)</td></tr>
             <tr><td><strong>Comments</strong></td><td>Technical metadata</td></tr>
             <tr><td><strong>Factors</strong></td><td>Experimental variables</td></tr>
         </tbody>
@@ -34,7 +36,7 @@ export const section = {
             <tr><td>source name</td><td>Sample_001</td></tr>
             <tr><td>characteristics[organism]</td><td>Mus musculus</td></tr>
             <tr><td>characteristics[organism part]</td><td>brain</td></tr>
-            <tr><td>characteristics[disease]</td><td>Parkinson's</td></tr>
+            <tr><td>characteristics[disease]</td><td>Parkinson's Disease</td></tr>
             <tr><td>characteristics[cell type]</td><td>neuron</td></tr>
         </tbody>
     </table>
@@ -81,7 +83,7 @@ export const section = {
 
 <section>
     <h2>ASAP Submission Templates</h2>
-    <p>ASAP (Accelerating Science for Parkinson's) requires structured metadata.</p>
+    <p>ASAP requires structured metadata.</p>
 </section>
 
 <section>
