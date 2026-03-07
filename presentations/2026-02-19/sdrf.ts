@@ -94,8 +94,8 @@ export const section = {
             <tr><td><strong>SAMPLE.csv</strong></td><td>Per-sample annotations</td></tr>
             <tr><td><strong>PROTEOMICS.csv</strong></td><td>MS acquisition details</td></tr>
             <tr><td><strong>DATA.csv</strong></td><td>Raw file information</td></tr>
-            <tr><td><strong>CONDITION.csv</strong></td><td>Experimental conditions</td></tr>
-            <tr><td><strong>intervention.csv</strong></td><td>Condition descriptions</td></tr>
+            <tr><td><strong>CONDITION.csv</strong></td><td>Experimental conditions (require extra manual input)</td></tr>
+            <tr><td><strong>intervention.csv</strong></td><td>Condition descriptions (require extra manual input)</td></tr>
         </tbody>
     </table>
     <p><em>Can be generated from SDRF</em></p>
