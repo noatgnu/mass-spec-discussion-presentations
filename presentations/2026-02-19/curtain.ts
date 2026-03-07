@@ -8,7 +8,7 @@ export const section = {
     <p>A new feature allowing users to group related Curtain sessions together.</p>
     <ul>
         <li><strong>Organization:</strong> Categorize sessions by project, experiment, or publication.</li>
-        <li><strong>Sharing:</strong> Share a single link to multiple related visualizations.</li>
+        <li><strong>Sharing:</strong> Share a single link to multiple related session.</li>
     </ul>
 </section>
 

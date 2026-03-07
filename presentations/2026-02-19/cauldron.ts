@@ -10,8 +10,28 @@ export const section = {
 
         <section>
             <h2>Desktop Analysis Hub</h2>
-            <p>Native performance, interactive visuals, and local data security.</p>
+            <p>Local analysis running on your computer.</p>
             ${HoloImage('assets/cauldron-main-interface.png', 'CauldronGO Main Interface')}
+        </section>
+
+        <section>
+            <h2>Plugin-based modular analysis workflow</h2>
+            <div style="display: flex; justify-content: center; align-items: flex-start; gap: 20px; margin-top: 20px;">
+                <div style="border: 1px solid var(--dx-gold-dim); padding: 15px; width: 30%;">
+                    <strong style="color: var(--dx-gold);">SCRIPT-BASED</strong><br>
+                    <small>Any Python or R-Script can be made into a plugin.</small>
+                </div>
+                <div style="color: var(--dx-gold); font-size: 1.5em; align-self: center;">▶</div>
+                <div style="border: 1px solid var(--dx-gold-dim); padding: 15px; width: 30%;">
+                    <strong style="color: var(--dx-gold);">AUTOMATED INTERFACE</strong><br>
+                    <small>Using a declarative template, parameters going into a script can be exposed in the user interface.</small>
+                </div>
+                <div style="color: var(--dx-gold); font-size: 1.5em; align-self: center;">▶</div>
+                <div style="border: 1px solid var(--dx-gold-dim); padding: 15px; width: 30%;">
+                    <strong style="color: var(--dx-gold);">DISCOVER PLUGINS</strong><br>
+                    <small>Plugin created and published on Github can be tracked installed in one click.</small>
+                </div>
+            </div>
         </section>
 
         <section>
@@ -27,7 +47,7 @@ export const section = {
         </section>
 
         <section>
-            <h2>Automation via YAML</h2>
+            <h2>Declarative User Interface Development</h2>
             <div style="display: flex; gap: 20px; align-items: center; justify-content: center;">
                 <div style="flex: 1; text-align: left;">
                     <p style="color: var(--dx-gold); font-family: monospace; font-size: 1.2em; margin-bottom: 20px;">[ SCRIPT_RECIPE ]</p>
@@ -67,8 +87,6 @@ export const section = {
             ${HoloImage('assets/my-submitted-plugin-browser.png', 'My Submitted Plugins View')}
         </section>
 
-
-
         <section>
             <h2>Global Settings & Customization</h2>
             <p>Define local tool paths and custom plugin registries.</p>
@@ -82,8 +100,7 @@ export const section = {
         </section>
 
         <section>
-            <h2>About CauldronGO</h2>
-            <p>Cross-platform, secure, and extensible mass spectrometry toolset.</p>
+            <h2>About Cauldron</h2>
             ${HoloImage('assets/about-section-screenshot-to-be-shown-at-the-end-of-cauldron-section.png', 'About CauldronGO View')}
         </section>
     `
