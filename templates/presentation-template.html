@@ -281,15 +281,41 @@
 			}
 
 			/* Hotkey hints */
-			.hotkeys-hint kbd {
+			#hotkeys-hud {
+				position: absolute;
+				bottom: 20px;
+				left: 50%;
+				transform: translateX(-50%);
+				display: flex;
+				gap: 25px;
+				flex-wrap: wrap;
+				justify-content: center;
+				opacity: 0;
+				transition: opacity 0.5s ease;
+				pointer-events: none;
+				width: 100%;
+				max-width: 800px;
+				z-index: 1000;
+			}
+			.hotkeys-hint kbd, #hotkeys-hud kbd {
 				display: inline-block;
 				padding: 2px 6px;
 				margin-right: 4px;
-				background: rgba(255, 180, 0, 0.1);
+				background: var(--dx-holo-bg);
 				border: 1px solid var(--dx-gold-dim);
 				border-radius: 3px;
 				font-size: 10px;
 				color: var(--dx-gold);
+				font-family: monospace;
+			}
+			#hotkeys-hud span {
+				font-family: monospace;
+				font-size: 11px;
+				color: var(--dx-gold-dim);
+				text-transform: uppercase;
+				letter-spacing: 1px;
+				display: flex;
+				align-items: center;
 			}
 
 			/* QR Code Button & Modal */
@@ -488,6 +514,17 @@
 			<div id="meta-top-left" class="metadata-readout">STATUS: <span id="status-display">ENCRYPTED</span><br>LOC: <span id="loc-display">{{loc}}</span></div>
 			<div id="meta-top-right" class="metadata-readout">TIME: <span id="clock-display">00:00:00</span><br>COORD: <span id="coord-display">SEC-01 / PG-01</span></div>
 			<div id="meta-bottom-left" class="metadata-readout">SYSTEM: INFOLINK v2.1<br>SIGNAL: NOMINAL</div>
+			
+			<div id="hotkeys-hud">
+				<span><kbd>F</kbd> Fullscreen</span>
+				<span><kbd>S</kbd> Speaker</span>
+				<span><kbd>O</kbd> Overview</span>
+				<span><kbd>L</kbd> Laser</span>
+				<span><kbd>M</kbd> Magnify</span>
+				<span><kbd>Q</kbd> QR Code</span>
+				<span><kbd>?</kbd> Help</span>
+			</div>
+
 			<div class="laser-pointer" id="laserPointer"></div>
 			<div id="zoomIndicator">ZOOM: 2.0x</div>
 		</div>
@@ -707,6 +744,14 @@
 				titles.forEach(glitchElement);
 				const indices = Reveal.getIndices();
 				const isToc = event.currentSlide.id === 'toc' || event.currentSlide.querySelector('h2')?.innerText.toLowerCase().includes('table of contents');
+				
+				const hotkeysHud = document.getElementById('hotkeys-hud');
+				if (indices.h === 0 && indices.v === 0) {
+					hotkeysHud.style.opacity = '0.6';
+				} else {
+					hotkeysHud.style.opacity = '0';
+				}
+
 				if (indices.h === 0 || isToc) {
 					canvas.style.display = 'block';
 					if (!animationFrame) animateSynth();
@@ -719,12 +764,17 @@
 			initSynth();
 			
 			setTimeout(() => {
-				if (Reveal.getIndices().h === 0) {
+				const indices = Reveal.getIndices();
+				const hotkeysHud = document.getElementById('hotkeys-hud');
+				if (indices.h === 0 && indices.v === 0) {
+					hotkeysHud.style.opacity = '0.6';
 					canvas.style.display = 'block';
 					animateSynth();
 				} else {
+					hotkeysHud.style.opacity = '0';
 					canvas.style.display = 'none';
 				}
+				
 				const currentSlide = Reveal.getCurrentSlide();
 				if (currentSlide) {
 					currentSlide.querySelectorAll('h1, h2').forEach(glitchElement);
