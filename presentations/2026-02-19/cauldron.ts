@@ -76,27 +76,9 @@ export const section = {
         </section>
 
         <section>
-            <h2>Local Plugin Library</h2>
-            <p>Your workspace, your tools. Managed locally for privacy and speed.</p>
-            ${HoloImage('assets/installed-plugin-browser.png', 'Installed Plugin Browser')}
-        </section>
-
-        <section>
-            <h2>Community Ecosystem</h2>
-            <p>Contribute your Python or R scripts to the community.</p>
-            ${HoloImage('assets/my-submitted-plugin-browser.png', 'My Submitted Plugins View')}
-        </section>
-
-        <section>
             <h2>Global Settings & Customization</h2>
             <p>Define local tool paths and custom plugin registries.</p>
             ${HoloImage('assets/local-settings-customization.png', 'Local Settings Management')}
-        </section>
-
-        <section>
-            <h2>Custom Plugin Registries</h2>
-            <p>Connect to remote or private registries for specialized tools.</p>
-            ${HoloImage('assets/local-settings-remote-plugin-registry-customization.png', 'Remote Registry Configuration')}
         </section>
 
         <section>
