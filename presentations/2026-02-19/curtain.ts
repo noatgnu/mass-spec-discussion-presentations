@@ -24,12 +24,6 @@ export const section = {
 </section>
 
 <section>
-    <h2>User Account Management</h2>
-    <p>View and organize all your created collections in your personal account space.</p>
-    ${HoloImage('assets/collection-tab-in-user-account-screenshot.png', 'Account Tab', '400px')}
-</section>
-
-<section>
     <h2>Landing Page</h2>
     <p>Collections are private by default but can be made public:</p>
     <ul>
