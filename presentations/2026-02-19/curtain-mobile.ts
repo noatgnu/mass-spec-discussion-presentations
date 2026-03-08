@@ -30,26 +30,5 @@ export const section = {
         ${HoloImage('assets/Simulator Screenshot - iPhone 17 Pro Max - 2026-01-31 at 07.53.30.png', 'Bar Chart', '450px')}
     </div>
 </section>
-
-<section>
-    <h2>Let your data speak</h2>
-    <p>Poster and presentation viewers can use QR code to explore the data at conference at their leisure.</p>
-    <div style="display: flex; justify-content: center; align-items: flex-start; gap: 20px; margin-top: 20px;">
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 15px; width: 30%;">
-            <strong style="color: var(--dx-gold);">SCAN</strong><br>
-            <small>Scan a QR code.</small>
-        </div>
-        <div style="color: var(--dx-gold); font-size: 1.5em; align-self: center;">▶</div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 15px; width: 30%;">
-            <strong style="color: var(--dx-gold);">VIEW</strong><br>
-            <small>Instant rendering of the session on mobile.</small>
-        </div>
-        <div style="color: var(--dx-gold); font-size: 1.5em; align-self: center;">▶</div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 15px; width: 30%;">
-            <strong style="color: var(--dx-gold);">SHARE</strong><br>
-            <small>Share the same session to others using the Curtain iOS app.</small>
-        </div>
-    </div>
-</section>
 `
 };

@@ -5,6 +5,7 @@ export const presentation = {
     showToc: true,
     sections: [
         "curtain",
+        "curtain-autosave",
         "curtain-mobile",
         "cauldron",
         "sdrf",
