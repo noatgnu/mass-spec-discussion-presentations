@@ -7,6 +7,7 @@ export const presentation = {
         "curtain",
         "curtain-autosave",
         "curtain-mobile",
+        "curtain-statistics",
         "cauldron",
         "sdrf",
         "cupcake-vanilla"
