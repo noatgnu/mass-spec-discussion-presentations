@@ -118,6 +118,28 @@ function generateTitleSlide(title: string): string {
     return `
                 <section>
                     <h1>${title}</h1>
+                    <div class="hotkeys-hint" style="
+                        position: absolute;
+                        bottom: 20px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        font-family: monospace;
+                        font-size: 11px;
+                        color: var(--dx-gold-dim);
+                        opacity: 0.6;
+                        display: flex;
+                        gap: 25px;
+                        flex-wrap: wrap;
+                        justify-content: center;
+                    ">
+                        <span><kbd>F</kbd> Fullscreen</span>
+                        <span><kbd>S</kbd> Speaker</span>
+                        <span><kbd>O</kbd> Overview</span>
+                        <span><kbd>L</kbd> Laser</span>
+                        <span><kbd>M</kbd> Magnify</span>
+                        <span><kbd>Q</kbd> QR Code</span>
+                        <span><kbd>?</kbd> Help</span>
+                    </div>
                 </section>`;
 }
 

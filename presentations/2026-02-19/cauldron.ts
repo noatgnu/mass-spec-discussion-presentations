@@ -1,4 +1,4 @@
-import { HoloImage, HoloFlow } from '../../src/components';
+import { HoloImage, HoloFlow, EmbeddedSPA } from '../../src/components';
 
 export const section = {
     title: "Introducing Cauldron & Plugin Ecosystem",
@@ -100,8 +100,9 @@ export const section = {
         </section>
 
         <section>
-            <h2>About Cauldron</h2>
-            ${HoloImage('assets/about-section-screenshot-to-be-shown-at-the-end-of-cauldron-section.png', 'About CauldronGO View')}
+            <h2>Cauldron can make script a webpage</h2>
+            <p>Generate standalone web apps from plugins using <strong>Pyodide</strong> (Python) or <strong>WebR</strong> (R)</p>
+            ${EmbeddedSPA('https://noatgnu.github.io/phate-analysis-plugin/', { title: 'PHATE_ANALYSIS', height: '450px' })}
         </section>
     `
 };
