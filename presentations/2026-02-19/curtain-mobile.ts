@@ -8,7 +8,7 @@ export const section = {
     <div style="display: flex; justify-content: center; align-items: center; gap: 40px; margin-top: 30px;">
         <div style="text-align: center;">
             <p style="color: var(--dx-gold); font-family: monospace; margin-bottom: 10px;">[ JOIN_TESTFLIGHT_BETA ]</p>
-            ${QRCode('https://testflight.apple.com/join/fLw6A8XG', { size: 250 })}
+            ${QRCode('https://testflight.apple.com/join/mtd2G1CF', { size: 250 })}
             <p style="font-size: 0.6em; margin-top: 10px; color: var(--dx-gold-dim);">Scan with your iPhone to install via TestFlight</p>
         </div>
     </div>
