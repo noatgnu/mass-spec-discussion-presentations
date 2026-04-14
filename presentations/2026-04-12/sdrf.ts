@@ -38,19 +38,35 @@ export const section = {
 </section>
 
 <section>
-    <h2>ASAP Submission: What SDRF Enables</h2>
-    <p>A single SDRF file can auto-generate the majority of the ASAP submission package:</p>
-    <table>
-        <thead><tr><th>File</th><th>Source</th></tr></thead>
-        <tbody>
-            <tr><td>SAMPLE.csv</td><td style="color: var(--dx-gold);">Auto-generated from SDRF</td></tr>
-            <tr><td>PROTEOMICS.csv</td><td style="color: var(--dx-gold);">Auto-generated from SDRF</td></tr>
-            <tr><td>DATA.csv</td><td style="color: var(--dx-gold);">Auto-generated from SDRF</td></tr>
-            <tr><td>CONDITION.csv</td><td style="color: var(--dx-gold);">Auto-generated from SDRF</td></tr>
-            <tr><td>STUDY.csv</td><td style="color: #888;">Manual — PI &amp; grant details</td></tr>
-            <tr><td>PROTOCOL.csv</td><td style="color: #888;">Manual — method narratives</td></tr>
-        </tbody>
-    </table>
+    <h2>Templates &amp; Schema Validation</h2>
+    <p>SDRF is not one-size-fits-all. Templates define the required columns and validation rules for each experiment type.</p>
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 15px; font-size: 0.72em;">
+        <div style="border: 1px solid var(--dx-gold-dim); padding: 12px; background: var(--dx-holo-bg);">
+            <strong style="display:block; margin-bottom:6px; color: var(--dx-gold);">Sample Type</strong>
+            <div>human</div>
+            <div>vertebrates</div>
+            <div>invertebrates</div>
+            <div>plants</div>
+            <div>cell-lines</div>
+        </div>
+        <div style="border: 1px solid var(--dx-gold-dim); padding: 12px; background: var(--dx-holo-bg);">
+            <strong style="display:block; margin-bottom:6px; color: var(--dx-gold);">MS Acquisition</strong>
+            <div>ms-proteomics</div>
+            <div>dia-acquisition</div>
+            <div>single-cell</div>
+            <div>immunopeptidomics</div>
+            <div>crosslinking</div>
+        </div>
+        <div style="border: 1px solid var(--dx-gold-dim); padding: 12px; background: var(--dx-holo-bg);">
+            <strong style="display:block; margin-bottom:6px; color: var(--dx-gold);">Specialised</strong>
+            <div>metaproteomics</div>
+            <div>affinity-proteomics</div>
+            <div>clinical-metadata</div>
+            <div>oncology-metadata</div>
+            <div>olink / somascan</div>
+        </div>
+    </div>
+    <p style="margin-top: 12px; font-size: 0.75em;">Templates can be combined — e.g. <strong>human + dia-acquisition + clinical-metadata</strong> — each adding its own required fields and validation rules on top of the base SDRF schema.</p>
 </section>
 `
 };
