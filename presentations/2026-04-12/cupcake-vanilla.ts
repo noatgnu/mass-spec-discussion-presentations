@@ -5,17 +5,17 @@ export const section = {
     slides: `
 <section>
     <h1>Cupcake Vanilla</h1>
-    <p>A persistent, template-driven SDRF metadata editor — designed to make standardized annotation the path of least resistance.</p>
+    <p>A persistent, template-based SDRF metadata editor — designed to make standardized annotation the path of least resistance.</p>
     ${HoloImage('assets/cupcake-vanilla-metadata-table-overview.png', 'Cupcake Vanilla Metadata Table Overview', '380px')}
 </section>
 
 <section>
-    <h2>Template-Driven Metadata</h2>
+    <h2>Combine different schemas to create your owned persistent template</h2>
     <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
         ${HoloImage('assets/cupcake-vanilla-table-template-browser.png', 'Template Browser', '300px')}
         <ul style="display: flex; gap: 20px; font-size: 0.8em; list-style: none; justify-content: center; width: 100%;">
-            <li><strong>Template Browser:</strong> Pre-built and community-vetted experiment templates</li>
-            <li><strong>Schema Enforcement:</strong> Required columns are guaranteed correct</li>
+            <li><strong>Template Browser:</strong> Template from you or your lab group</li>
+            <li><strong>Schema Enforcement:</strong> Template create from schema carry over all schema requirements</li>
             <li><strong>Reusable:</strong> Share templates across experiments and users</li>
         </ul>
     </div>
