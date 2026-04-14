@@ -6,7 +6,7 @@ export const section = {
     <p style="font-size:0.75em; margin-bottom: 8px;">Annual dataset submissions to ProteomeXchange resources (2012–2024)</p>
     <canvas id="px-chart" width="820" height="340" style="display:block; margin: 0 auto;"></canvas>
     <p style="font-size: 0.55em; color: #888; margin-top: 6px;">
-        Source: proteomecentral.proteomexchange.org — counted by announce date as of 2026-04-13. 2025 count is partial (datasets announced post-2025 excluded).
+        Source: proteomecentral.proteomexchange.org — counted by announce date as of 2026-04-13. 2025 count is partial.
     </p>
     <script>
     (function() {
@@ -40,10 +40,11 @@ export const section = {
             const ctx = canvas.getContext('2d');
             ctx.scale(dpr, dpr);
 
-            const gold     = '#ffb400';
-            const goldDim  = '#cc9000';
-            const gridCol  = 'rgba(255,180,0,0.12)';
-            const textCol  = '#aaa';
+            const isLight  = document.documentElement.getAttribute('data-theme') === 'light';
+            const gold     = isLight ? '#0077be' : '#ffb400';
+            const goldDim  = isLight ? '#005a8d' : '#cc9000';
+            const gridCol  = isLight ? 'rgba(0,119,190,0.12)' : 'rgba(255,180,0,0.12)';
+            const textCol  = isLight ? '#334e68' : '#aaa';
             const bg       = 'rgba(0,0,0,0)';
 
             const padL = 62, padR = 20, padT = 18, padB = 46;
@@ -86,7 +87,7 @@ export const section = {
 
                 const grad = ctx.createLinearGradient(x, y, x, padT + chartH);
                 grad.addColorStop(0, gold);
-                grad.addColorStop(1, 'rgba(255,180,0,0.15)');
+                grad.addColorStop(1, isLight ? 'rgba(0,119,190,0.15)' : 'rgba(255,180,0,0.15)');
                 ctx.fillStyle = grad;
                 ctx.fillRect(x, y, barW, barH);
 
@@ -121,15 +122,14 @@ export const section = {
 </section>
 
 <section>
-    <h2>What Happens to Metadata?</h2>
-    <p>Experimental metadata is routinely lost, inconsistently recorded, or locked in formats no tool can read.</p>
+    <h2>Proteomics Experimental Metadata</h2>
+    <p>Experimental metadata is routinely lost, inconsistently recorded</p>
     <table>
-        <thead><tr><th>What Gets Lost</th><th>Consequence</th></tr></thead>
+        <thead><tr><th>What Often Gets Lost</th></thead>
         <tbody>
-            <tr><td>Sample organism &amp; tissue</td><td>Failed reanalysis</td></tr>
-            <tr><td>Instrument &amp; acquisition method</td><td>Incompatible submissions</td></tr>
-            <tr><td>Experimental conditions &amp; factors</td><td>Irreproducible results</td></tr>
-            <tr><td>Modification parameters</td><td>Siloed, non-shareable data</td></tr>
+            <tr><td>Organism and cell line info</td></tr>
+            <tr><td>Instrument &amp; acquisition parameters</td></tr>
+            <tr><td>Experimental conditions &amp; comparison factors</td></tr>
         </tbody>
     </table>
 </section>

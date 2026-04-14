@@ -4,10 +4,9 @@ export const section = {
 <section>
     <h2>Sample and Data Relationship Format</h2>
     <ul>
-        <li><strong>Origin:</strong> Developed by HUPO-PSI (Proteomics Standards Initiative)</li>
-        <li><strong>Purpose:</strong> Machine-readable sample annotations for mass spectrometry experiments</li>
-        <li><strong>Format:</strong> Tab-separated values (.tsv) — one row per raw file</li>
-        <li><strong>ASAP adoption:</strong> Required document for CRN Cloud submission</li>
+        <li>Developed by HUPO-PSI (Proteomics Standards Initiative)</li>
+        <li>Machine-readable sample annotations for mass spectrometry experiments</li>
+        <li>Tab-separated values (.tsv) — one row per raw file</li>
     </ul>
 </section>
 
@@ -18,8 +17,8 @@ export const section = {
         <tbody>
             <tr><td><strong>source name</strong></td><td>Sample identifiers</td><td>Sample_001</td></tr>
             <tr><td><strong>characteristics[...]</strong></td><td>Biological attributes</td><td>organism, tissue, disease</td></tr>
-            <tr><td><strong>comment[...]</strong></td><td>Technical metadata</td><td>instrument, data file, method</td></tr>
-            <tr><td><strong>factor value[...]</strong></td><td>Experimental variables</td><td>condition, treatment</td></tr>
+            <tr><td><strong>comment[...]</strong></td><td>Technical metadata</td><td>instrument, raw data file, method</td></tr>
+            <tr><td><strong>factor value[...]</strong></td><td>Analysis comparison target</td><td>example: condition vs treatment</td></tr>
         </tbody>
     </table>
 </section>
