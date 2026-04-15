@@ -3,11 +3,9 @@ export const section = {
     slides: `
 <section>
     <h2>SDRF Where You Already Work</h2>
-    <p>Researchers already live in Excel. The Cupcake Vanilla Excel Add-in brings SDRF annotation directly into that environment — no new tool to learn, no context switching.</p>
     <ul style="margin-top: 20px;">
         <li>Runs as a task pane inside Microsoft Excel</li>
-        <li>Connects to the same Cupcake Vanilla backend</li>
-        <li>Same metadata, same history, same exports — two interfaces</li>
+        <li>Connects remotely to the table you have created in Cupcake Vanilla</li>
     </ul>
 </section>
 
@@ -21,11 +19,10 @@ export const section = {
 </section>
 
 <section>
-    <h2>Edit Natively, Sync Back</h2>
+    <h2>Synchronize your work in Excel</h2>
     <ul>
-        <li>Edit cells directly in Excel — the add-in tracks every change against the pulled state</li>
-        <li><strong>Change detection:</strong> only modified cells are flagged for push</li>
-        <li><strong>Bulk push:</strong> send all changes back to Cupcake Vanilla in one operation, grouped per column</li>
+        <li>Edit cells directly in Excel — the add-in tracks every change against the original version</li>
+        <li><strong>Change detection:</strong> only modified cells are flagged for update on the backend</li>
         <li><strong>Remote conflict detection:</strong> warns if the backend was modified by someone else since your last pull</li>
     </ul>
 </section>

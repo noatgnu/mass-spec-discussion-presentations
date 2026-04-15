@@ -88,10 +88,8 @@ export const section = {
     <p>From a single metadata table, Cupcake Vanilla exports:</p>
     <ul>
         <li><strong>SDRF .tsv</strong> — submission-ready for PRIDE / ASAP</li>
-        <li><strong>ASAP CSV bundle</strong> — SAMPLE, PROTEOMICS, DATA, CONDITION, intervention — all auto-generated</li>
         <li><strong>Excel .xlsx</strong> — for downstream manual editing or archiving</li>
     </ul>
-    <p style="margin-top: 15px; color: var(--dx-gold);">STUDY.csv and PROTOCOL.csv still require manual input — PI details and method narratives cannot be inferred.</p>
 </section>
 `
 };

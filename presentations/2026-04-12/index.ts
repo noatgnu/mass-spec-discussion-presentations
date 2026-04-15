@@ -1,5 +1,5 @@
 export const presentation = {
-    title: "SDRF & The Metadata Tooling Ecosystem",
+    title: "SDRF and the Quest to Streamline Metadata Input and Management for Proteomics",
     loc: "DUNDEE / MRC-PPU",
     theme: "light" as const,
     showToc: true,
