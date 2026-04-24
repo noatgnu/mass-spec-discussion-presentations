@@ -172,7 +172,7 @@ export const section = {
 </section>
 
 <section>
-    <h2>Proteomics Experimental Metadata</h2>
+    <h2>Proteomics Experimental Metadata Maintenance</h2>
     <p>Experimental metadata is routinely lost, inconsistently recorded</p>
     <table>
         <thead><tr><th>What Often Gets Lost</th></thead>
