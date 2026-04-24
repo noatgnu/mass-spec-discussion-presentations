@@ -2,6 +2,27 @@ export const section = {
     title: "The Problem: Metadata in Proteomics",
     slides: `
 <section>
+    <h2>What Is Experimental Metadata?</h2>
+    <p style="font-size:0.8em; margin-bottom: 18px;">We already have them</p>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; font-size: 0.72em;">
+        <div style="border: 1px solid var(--dx-gold-dim); padding: 14px; background: var(--dx-holo-bg);">
+            <strong style="display:block; margin-bottom: 8px; color: var(--dx-gold);">In your lab notebook</strong>
+            <div style="margin: 4px 0;">Date - time of experiment</div>
+            <div style="margin: 4px 0;">Who ran the experiment</div>
+            <div style="margin: 4px 0;">Reagent name, cas id, concentrations</div>
+            <div style="margin: 4px 0;">Incubation temperature, duration</div>
+        </div>
+        <div style="border: 1px solid var(--dx-gold-dim); padding: 14px; background: var(--dx-holo-bg);">
+            <strong style="display:block; margin-bottom: 8px; color: var(--dx-gold);">On the instrument</strong>
+            <div style="margin: 4px 0;">Instrument model - model name and series</div>
+            <div style="margin: 4px 0;">Acquisition method - DIA or DDA</div>
+            <div style="margin: 4px 0;">Raw file names - folder paths</div>
+            <div style="margin: 4px 0;">Sample prep protocol -  digestion enzyme...</div>
+        </div>
+    </div>
+</section>
+
+<section>
     <h2>The Proteomics Data Explosion</h2>
     <p style="font-size:0.75em; margin-bottom: 8px;">Annual dataset submissions to ProteomeXchange resources (2012–2024)</p>
     <canvas id="px-chart" width="820" height="340" style="display:block; margin: 0 auto;"></canvas>
