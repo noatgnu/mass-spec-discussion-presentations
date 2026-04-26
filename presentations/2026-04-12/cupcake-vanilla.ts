@@ -36,7 +36,7 @@ export const section = {
             ${HoloImage('assets/basic_auto_fill.png', 'Basic Auto-Fill', '320px')}
         </div>
         <div style="flex: 1;">
-            <small style="color: var(--dx-gold-dim); display: block; margin-bottom: 5px;">[ ADVANCED — PATTERN RECOGNITION ]</small>
+            <small style="color: var(--dx-gold-dim); display: block; margin-bottom: 5px;">[ ADVANCED — PATTERN-BASED AUTO-FILL ]</small>
             ${HoloImage('assets/advanced_auto_fill.png', 'Advanced Auto-Fill', '320px')}
         </div>
     </div>
@@ -66,8 +66,8 @@ export const section = {
             ${HoloImage('assets/column_history_source_name.png', 'Source Name History', '320px')}
         </div>
         <div style="flex: 1;">
-            <small style="color: var(--dx-gold-dim); display: block; margin-bottom: 5px;">[ ORGANISM ]</small>
-            ${HoloImage('assets/column_history_organism.png', 'Organism History', '320px')}
+            <small style="color: var(--dx-gold-dim); display: block; margin-bottom: 5px;">[ CONCENTRATION ]</small>
+            ${HoloImage('assets/column_history_concentration_of_compound.png', 'concentration of compound history', '320px')}
         </div>
     </div>
 </section>
