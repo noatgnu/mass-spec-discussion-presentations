@@ -2,7 +2,7 @@ export const section = {
     title: "The Challenge of Adoption",
     slides: `
 <section>
-    <h2>SDRF Is Powerful — But Hard to Adopt</h2>
+    <h2>Currently SDRF Is Hard to Adopt</h2>
     <table>
         <thead><tr><th>Challenge</th><th>Why It Matters</th></tr></thead>
         <tbody>

@@ -40,9 +40,6 @@ export const section = {
                 <tr><td><strong>Ontology Search</strong></td><td>Look up OLS terms and insert NT/AC pairs without leaving Excel</td></tr>
                 <tr><td><strong>Favorites</strong></td><td>Save frequently used ontology terms for one-click reuse</td></tr>
                 <tr><td><strong>Validation</strong></td><td>Run SDRF schema compliance checks against the current sheet</td></tr>
-                <tr><td><strong>Age Input</strong></td><td>Structured helper for SDRF-compliant age annotation</td></tr>
-                <tr><td><strong>Modification Input</strong></td><td>Structured NT/MT/TA/AC builder for modification parameters</td></tr>
-                <tr><td><strong>Cleavage Input</strong></td><td>Structured helper for enzyme cleavage annotation</td></tr>
             </tbody>
         </table>
         <div style="flex: 0.8;">

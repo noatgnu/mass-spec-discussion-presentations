@@ -5,8 +5,9 @@ export const section = {
     <h2>Sample and Data Relationship Format</h2>
     <ul>
         <li>Developed by HUPO-PSI (Proteomics Standards Initiative)</li>
-        <li>Machine-readable sample annotations for mass spectrometry experiments</li>
-        <li>Tab-separated values (.tsv) — one row per raw file</li>
+        <li>Machine-readable and human sample annotations for mass spectrometry experiments</li>
+        <li>Tab-separated values (.tsv)</li>
+        <li>Controlled vocabulary from existing ontology databases</li>
     </ul>
 </section>
 
