@@ -29,16 +29,5 @@ export const section = {
         </div>
     </div>
 </section>
-
-<section>
-    <h2>Key Properties of This Approach</h2>
-    <ul>
-        <li><strong>Standardized:</strong> every annotation uses validated ontology terms</li>
-        <li><strong>Reproducible:</strong> templates encode institutional knowledge and can be reused verbatim</li>
-        <li><strong>Persistent:</strong> metadata lives on a server — not in someone's Downloads folder</li>
-        <li><strong>Flexible:</strong> work in the web app or Excel — same backend, same data</li>
-        <li><strong>Submission-ready:</strong> ASAP bundle is generated automatically from a single SDRF file</li>
-    </ul>
-</section>
 `
 };
