@@ -7,25 +7,25 @@ export const section = {
         <div style="text-align: center; flex: 1; padding: 15px; border: 1px solid var(--dx-gold-dim); background: rgba(201,160,77,0.04);">
             <div style="font-family: monospace; color: var(--dx-gold-dim); font-size: 0.65em; margin-bottom: 8px;">[ 01 ]</div>
             <div style="font-weight: bold; font-size: 0.85em;">Pick a Template</div>
-            <div style="font-size: 0.7em; color: #aaa; margin-top: 6px;">Select an experiment type from the template browser or build from SDRF schemas</div>
+            <div style="font-size: 0.7em; color: var(--dx-text-secondary); margin-top: 6px;">Select an experiment type from the template browser or build from SDRF schemas</div>
         </div>
         <div style="color: var(--dx-gold); font-size: 1.2em; padding: 0 8px;">▶</div>
         <div style="text-align: center; flex: 1; padding: 15px; border: 1px solid var(--dx-gold-dim); background: rgba(201,160,77,0.04);">
             <div style="font-family: monospace; color: var(--dx-gold-dim); font-size: 0.65em; margin-bottom: 8px;">[ 02 ]</div>
             <div style="font-weight: bold; font-size: 0.85em;">Annotate Metadata</div>
-            <div style="font-size: 0.7em; color: #aaa; margin-top: 6px;">Use auto-fill, ontology search, and structured helpers — in the web app or Excel</div>
+            <div style="font-size: 0.7em; color: var(--dx-text-secondary); margin-top: 6px;">Use auto-fill, ontology search, and structured helpers — in the web app or Excel</div>
         </div>
         <div style="color: var(--dx-gold); font-size: 1.2em; padding: 0 8px;">▶</div>
         <div style="text-align: center; flex: 1; padding: 15px; border: 1px solid var(--dx-gold-dim); background: rgba(201,160,77,0.04);">
             <div style="font-family: monospace; color: var(--dx-gold-dim); font-size: 0.65em; margin-bottom: 8px;">[ 03 ]</div>
             <div style="font-weight: bold; font-size: 0.85em;">Validate</div>
-            <div style="font-size: 0.7em; color: #aaa; margin-top: 6px;">Run SDRF schema compliance checks before export</div>
+            <div style="font-size: 0.7em; color: var(--dx-text-secondary); margin-top: 6px;">Run SDRF schema compliance checks before export</div>
         </div>
         <div style="color: var(--dx-gold); font-size: 1.2em; padding: 0 8px;">▶</div>
         <div style="text-align: center; flex: 1; padding: 15px; border: 1px solid var(--dx-gold-dim); background: rgba(201,160,77,0.04);">
             <div style="font-family: monospace; color: var(--dx-gold-dim); font-size: 0.65em; margin-bottom: 8px;">[ 04 ]</div>
             <div style="font-weight: bold; font-size: 0.85em;">Export</div>
-            <div style="font-size: 0.7em; color: #aaa; margin-top: 6px;">SDRF .tsv + ASAP CSV bundle — ready for submission</div>
+            <div style="font-size: 0.7em; color: var(--dx-text-secondary); margin-top: 6px;">SDRF .tsv + ASAP CSV bundle — ready for submission</div>
         </div>
     </div>
 </section>
