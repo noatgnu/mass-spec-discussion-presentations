@@ -171,18 +171,6 @@ export const section = {
     </script>
 </section>
 
-<section>
-    <h2>Proteomics Experimental Metadata Maintenance</h2>
-    <p>Experimental metadata is routinely lost, inconsistently recorded</p>
-    <table>
-        <thead><tr><th>What Often Gets Lost</th></thead>
-        <tbody>
-            <tr><td>Organism and cell line info</td></tr>
-            <tr><td>Instrument &amp; acquisition parameters</td></tr>
-            <tr><td>Experimental conditions &amp; comparison factors</td></tr>
-        </tbody>
-    </table>
-</section>
 
 `
 };
