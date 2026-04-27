@@ -62,7 +62,6 @@ export const section = {
     <h2>Metadata as a discovery layer</h2>
     <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; margin-top: 10px;">
         <div style="flex: 0.85; font-size: 0.78em;">
-            <p style="color: var(--dx-text-secondary); margin-bottom: 14px;">Because every experiment is annotated with structured SDRF metadata, the accumulated data in Cupcake Vanilla becomes queryable.</p>
             <div style="border: 1px solid var(--dx-gold-dim); padding: 14px; background: var(--dx-holo-bg); margin-bottom: 10px;">
                 <strong style="color: var(--dx-gold); display: block; margin-bottom: 6px;">Search across experiments</strong>
                 <div style="color: var(--dx-text-secondary); line-height: 1.6;">Filter by organism, disease, tissue, treatment, or instrument...</div>
