@@ -67,10 +67,6 @@ export const section = {
                 <strong style="color: var(--dx-gold); display: block; margin-bottom: 6px;">Search across experiments</strong>
                 <div style="color: var(--dx-text-secondary); line-height: 1.6;">Filter by organism, disease, tissue, treatment, or instrument...</div>
             </div>
-            <div style="border: 1px solid var(--dx-gold-dim); padding: 14px; background: var(--dx-holo-bg); margin-bottom: 10px;">
-                <strong style="color: var(--dx-gold); display: block; margin-bottom: 6px;">Cross-experiment analysis</strong>
-                <div style="color: var(--dx-text-secondary); line-height: 1.6;">Compare proteins across multiple experiments</div>
-            </div>
             <div style="border: 1px solid var(--dx-gold-dim); padding: 14px; background: var(--dx-holo-bg);">
                 <strong style="color: var(--dx-gold); display: block; margin-bottom: 6px;">Collaboration opportunities</strong>
                 <div style="color: var(--dx-text-secondary); line-height: 1.6;">New project and collaboration ideas.</div>
