@@ -464,7 +464,12 @@
 				border: 1px solid rgba(255, 180, 0, 0.3) !important;
 				padding: 0 !important;
 				background: none !important;
+				transform-origin: center center;
+				will-change: transform;
+				cursor: grab;
+				user-select: none;
 			}
+			#holo-img.dragging { cursor: grabbing; }
 
 			.holo-meta-tag {
 				position: absolute;
@@ -576,6 +581,23 @@
 			let mouseX = 0;
 			let mouseY = 0;
 
+			let lbZoom = 1.0;
+			let lbPanX = 0, lbPanY = 0;
+			let lbDragging = false;
+			let lbDragStartX = 0, lbDragStartY = 0;
+			let lbDragMoved = false;
+
+			function updateLightboxTransform() {
+				holoImg.style.transform = `translate(${lbPanX}px, ${lbPanY}px) scale(${lbZoom})`;
+				document.getElementById('holo-tag-bl').innerText = `ZOOM: ${lbZoom.toFixed(1)}x`;
+			}
+
+			function resetLightbox() {
+				lbZoom = 1.0; lbPanX = 0; lbPanY = 0;
+				holoImg.style.transform = '';
+				document.getElementById('holo-tag-bl').innerText = 'DEPTH: 100%';
+			}
+
 			function updateVisuals() {
 				if (isPointerActive) {
 					pointer.style.left = mouseX + 'px';
@@ -614,7 +636,11 @@
 					lightbox.style.display = 'flex';
 					glitchElement(tagTl);
 				} else if (lightbox.style.display === 'flex') {
-					lightbox.style.display = 'none';
+					if (!lbDragMoved) {
+						lightbox.style.display = 'none';
+						resetLightbox();
+					}
+					lbDragMoved = false;
 				}
 			});
 
@@ -622,9 +648,41 @@
 				mouseX = e.clientX;
 				mouseY = e.clientY;
 				updateVisuals();
+				if (lbDragging) {
+					const dx = e.clientX - lbDragStartX;
+					const dy = e.clientY - lbDragStartY;
+					if (Math.abs(dx - lbPanX) > 3 || Math.abs(dy - lbPanY) > 3) lbDragMoved = true;
+					lbPanX = dx;
+					lbPanY = dy;
+					updateLightboxTransform();
+				}
+			});
+
+			holoImg.addEventListener('mousedown', (e) => {
+				if (lightbox.style.display !== 'flex') return;
+				lbDragging = true;
+				lbDragMoved = false;
+				lbDragStartX = e.clientX - lbPanX;
+				lbDragStartY = e.clientY - lbPanY;
+				holoImg.classList.add('dragging');
+				e.preventDefault();
+			});
+
+			window.addEventListener('mouseup', () => {
+				if (lbDragging) {
+					lbDragging = false;
+					holoImg.classList.remove('dragging');
+				}
 			});
 
 			window.addEventListener('wheel', (e) => {
+				if (lightbox.style.display === 'flex') {
+					e.preventDefault();
+					const delta = e.deltaY > 0 ? -0.15 : 0.15;
+					lbZoom = Math.min(Math.max(lbZoom + delta, 0.5), 10.0);
+					updateLightboxTransform();
+					return;
+				}
 				if (isZoomActive) {
 					e.preventDefault();
 					const delta = e.deltaY > 0 ? -0.2 : 0.2;
