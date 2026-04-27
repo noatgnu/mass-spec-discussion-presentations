@@ -77,7 +77,7 @@ export const section = {
             </div>
         </div>
         <div style="flex: 1.15; text-align: center;">
-            <small style="color: var(--dx-gold-dim); font-family: monospace; font-size: 0.7em; display: block; margin-bottom: 6px;">[ CROSS-EXPERIMENT HEATMAP — MOUSE &amp; HUMAN CELL LINES ]</small>
+            <small style="color: var(--dx-gold-dim); font-family: monospace; font-size: 0.7em; display: block; margin-bottom: 6px;">[ CROSS-EXPERIMENT HEATMAP]</small>
             ${HoloImage('assets/heatmap_export.svg', 'Cross-experiment protein fold change heatmap', '400px')}
         </div>
     </div>
