@@ -9,7 +9,6 @@ export const presentation = {
         "adoption",
         "cupcake-vanilla",
         "excel-addin",
-        "workflow",
         "conclusion",
         "resources"
     ]

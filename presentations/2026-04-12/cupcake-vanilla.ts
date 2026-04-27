@@ -59,15 +59,26 @@ export const section = {
 </section>
 
 <section>
-    <h2>Persistent Metadata History</h2>
-    <div style="display: flex; justify-content: center; align-items: flex-start; gap: 20px; width: 100%;">
-        <div style="flex: 1;">
-            <small style="color: var(--dx-gold-dim); display: block; margin-bottom: 5px;">[ SOURCE NAME ]</small>
-            ${HoloImage('assets/column_history_source_name.png', 'Source Name History', '320px')}
+    <h2>Metadata as a discovery layer</h2>
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; margin-top: 10px;">
+        <div style="flex: 0.85; font-size: 0.78em;">
+            <p style="color: var(--dx-text-secondary); margin-bottom: 14px;">Because every experiment is annotated with structured SDRF metadata, the accumulated data in Cupcake Vanilla becomes queryable.</p>
+            <div style="border: 1px solid var(--dx-gold-dim); padding: 14px; background: var(--dx-holo-bg); margin-bottom: 10px;">
+                <strong style="color: var(--dx-gold); display: block; margin-bottom: 6px;">Search across experiments</strong>
+                <div style="color: var(--dx-text-secondary); line-height: 1.6;">Filter by organism, disease, tissue, treatment, or instrument...</div>
+            </div>
+            <div style="border: 1px solid var(--dx-gold-dim); padding: 14px; background: var(--dx-holo-bg); margin-bottom: 10px;">
+                <strong style="color: var(--dx-gold); display: block; margin-bottom: 6px;">Cross-experiment analysis</strong>
+                <div style="color: var(--dx-text-secondary); line-height: 1.6;">Compare proteins across multiple experiments</div>
+            </div>
+            <div style="border: 1px solid var(--dx-gold-dim); padding: 14px; background: var(--dx-holo-bg);">
+                <strong style="color: var(--dx-gold); display: block; margin-bottom: 6px;">Collaboration opportunities</strong>
+                <div style="color: var(--dx-text-secondary); line-height: 1.6;">New project and collaboration ideas.</div>
+            </div>
         </div>
-        <div style="flex: 1;">
-            <small style="color: var(--dx-gold-dim); display: block; margin-bottom: 5px;">[ CONCENTRATION ]</small>
-            ${HoloImage('assets/column_history_concentration_of_compound.png', 'concentration of compound history', '320px')}
+        <div style="flex: 1.15; text-align: center;">
+            <small style="color: var(--dx-gold-dim); font-family: monospace; font-size: 0.7em; display: block; margin-bottom: 6px;">[ CROSS-EXPERIMENT HEATMAP — MOUSE &amp; HUMAN CELL LINES ]</small>
+            ${HoloImage('assets/heatmap_export.svg', 'Cross-experiment protein fold change heatmap', '400px')}
         </div>
     </div>
 </section>
