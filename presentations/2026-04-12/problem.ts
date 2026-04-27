@@ -6,10 +6,10 @@ export const section = {
     <p style="font-size: 0.78em; color: var(--dx-text-secondary); margin-bottom: 20px;">A story that happens in every lab</p>
     <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; font-size: 0.72em; margin-top: 4px;">
         <div style="padding: 16px; background: var(--dx-holo-bg); border: 1px solid var(--dx-gold-dim); border-right: none;">
-            <div style="color: var(--dx-text-secondary); line-height: 1.6;">A researcher runs many mass spec experiments. These have raw files, processed results, and method parameters accumulate across shared drives and personal folders.</div>
+            <div style="color: var(--dx-text-secondary); line-height: 1.6;">A researcher runs many mass spec experiments with a lot of results and metainformation.</div>
         </div>
         <div style="padding: 16px; background: var(--dx-holo-bg); border: 1px solid var(--dx-gold-dim); border-right: none;">
-            <div style="color: var(--dx-text-secondary); line-height: 1.6;">Student can graduate or researcher can move on.</div>
+            <div style="color: var(--dx-text-secondary); line-height: 1.6;">They can graduate or move on.</div>
         </div>
         <div style="padding: 16px; background: var(--dx-holo-bg); border: 1px solid var(--dx-gold-dim); border-right: none;">
             <div style="color: var(--dx-text-secondary); line-height: 1.6;">Months later, a new researcher finds the raw files but might not find the parameter for the analysis. Thus, they are not able to confirm the result.</div>
