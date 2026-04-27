@@ -2,26 +2,23 @@ export const section = {
     title: "The Problem: Metadata in Proteomics",
     slides: `
 <section>
-    <h2>What Is Experimental Metadata?</h2>
-    <p style="font-size:0.8em; margin-bottom: 18px;">We already have them</p>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; font-size: 0.72em;">
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 14px; background: var(--dx-holo-bg);">
-            <strong style="display:block; margin-bottom: 8px; color: var(--dx-gold);">In your lab notebook</strong>
-            <div style="margin: 4px 0;">Date - time of experiment</div>
-            <div style="margin: 4px 0;">Who ran the experiment</div>
-            <div style="margin: 4px 0;">Reagent name, cas id, concentrations</div>
-            <div style="margin: 4px 0;">Incubation temperature, duration</div>
+    <h2>The dark data problem</h2>
+    <p style="font-size: 0.78em; color: var(--dx-text-secondary); margin-bottom: 20px;">A story that happens in every lab</p>
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; font-size: 0.72em; margin-top: 4px;">
+        <div style="padding: 16px; background: var(--dx-holo-bg); border: 1px solid var(--dx-gold-dim); border-right: none;">
+            <div style="color: var(--dx-text-secondary); line-height: 1.6;">A researcher runs many mass spec experiments. These have raw files, processed results, and method parameters accumulate across shared drives and personal folders.</div>
         </div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 14px; background: var(--dx-holo-bg);">
-            <strong style="display:block; margin-bottom: 8px; color: var(--dx-gold);">On the instrument</strong>
-            <div style="margin: 4px 0;">Instrument model - model name and series</div>
-            <div style="margin: 4px 0;">Acquisition method - DIA or DDA</div>
-            <div style="margin: 4px 0;">Raw file names - folder paths</div>
-            <div style="margin: 4px 0;">Sample prep protocol -  digestion enzyme...</div>
+        <div style="padding: 16px; background: var(--dx-holo-bg); border: 1px solid var(--dx-gold-dim); border-right: none;">
+            <div style="color: var(--dx-text-secondary); line-height: 1.6;">Student can graduate or researcher can move on.</div>
+        </div>
+        <div style="padding: 16px; background: var(--dx-holo-bg); border: 1px solid var(--dx-gold-dim); border-right: none;">
+            <div style="color: var(--dx-text-secondary); line-height: 1.6;">Months later, a new researcher finds the raw files but might not find the parameter for the analysis. Thus, they are not able to confirm the result.</div>
+        </div>
+        <div style="padding: 16px; background: var(--dx-holo-bg); border: 1px solid var(--dx-gold-dim);">
+            <div style="color: var(--dx-text-secondary); line-height: 1.6;">Years of instrument time and biological material become dark data.</div>
         </div>
     </div>
 </section>
-
 <section>
     <h2>Metadata: the core of reproducible science</h2>
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; font-size: 0.78em;">
@@ -35,7 +32,6 @@ export const section = {
         </div>
     </div>
 </section>
-
 <section>
     <h2>The Proteomics Data Explosion</h2>
     <p style="font-size:0.75em; margin-bottom: 8px;">Annual dataset submissions to ProteomeXchange resources (2012–2024)</p>
