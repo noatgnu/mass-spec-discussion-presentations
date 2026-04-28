@@ -10,21 +10,32 @@ export const section = {
 </section>
 
 <section>
-    <h2>Combine different schemas to create your owned persistent template</h2>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
-        ${HoloImage('assets/table_template_browser.png', 'Template Browser', '300px')}
-        <ul style="display: flex; gap: 20px; font-size: 0.8em; list-style: none; justify-content: center; width: 100%;">
-            <li><strong>Template Browser:</strong> Template from you or your lab group</li>
-            <li><strong>Schema Enforcement:</strong> Template create from schema carry over all schema requirements</li>
-            <li><strong>Reusable:</strong> Share templates across experiments and users</li>
-        </ul>
-    </div>
-</section>
-
-<section>
-    <h2>Creating from Schemas</h2>
-    <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
-        ${HoloImage('assets/table_template_creation_from_schemas.png', 'Create Template from Schemas', '420px')}
+    <h2>Features</h2>
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-top: 18px; font-size: 0.76em;">
+        <div style="border: 1px solid var(--dx-gold-dim); padding: 14px; background: var(--dx-holo-bg);">
+            <strong style="color: var(--dx-gold); display: block; margin-bottom: 6px;">Template library</strong>
+            <div style="color: var(--dx-text-secondary); line-height: 1.6;">Persistent, reusable, customizable and shareable templates.</div>
+        </div>
+        <div style="border: 1px solid var(--dx-gold-dim); padding: 14px; background: var(--dx-holo-bg);">
+            <strong style="color: var(--dx-gold); display: block; margin-bottom: 6px;">Auto-fill</strong>
+            <div style="color: var(--dx-text-secondary); line-height: 1.6;">Automatically filling content of cell using user customizable patterns.</div>
+        </div>
+        <div style="border: 1px solid var(--dx-gold-dim); padding: 14px; background: var(--dx-holo-bg);">
+            <strong style="color: var(--dx-gold); display: block; margin-bottom: 6px;">Ontology search</strong>
+            <div style="color: var(--dx-text-secondary); line-height: 1.6;">Look up OLS terms from different ontology database from within the application.</div>
+        </div>
+        <div style="border: 1px solid var(--dx-gold-dim); padding: 14px; background: var(--dx-holo-bg);">
+            <strong style="color: var(--dx-gold); display: block; margin-bottom: 6px;">Validation</strong>
+            <div style="color: var(--dx-text-secondary); line-height: 1.6;">SDRF validation using official pipelines.</div>
+        </div>
+        <div style="border: 1px solid var(--dx-gold-dim); padding: 14px; background: var(--dx-holo-bg);">
+            <strong style="color: var(--dx-gold); display: block; margin-bottom: 6px;">Excel add-in</strong>
+            <div style="color: var(--dx-text-secondary); line-height: 1.6;">Edit the table directly in Microsoft Excel with full sync, conflict detection, and ontology assistance in a task pane.</div>
+        </div>
+        <div style="border: 1px solid var(--dx-gold-dim); padding: 14px; background: var(--dx-holo-bg);">
+            <strong style="color: var(--dx-gold); display: block; margin-bottom: 6px;">Export</strong>
+            <div style="color: var(--dx-text-secondary); line-height: 1.6;">SDRF .tsv ready for PRIDE</div>
+        </div>
     </div>
 </section>
 
@@ -76,15 +87,6 @@ export const section = {
             ${HoloImage('assets/heatmap_export.svg', 'Cross-experiment protein fold change heatmap', '400px')}
         </div>
     </div>
-</section>
-
-<section>
-    <h2>Export</h2>
-    <p>From a single metadata table, Cupcake Vanilla exports:</p>
-    <ul>
-        <li><strong>SDRF .tsv</strong> — submission-ready for PRIDE / ASAP</li>
-        <li><strong>Enhanced Excel .xlsx</strong> — for offline edit with embed information regarding favourites metadata that can be select network internet access</li>
-    </ul>
 </section>
 `
 };
