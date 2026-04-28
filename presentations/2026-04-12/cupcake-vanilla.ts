@@ -59,7 +59,6 @@ export const section = {
     </div>
 </section>
 
-<!--
 <section>
     <h2>Ontology-Driven Annotation</h2>
     <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
@@ -75,7 +74,6 @@ export const section = {
         </div>
     </div>
 </section>
--->
 
 <section>
     <h2>Metadata as a discovery layer</h2>

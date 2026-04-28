@@ -24,6 +24,7 @@ export const section = {
     </table>
 </section>
 
+<!--
 <section>
     <h2>Ontology-Controlled Values</h2>
     <p>Every SDRF value is tied to a standardized ontology term with a <strong>Name Term (NT)</strong> and <strong>Accession Code (AC)</strong>.</p>
@@ -37,6 +38,7 @@ export const section = {
     </table>
     <p><small>This makes metadata portable, searchable, and interoperable across tools and repositories.</small></p>
 </section>
+-->
 
 <section>
     <h2>Templates &amp; Schema Validation</h2>
