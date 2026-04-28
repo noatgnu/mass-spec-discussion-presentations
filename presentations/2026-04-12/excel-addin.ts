@@ -24,9 +24,9 @@ export const section = {
             ${HoloImage('assets/excel_addin_table_loaded_example.png', 'Table Loaded in Excel', '340px')}
         </div>
         <ul style="flex: 0.9; font-size: 0.85em;">
-            <li>Edit cells directly in Excel — the add-in tracks every change against the original version</li>
-            <li><strong>Change detection:</strong> only modified cells are flagged for update on the backend</li>
-            <li><strong>Remote conflict detection:</strong> warns if the backend was modified by someone else since your last pull</li>
+            <li>Edit cells directly in Excel</li>
+            <li>Changes are tracked against original</li>
+            <li>Conflict warning if the original have been changed before saving from excel</li>
         </ul>
     </div>
 </section>
