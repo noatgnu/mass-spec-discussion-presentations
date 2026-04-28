@@ -21,17 +21,20 @@ export const section = {
 </section>
 <section>
     <h2>Metadata: the core of reproducible science</h2>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; font-size: 0.78em;">
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 16px; background: var(--dx-holo-bg);">
-            <strong style="display:block; margin-bottom: 8px; color: var(--dx-gold);">Reproduce the experiment</strong>
-            <div style="color: var(--dx-text-secondary); line-height: 1.6;">Without knowing the what, when, where. A result cannot be independently repeated or validated.</div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 28px;">
+        <div style="border: 1px solid var(--dx-gold-dim); padding: 24px 20px; background: var(--dx-holo-bg); text-align: center;">
+            <img src="assets/icon-reproduce.svg" width="52" height="52" alt="" style="display: block; margin: 0 auto 12px;">
+            <strong style="display:block; margin-bottom: 8px; color: var(--dx-gold); font-family: monospace; letter-spacing: 1px; font-size: 0.8em;">REPRODUCE THE EXPERIMENT</strong>
+            <div style="color: var(--dx-text-secondary); line-height: 1.6; font-size: 0.78em;">Without knowing the what, when, where. A result cannot be independently repeated or validated.</div>
         </div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 16px; background: var(--dx-holo-bg);">
-            <strong style="display:block; margin-bottom: 8px; color: var(--dx-gold);">Enable data reuse</strong>
-            <div style="color: var(--dx-text-secondary); line-height: 1.6;">Public repositories like PRIDE hold tens of thousands of datasets. Only those with rich metadata can be reanalysed or integrated in meta-studies.</div>
+        <div style="border: 1px solid var(--dx-gold-dim); padding: 24px 20px; background: var(--dx-holo-bg); text-align: center;">
+            <img src="assets/icon-reuse.svg" width="52" height="52" alt="" style="display: block; margin: 0 auto 12px;">
+            <strong style="display:block; margin-bottom: 8px; color: var(--dx-gold); font-family: monospace; letter-spacing: 1px; font-size: 0.8em;">ENABLE DATA REUSE</strong>
+            <div style="color: var(--dx-text-secondary); line-height: 1.6; font-size: 0.78em;">Public repositories like PRIDE hold tens of thousands of datasets. Only those with rich metadata can be reanalysed or integrated in meta-studies.</div>
         </div>
     </div>
 </section>
+<!--
 <section>
     <h2>The Proteomics Data Explosion</h2>
     <p style="font-size:0.75em; margin-bottom: 8px;">Annual dataset submissions to ProteomeXchange resources (2012–2024)</p>
@@ -180,7 +183,7 @@ export const section = {
     })();
     </script>
 </section>
-
+-->
 
 `
 };

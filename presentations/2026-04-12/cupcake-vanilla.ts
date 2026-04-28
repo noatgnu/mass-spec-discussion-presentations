@@ -11,30 +11,36 @@ export const section = {
 
 <section>
     <h2>Features</h2>
-    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-top: 18px; font-size: 0.76em;">
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 14px; background: var(--dx-holo-bg);">
-            <strong style="color: var(--dx-gold); display: block; margin-bottom: 6px;">Template library</strong>
-            <div style="color: var(--dx-text-secondary); line-height: 1.6;">Persistent, reusable, customizable and shareable templates.</div>
+    <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-top: 24px;">
+        <div style="border: 1px solid var(--dx-gold-dim); padding: 18px 10px; background: var(--dx-holo-bg); text-align: center;">
+            <img src="assets/icon-template.svg" width="44" height="44" alt="" style="margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto;">
+            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.7em; letter-spacing: 1px; margin-bottom: 6px;">TEMPLATE LIBRARY</div>
+            <div style="color: var(--dx-text-secondary); font-size: 0.68em; line-height: 1.5;">Persistent, reusable, customizable and shareable templates</div>
         </div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 14px; background: var(--dx-holo-bg);">
-            <strong style="color: var(--dx-gold); display: block; margin-bottom: 6px;">Auto-fill</strong>
-            <div style="color: var(--dx-text-secondary); line-height: 1.6;">Automatically filling content of cell using user customizable patterns.</div>
+        <div style="border: 1px solid var(--dx-gold-dim); padding: 18px 10px; background: var(--dx-holo-bg); text-align: center;">
+            <img src="assets/icon-autofill.svg" width="44" height="44" alt="" style="margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto;">
+            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.7em; letter-spacing: 1px; margin-bottom: 6px;">AUTO-FILL</div>
+            <div style="color: var(--dx-text-secondary); font-size: 0.68em; line-height: 1.5;">Fill cells using user-defined patterns automatically</div>
         </div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 14px; background: var(--dx-holo-bg);">
-            <strong style="color: var(--dx-gold); display: block; margin-bottom: 6px;">Ontology search</strong>
-            <div style="color: var(--dx-text-secondary); line-height: 1.6;">Look up OLS terms from different ontology database from within the application.</div>
+        <div style="border: 1px solid var(--dx-gold-dim); padding: 18px 10px; background: var(--dx-holo-bg); text-align: center;">
+            <img src="assets/icon-ontology.svg" width="44" height="44" alt="" style="margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto;">
+            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.7em; letter-spacing: 1px; margin-bottom: 6px;">ONTOLOGY SEARCH</div>
+            <div style="color: var(--dx-text-secondary); font-size: 0.68em; line-height: 1.5;">Look up OLS terms from ontology databases inline</div>
         </div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 14px; background: var(--dx-holo-bg);">
-            <strong style="color: var(--dx-gold); display: block; margin-bottom: 6px;">Validation</strong>
-            <div style="color: var(--dx-text-secondary); line-height: 1.6;">SDRF validation using official pipelines.</div>
+        <div style="border: 1px solid var(--dx-gold-dim); padding: 18px 10px; background: var(--dx-holo-bg); text-align: center;">
+            <img src="assets/icon-validation.svg" width="44" height="44" alt="" style="margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto;">
+            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.7em; letter-spacing: 1px; margin-bottom: 6px;">VALIDATION</div>
+            <div style="color: var(--dx-text-secondary); font-size: 0.68em; line-height: 1.5;">SDRF compliance checks using official pipelines</div>
         </div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 14px; background: var(--dx-holo-bg);">
-            <strong style="color: var(--dx-gold); display: block; margin-bottom: 6px;">Excel add-in</strong>
-            <div style="color: var(--dx-text-secondary); line-height: 1.6;">Edit the table directly in Microsoft Excel with full sync, conflict detection, and ontology assistance in a task pane.</div>
+        <div style="border: 1px solid var(--dx-gold-dim); padding: 18px 10px; background: var(--dx-holo-bg); text-align: center;">
+            <img src="assets/icon-excel.svg" width="44" height="44" alt="" style="margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto;">
+            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.7em; letter-spacing: 1px; margin-bottom: 6px;">EXCEL ADD-IN</div>
+            <div style="color: var(--dx-text-secondary); font-size: 0.68em; line-height: 1.5;">Sync, edit and annotate directly in Microsoft Excel</div>
         </div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 14px; background: var(--dx-holo-bg);">
-            <strong style="color: var(--dx-gold); display: block; margin-bottom: 6px;">Export</strong>
-            <div style="color: var(--dx-text-secondary); line-height: 1.6;">SDRF .tsv ready for PRIDE</div>
+        <div style="border: 1px solid var(--dx-gold-dim); padding: 18px 10px; background: var(--dx-holo-bg); text-align: center;">
+            <img src="assets/icon-export.svg" width="44" height="44" alt="" style="margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto;">
+            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.7em; letter-spacing: 1px; margin-bottom: 6px;">EXPORT</div>
+            <div style="color: var(--dx-text-secondary); font-size: 0.68em; line-height: 1.5;">SDRF .tsv for PRIDE/ASAP &amp; enhanced .xlsx</div>
         </div>
     </div>
 </section>
@@ -53,6 +59,7 @@ export const section = {
     </div>
 </section>
 
+<!--
 <section>
     <h2>Ontology-Driven Annotation</h2>
     <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
@@ -68,6 +75,7 @@ export const section = {
         </div>
     </div>
 </section>
+-->
 
 <section>
     <h2>Metadata as a discovery layer</h2>
