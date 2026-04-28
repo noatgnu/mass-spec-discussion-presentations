@@ -851,6 +851,7 @@
 				const url = window.location.href.split('#')[0];
 				const theme = document.documentElement.getAttribute('data-theme');
 				const goldColor = theme === 'light' ? '#0077be' : '#ffb400';
+				const bgColor = theme === 'light' ? '#f5f0e6' : '#0a0a0a';
 
 				qrContainer.innerHTML = '';
 
@@ -864,7 +865,7 @@
 						type: 'rounded'
 					},
 					backgroundOptions: {
-						color: '#0a0a0a'
+						color: bgColor
 					},
 					cornersSquareOptions: {
 						color: goldColor,
