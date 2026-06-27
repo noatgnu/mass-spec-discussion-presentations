@@ -8,9 +8,14 @@
     "generate": "ts-node src/index.ts",
     "serve": "npx serve presentations",
     "pdf": "ts-node src/export-pdf.ts",
-    "pdf:all": "ts-node src/export-pdf.ts --all"
+    "pdf:all": "ts-node src/export-pdf.ts --all",
+    "pptx": "ts-node src/export-pptx.ts",
+    "pptx:all": "ts-node src/export-pptx.ts --all"
   },
   "dependencies": {
+    "cheerio": "^1.2.0",
+    "marked": "^18.0.5",
+    "pptxgenjs": "^4.0.1",
     "qr-code-styling": "^1.9.2",
     "reveal.js": "^5.2.1"
   },

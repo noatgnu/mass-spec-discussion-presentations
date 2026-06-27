@@ -9,6 +9,10 @@
 # Generated presentation HTML (rebuilt on generate)
 presentations/*/index.html
 
+# Generated export outputs
+presentations/*/*.pdf
+presentations/*/*.pptx
+
 # Generated assets (copied from node_modules during build)
 presentations/_assets/
 
