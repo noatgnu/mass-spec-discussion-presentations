@@ -1,5 +1,19 @@
 import { HoloImage } from '../../src/components';
 
+const iDoc    = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><rect x="5" y="4" width="18" height="20" rx="1" fill="none" style="stroke:var(--dx-gold-dim);stroke-width:1.5;opacity:0.7"/><line x1="9" y1="10" x2="19" y2="10" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.5"/><line x1="9" y1="14" x2="17" y2="14" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.5"/><line x1="9" y1="18" x2="13" y2="18" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.5"/></svg>`;
+const iClick  = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><line x1="4" y1="24" x2="24" y2="24" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.4"/><line x1="4" y1="4" x2="4" y2="24" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.4"/><circle cx="8" cy="20" r="1.5" style="fill:var(--dx-gold-dim)"/><circle cx="12" cy="15" r="1.5" style="fill:var(--dx-gold-dim)"/><circle cx="16" cy="10" r="3" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><line x1="18" y1="8" x2="22" y2="4" style="stroke:var(--dx-gold);stroke-width:1.5"/><circle cx="20" cy="17" r="1.5" style="fill:var(--dx-gold-dim)"/></svg>`;
+const iBars   = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><line x1="4" y1="24" x2="24" y2="24" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.4"/><rect x="6" y="16" width="4" height="8" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><rect x="12" y="8" width="4" height="16" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><rect x="18" y="12" width="4" height="12" fill="none" style="stroke:var(--dx-gold-dim);stroke-width:1.5;opacity:0.7"/></svg>`;
+const iNodes  = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><circle cx="14" cy="14" r="3.5" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><circle cx="5" cy="7" r="2.5" fill="none" style="stroke:var(--dx-gold-dim);stroke-width:1.2"/><circle cx="23" cy="7" r="2.5" fill="none" style="stroke:var(--dx-gold-dim);stroke-width:1.2"/><circle cx="5" cy="21" r="2.5" fill="none" style="stroke:var(--dx-gold-dim);stroke-width:1.2"/><circle cx="23" cy="21" r="2.5" fill="none" style="stroke:var(--dx-gold-dim);stroke-width:1.2"/><line x1="11" y1="12" x2="7" y2="9" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.7"/><line x1="17" y1="12" x2="21" y2="9" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.7"/><line x1="11" y1="16" x2="7" y2="19" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.7"/><line x1="17" y1="16" x2="21" y2="19" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.7"/></svg>`;
+const iFunnel = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><path d="M4 5h20l-6 8v10l-8-4V13z" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/></svg>`;
+const iHeat   = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><rect x="3" y="3" width="6" height="6" rx="0.5" fill="none" style="stroke:var(--dx-gold);stroke-width:1;opacity:0.9"/><rect x="10" y="3" width="6" height="6" rx="0.5" fill="none" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.3"/><rect x="17" y="3" width="6" height="6" rx="0.5" fill="none" style="stroke:var(--dx-gold);stroke-width:1;opacity:0.7"/><rect x="3" y="10" width="6" height="6" rx="0.5" fill="none" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.3"/><rect x="10" y="10" width="6" height="6" rx="0.5" fill="none" style="stroke:var(--dx-gold);stroke-width:1;opacity:0.9"/><rect x="17" y="10" width="6" height="6" rx="0.5" fill="none" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.5"/><rect x="3" y="17" width="6" height="6" rx="0.5" fill="none" style="stroke:var(--dx-gold);stroke-width:1;opacity:0.6"/><rect x="10" y="17" width="6" height="6" rx="0.5" fill="none" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.3"/><rect x="17" y="17" width="6" height="6" rx="0.5" fill="none" style="stroke:var(--dx-gold);stroke-width:1;opacity:0.9"/></svg>`;
+const iLink   = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><path d="M8 17l-2 2a5 5 0 0 0 8 0l4-4" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><path d="M20 11l2-2a5 5 0 0 0-8 0l-4 4" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><line x1="11" y1="17" x2="17" y2="11" style="stroke:var(--dx-gold-dim);stroke-width:1.5;opacity:0.5"/></svg>`;
+const iSeq    = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><rect x="3" y="11" width="22" height="6" rx="1" fill="none" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.5"/><circle cx="8" cy="14" r="2" fill="none" style="stroke:var(--dx-gold-dim);stroke-width:1"/><circle cx="14" cy="14" r="2.5" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><circle cx="20" cy="14" r="2" fill="none" style="stroke:var(--dx-gold-dim);stroke-width:1"/><line x1="14" y1="11" x2="14" y2="6" style="stroke:var(--dx-gold);stroke-width:1.5"/><circle cx="14" cy="5" r="2" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/></svg>`;
+const iWave   = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><line x1="4" y1="24" x2="24" y2="24" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.4"/><path d="M4 20L8 18 12 8 16 14 20 10 24 16" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/></svg>`;
+const iDBs    = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><rect x="3" y="4" width="10" height="8" rx="1" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><rect x="15" y="4" width="10" height="8" rx="1" fill="none" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.6"/><rect x="3" y="16" width="10" height="8" rx="1" fill="none" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.6"/><line x1="13" y1="8" x2="15" y2="8" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.7"/><line x1="8" y1="12" x2="8" y2="16" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.7"/></svg>`;
+const iPerson = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><circle cx="14" cy="8" r="4" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><path d="M7 24c0-6 14-6 14 0" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><rect x="10" y="14" width="8" height="5" rx="1" fill="none" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.6"/></svg>`;
+const iFolder = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><path d="M4 10L4 22L24 22L24 10L14 10L12 8L4 8Z" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><path d="M7 8V6h8l2 2" fill="none" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.5"/></svg>`;
+const iDual   = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><rect x="2" y="5" width="11" height="18" rx="1" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><rect x="15" y="5" width="11" height="18" rx="1" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><line x1="4" y1="10" x2="11" y2="10" style="stroke:var(--dx-gold-dim);stroke-width:0.8;opacity:0.5"/><line x1="4" y1="14" x2="11" y2="14" style="stroke:var(--dx-gold-dim);stroke-width:0.8;opacity:0.5"/><line x1="17" y1="10" x2="24" y2="10" style="stroke:var(--dx-gold-dim);stroke-width:0.8;opacity:0.5"/><line x1="17" y1="14" x2="24" y2="14" style="stroke:var(--dx-gold-dim);stroke-width:0.8;opacity:0.5"/></svg>`;
+
 export const section = {
     title: "Curtain & CurtainPTM",
     slides: `
@@ -11,23 +25,25 @@ export const section = {
 
 <section>
     <h2>What's wrong with a static figure?</h2>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; font-size: 0.78em;">
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 18px; background: var(--dx-holo-bg);">
-            <p style="font-family: monospace; color: var(--dx-gold); margin-bottom: 10px; font-size: 0.85em; letter-spacing: 1px;">[ A FIGURE IN A PAPER ]</p>
-            <ul style="color: var(--dx-text-secondary); line-height: 1.7;">
-                <li>You can see the pattern but cannot identify individual points</li>
-                <li>The underlying numbers are not accessible</li>
-                <li>A reviewer cannot check the data behind the image</li>
-                <li>Once published, there is no way to update it if an error is found</li>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; font-size: 0.78em;">
+        <div style="border: 1px solid var(--dx-gold-dim); padding: 20px; background: var(--dx-holo-bg); text-align: center;">
+            ${iDoc}
+            <strong style="color: var(--dx-gold-dim); display: block; margin-bottom: 12px; opacity:0.8">A figure in a paper</strong>
+            <ul style="color: var(--dx-text-secondary); line-height: 1.9; text-align: left; padding-left: 16px;">
+                <li>Visible but not queryable</li>
+                <li>Numbers inaccessible to readers</li>
+                <li>Cannot be verified by reviewers</li>
+                <li>Orphaned after publication</li>
             </ul>
         </div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 18px; background: var(--dx-holo-bg);">
-            <p style="font-family: monospace; color: var(--dx-gold); margin-bottom: 10px; font-size: 0.85em; letter-spacing: 1px;">[ A CURTAIN SESSION ]</p>
-            <ul style="color: var(--dx-text-secondary); line-height: 1.7;">
-                <li>Every data point is clickable — hover to see protein name and exact values</li>
-                <li>Readers can filter, highlight, and re-annotate the same dataset</li>
-                <li>The link can be referenced in a paper like any other citation</li>
-                <li>Sessions persist and can be imported into Cinder for cross-study queries</li>
+        <div style="border: 1px solid var(--dx-gold-dim); padding: 20px; background: var(--dx-holo-bg); text-align: center;">
+            ${iClick}
+            <strong style="color: var(--dx-gold); display: block; margin-bottom: 12px;">A Curtain session</strong>
+            <ul style="color: var(--dx-text-secondary); line-height: 1.9; text-align: left; padding-left: 16px;">
+                <li>Click any point — name and values on hover</li>
+                <li>Readers filter and re-annotate freely</li>
+                <li>Link is citable like any reference</li>
+                <li>Importable directly into Cinder</li>
             </ul>
         </div>
     </div>
@@ -35,35 +51,40 @@ export const section = {
 
 <section>
     <h2>Curtain — visualising which proteins changed</h2>
-    <p style="font-size: 0.72em; color: var(--dx-text-secondary); margin-bottom: 14px;">Upload a results table from any mass spectrometry software. Curtain generates an interactive session in seconds.</p>
-    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; font-size: 0.72em; margin-bottom: 14px;">
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 14px 10px; background: var(--dx-holo-bg); text-align: center;">
-            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">INTERACTIVE SCATTER PLOTS</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.5;">See which proteins are significantly up or down — click any point to get its identity and raw values</div>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; font-size: 0.71em; margin-bottom: 14px;">
+        <div style="border: 1px solid var(--dx-gold-dim); padding: 14px 8px; background: var(--dx-holo-bg); text-align: center;">
+            ${iClick}
+            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 4px;">INTERACTIVE SCATTER</div>
+            <div style="color: var(--dx-text-secondary); line-height: 1.5;">Click any point to inspect it</div>
         </div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 14px 10px; background: var(--dx-holo-bg); text-align: center;">
-            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">ABUNDANCE PROFILES</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.5;">Rank and bar chart views to compare expression levels across all samples for any selected protein</div>
+        <div style="border: 1px solid var(--dx-gold-dim); padding: 14px 8px; background: var(--dx-holo-bg); text-align: center;">
+            ${iBars}
+            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 4px;">ABUNDANCE PROFILES</div>
+            <div style="color: var(--dx-text-secondary); line-height: 1.5;">Compare levels across all samples</div>
         </div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 14px 10px; background: var(--dx-holo-bg); text-align: center;">
-            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">INTERACTION NETWORKS</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.5;">Map your significant hits onto a protein interaction network — drawn automatically from public databases</div>
+        <div style="border: 1px solid var(--dx-gold-dim); padding: 14px 8px; background: var(--dx-holo-bg); text-align: center;">
+            ${iNodes}
+            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 4px;">INTERACTION NETWORKS</div>
+            <div style="color: var(--dx-text-secondary); line-height: 1.5;">See how hit proteins connect</div>
         </div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 14px 10px; background: var(--dx-holo-bg); text-align: center;">
-            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">PATHWAY ENRICHMENT</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.5;">Ask what biological processes are over-represented in your hit list — directly from the same interface</div>
+        <div style="border: 1px solid var(--dx-gold-dim); padding: 14px 8px; background: var(--dx-holo-bg); text-align: center;">
+            ${iFunnel}
+            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 4px;">PATHWAY ENRICHMENT</div>
+            <div style="color: var(--dx-text-secondary); line-height: 1.5;">Find over-represented biology</div>
         </div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 14px 10px; background: var(--dx-holo-bg); text-align: center;">
-            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">SAMPLE QUALITY CHECK</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.5;">Correlation heatmap across samples to spot batch effects or outliers before drawing conclusions</div>
+        <div style="border: 1px solid var(--dx-gold-dim); padding: 14px 8px; background: var(--dx-holo-bg); text-align: center;">
+            ${iHeat}
+            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 4px;">SAMPLE QUALITY</div>
+            <div style="color: var(--dx-text-secondary); line-height: 1.5;">Spot batch effects and outliers</div>
         </div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 14px 10px; background: var(--dx-holo-bg); text-align: center;">
-            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">CITABLE LINK</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.5;">Register a DOI for any session so it can be referenced in a paper the same way a dataset or software is cited</div>
+        <div style="border: 1px solid var(--dx-gold-dim); padding: 14px 8px; background: var(--dx-holo-bg); text-align: center;">
+            ${iLink}
+            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 4px;">CITABLE LINK</div>
+            <div style="color: var(--dx-text-secondary); line-height: 1.5;">Register a DOI for any session</div>
         </div>
     </div>
     <div style="text-align: center;">
-        ${HoloImage('assets/curtain-volcano.png', 'Curtain Interactive Scatter Plot', '230px')}
+        ${HoloImage('assets/curtain-volcano.png', 'Curtain Interactive Scatter Plot', '210px')}
     </div>
 </section>
 
@@ -71,18 +92,27 @@ export const section = {
     <h2>CurtainPTM — for modification-focused experiments</h2>
     <div style="display: flex; gap: 20px; margin-top: 16px; font-size: 0.78em;">
         <div style="flex: 0.9;">
-            <p style="color: var(--dx-text-secondary); line-height: 1.6; margin-bottom: 14px;">Many mass spectrometry experiments specifically look at which sites on a protein are chemically modified — phosphorylation, ubiquitination, and others. CurtainPTM provides the same interactive sharing as Curtain, with additional views tuned for that context.</p>
-            <div style="border: 1px solid var(--dx-gold-dim); padding: 14px; background: var(--dx-holo-bg); margin-bottom: 10px;">
-                <strong style="color: var(--dx-gold); display: block; margin-bottom: 6px;">See where on the protein the change happens</strong>
-                <div style="color: var(--dx-text-secondary); line-height: 1.6;">Modified sites are mapped onto the protein sequence and structural domain diagram so the biological location is immediately clear.</div>
+            <p style="color: var(--dx-text-secondary); line-height: 1.6; margin-bottom: 14px; font-size:0.9em;">The same interactive sharing as Curtain — with additional views for experiments that measure which sites on a protein are chemically modified.</p>
+            <div style="border: 1px solid var(--dx-gold-dim); padding: 14px; background: var(--dx-holo-bg); margin-bottom: 10px; display:flex; gap:10px; align-items:flex-start;">
+                <div style="flex-shrink:0">${iSeq.replace('display:block;margin:0 auto 10px', 'display:block')}</div>
+                <div>
+                    <strong style="color: var(--dx-gold); display: block; margin-bottom: 4px;">PTM Position Viewer</strong>
+                    <div style="color: var(--dx-text-secondary); line-height: 1.5;">Modified sites mapped onto the protein sequence and domain diagram.</div>
+                </div>
             </div>
-            <div style="border: 1px solid var(--dx-gold-dim); padding: 14px; background: var(--dx-holo-bg); margin-bottom: 10px;">
-                <strong style="color: var(--dx-gold); display: block; margin-bottom: 6px;">Modification abundance across all samples</strong>
-                <div style="color: var(--dx-text-secondary); line-height: 1.6;">Profile plots show how the level of each modification changes across every sample in the experiment at a glance.</div>
+            <div style="border: 1px solid var(--dx-gold-dim); padding: 14px; background: var(--dx-holo-bg); margin-bottom: 10px; display:flex; gap:10px; align-items:flex-start;">
+                <div style="flex-shrink:0">${iWave.replace('display:block;margin:0 auto 10px', 'display:block')}</div>
+                <div>
+                    <strong style="color: var(--dx-gold); display: block; margin-bottom: 4px;">Profile Plots</strong>
+                    <div style="color: var(--dx-text-secondary); line-height: 1.5;">Modification abundance across all samples at a glance.</div>
+                </div>
             </div>
-            <div style="border: 1px solid var(--dx-gold-dim); padding: 14px; background: var(--dx-holo-bg);">
-                <strong style="color: var(--dx-gold); display: block; margin-bottom: 6px;">Connected to specialist databases</strong>
-                <div style="color: var(--dx-text-secondary); line-height: 1.6;">Look up known kinase–substrate relationships, glycosylation annotations, and other site-specific biology without leaving the session.</div>
+            <div style="border: 1px solid var(--dx-gold-dim); padding: 14px; background: var(--dx-holo-bg); display:flex; gap:10px; align-items:flex-start;">
+                <div style="flex-shrink:0">${iDBs.replace('display:block;margin:0 auto 10px', 'display:block')}</div>
+                <div>
+                    <strong style="color: var(--dx-gold); display: block; margin-bottom: 4px;">Specialist Databases</strong>
+                    <div style="color: var(--dx-text-secondary); line-height: 1.5;">Kinase-substrate relationships and site annotations inline.</div>
+                </div>
             </div>
         </div>
         <div style="flex: 1.1; text-align: center; display: flex; align-items: center; justify-content: center;">
@@ -94,21 +124,25 @@ export const section = {
 <section>
     <h2>Designed for sharing at every stage</h2>
     <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 20px; font-size: 0.75em;">
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 16px 12px; background: var(--dx-holo-bg); text-align: center;">
-            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 8px;">LINK SHARING</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.5;">Every session has a permanent URL. Include it in a paper, a grant, or a lab meeting slide — no login required to view.</div>
+        <div style="border: 1px solid var(--dx-gold-dim); padding: 18px 12px; background: var(--dx-holo-bg); text-align: center;">
+            ${iLink}
+            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">LINK SHARING</div>
+            <div style="color: var(--dx-text-secondary); line-height: 1.5;">Permanent URL — no login to view</div>
         </div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 16px 12px; background: var(--dx-holo-bg); text-align: center;">
-            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 8px;">ORCID LOGIN</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.5;">Sign in with your researcher ID to own sessions, manage collections, and track how often they are accessed.</div>
+        <div style="border: 1px solid var(--dx-gold-dim); padding: 18px 12px; background: var(--dx-holo-bg); text-align: center;">
+            ${iPerson}
+            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">ORCID LOGIN</div>
+            <div style="color: var(--dx-text-secondary); line-height: 1.5;">Own sessions and track access with your researcher ID</div>
         </div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 16px 12px; background: var(--dx-holo-bg); text-align: center;">
-            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 8px;">COLLECTIONS</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.5;">Bundle related sessions into a named collection — useful for grouping all figures from one project or paper.</div>
+        <div style="border: 1px solid var(--dx-gold-dim); padding: 18px 12px; background: var(--dx-holo-bg); text-align: center;">
+            ${iFolder}
+            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">COLLECTIONS</div>
+            <div style="color: var(--dx-text-secondary); line-height: 1.5;">Group sessions from one project together</div>
         </div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 16px 12px; background: var(--dx-holo-bg); text-align: center;">
-            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 8px;">SIDE-BY-SIDE COMPARISON</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.5;">Load two sessions together to compare conditions, biological replicates, or independent experiments.</div>
+        <div style="border: 1px solid var(--dx-gold-dim); padding: 18px 12px; background: var(--dx-holo-bg); text-align: center;">
+            ${iDual}
+            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">SIDE-BY-SIDE</div>
+            <div style="color: var(--dx-text-secondary); line-height: 1.5;">Compare two sessions in the same window</div>
         </div>
     </div>
 </section>

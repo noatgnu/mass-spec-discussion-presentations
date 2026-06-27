@@ -1,3 +1,11 @@
+const iFlask = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><path d="M11 4h6v9l5.5 11H5.5L11 13z" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><line x1="11" y1="4" x2="17" y2="4" style="stroke:var(--dx-gold-dim);stroke-width:1.5"/><line x1="7" y1="19" x2="21" y2="19" style="stroke:var(--dx-gold-dim);stroke-width:1;stroke-dasharray:2 2;opacity:0.5"/></svg>`;
+const iExit  = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><rect x="4" y="6" width="13" height="16" rx="1" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><path d="M17 14h7M21 11l3 3-3 3" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/></svg>`;
+const iDoc   = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><rect x="5" y="4" width="18" height="20" rx="1" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><line x1="9" y1="10" x2="19" y2="10" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.6"/><line x1="9" y1="14" x2="17" y2="14" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.6"/><line x1="9" y1="18" x2="14" y2="18" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.6"/></svg>`;
+const iCycle = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><path d="M7 14A7 7 0 1 1 14 21" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><path d="M14 21l-3-3m3 3l3-3" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/></svg>`;
+const iDB    = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><ellipse cx="14" cy="8" rx="9" ry="3.5" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><path d="M5 8v12c0 1.9 4 3.5 9 3.5s9-1.6 9-3.5V8" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><ellipse cx="14" cy="14" rx="9" ry="3.5" fill="none" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.4;stroke-dasharray:3 2"/></svg>`;
+const iDots  = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><line x1="4" y1="24" x2="24" y2="24" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.4"/><line x1="4" y1="4" x2="4" y2="24" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.4"/><circle cx="8" cy="20" r="1.5" style="fill:var(--dx-gold-dim)"/><circle cx="12" cy="15" r="1.5" style="fill:var(--dx-gold-dim)"/><circle cx="15" cy="11" r="2.5" style="fill:none;stroke:var(--dx-gold);stroke-width:1.5"/><line x1="17" y1="9" x2="21" y2="5" style="stroke:var(--dx-gold);stroke-width:1.5"/><circle cx="20" cy="17" r="1.5" style="fill:var(--dx-gold-dim)"/></svg>`;
+const iLens  = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><circle cx="12" cy="12" r="7" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><line x1="17" y1="17" x2="23" y2="23" style="stroke:var(--dx-gold);stroke-width:2;stroke-linecap:round"/></svg>`;
+
 export const section = {
     title: "The Problem",
     slides: `
@@ -6,31 +14,18 @@ export const section = {
     <svg viewBox="0 0 900 82" style="width:100%; height:auto; display:block; margin: 6px 0 16px 0;" xmlns="http://www.w3.org/2000/svg">
         <text x="8" y="46" font-family="monospace" font-size="9" letter-spacing="1" style="fill: var(--dx-gold)">EXPERIMENT</text>
         <text x="820" y="46" font-family="monospace" font-size="9" letter-spacing="1" style="fill: var(--dx-gold)">PUBLICATION</text>
-        <!-- stable opening -->
         <path d="M 112 41 L 185 41" stroke-width="1.5" fill="none" style="stroke: var(--dx-gold)"/>
-        <!-- wobble 1 (small) -->
         <path d="M 185 41 L 194 33 L 202 52 L 210 36 L 218 41" stroke-width="1.5" fill="none" style="stroke: var(--dx-gold-dim)"/>
-        <!-- stable -->
         <path d="M 218 41 L 292 41" stroke-width="1.5" fill="none" style="stroke: var(--dx-gold); opacity:0.85"/>
-        <!-- near-break 1 (dashed gap) -->
         <path d="M 292 41 L 338 41" stroke-width="1" fill="none" stroke-dasharray="3 7" style="stroke: var(--dx-gold-dim); opacity:0.45"/>
-        <!-- wobble 2 (medium) -->
         <path d="M 340 42 L 354 29 L 366 58 L 380 31 L 392 42" stroke-width="1.5" fill="none" style="stroke: var(--dx-gold-dim)"/>
-        <!-- stable -->
         <path d="M 392 42 L 432 42" stroke-width="1.5" fill="none" style="stroke: var(--dx-gold); opacity:0.8"/>
-        <!-- wobble 3 (wildest, largest amplitude) -->
         <path d="M 432 42 L 445 18 L 460 68 L 475 14 L 490 70 L 505 42" stroke-width="1.5" fill="none" style="stroke: var(--dx-gold-dim)"/>
-        <!-- stable -->
         <path d="M 505 42 L 565 42" stroke-width="1.5" fill="none" style="stroke: var(--dx-gold); opacity:0.8"/>
-        <!-- wobble 4 (medium) -->
         <path d="M 565 42 L 575 31 L 585 55 L 595 36 L 605 42" stroke-width="1.5" fill="none" style="stroke: var(--dx-gold-dim)"/>
-        <!-- near-break 2 (dashed gap) -->
         <path d="M 605 42 L 652 42" stroke-width="1" fill="none" stroke-dasharray="2 8" style="stroke: var(--dx-gold-dim); opacity:0.4"/>
-        <!-- wobble 5 (small, recovering) -->
         <path d="M 654 43 L 661 36 L 669 51 L 676 39 L 683 43" stroke-width="1.5" fill="none" style="stroke: var(--dx-gold-dim)"/>
-        <!-- stable to end -->
         <path d="M 683 43 L 818 43" stroke-width="1.5" fill="none" style="stroke: var(--dx-gold)"/>
-        <!-- stress dots at extremes -->
         <circle cx="202" cy="52" r="2.5" style="fill: var(--dx-gold-dim); opacity:0.65"/>
         <circle cx="315" cy="41" r="2" style="fill: var(--dx-gold-dim); opacity:0.4"/>
         <circle cx="366" cy="58" r="2.5" style="fill: var(--dx-gold-dim); opacity:0.65"/>
@@ -39,44 +34,51 @@ export const section = {
         <circle cx="585" cy="55" r="2.5" style="fill: var(--dx-gold-dim); opacity:0.65"/>
         <circle cx="630" cy="42" r="2" style="fill: var(--dx-gold-dim); opacity:0.4"/>
     </svg>
-    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; font-size: 0.72em; margin-top: 4px;">
-        <div style="padding: 16px; background: var(--dx-holo-bg); border: 1px solid var(--dx-gold-dim); border-right: none;">
-            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 8px;">01 · RUN</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.6;">Experiments are run. Results are produced. The "who, what, when, and how" lives in someone's head or a private spreadsheet.</div>
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; font-size: 0.72em;">
+        <div style="padding: 16px; background: var(--dx-holo-bg); border: 1px solid var(--dx-gold-dim); border-right: none; text-align: center;">
+            ${iFlask}
+            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">01 · RUN</div>
+            <div style="color: var(--dx-text-secondary); line-height: 1.6;">Experiments run. Context lives in someone's head.</div>
         </div>
-        <div style="padding: 16px; background: var(--dx-holo-bg); border: 1px solid var(--dx-gold-dim); border-right: none;">
-            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 8px;">02 · MOVE ON</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.6;">People graduate, switch projects, or leave. The context they carried disappears with them.</div>
+        <div style="padding: 16px; background: var(--dx-holo-bg); border: 1px solid var(--dx-gold-dim); border-right: none; text-align: center;">
+            ${iExit}
+            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">02 · MOVE ON</div>
+            <div style="color: var(--dx-text-secondary); line-height: 1.6;">People graduate. Their knowledge leaves with them.</div>
         </div>
-        <div style="padding: 16px; background: var(--dx-holo-bg); border: 1px solid var(--dx-gold-dim); border-right: none;">
-            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 8px;">03 · SHARE</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.6;">Results go out as static figures or PDFs. A reader can look at the graph but cannot interact with or interrogate the underlying data.</div>
+        <div style="padding: 16px; background: var(--dx-holo-bg); border: 1px solid var(--dx-gold-dim); border-right: none; text-align: center;">
+            ${iDoc}
+            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">03 · SHARE</div>
+            <div style="color: var(--dx-text-secondary); line-height: 1.6;">Results go out as static images. Readers can look, not explore.</div>
         </div>
-        <div style="padding: 16px; background: var(--dx-holo-bg); border: 1px solid var(--dx-gold-dim);">
-            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 8px;">04 · REPEAT</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.6;">The next project starts from scratch — unable to build on what the lab has already learned, because no one knows it exists.</div>
+        <div style="padding: 16px; background: var(--dx-holo-bg); border: 1px solid var(--dx-gold-dim); text-align: center;">
+            ${iCycle}
+            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">04 · REPEAT</div>
+            <div style="color: var(--dx-text-secondary); line-height: 1.6;">The next project starts from scratch.</div>
         </div>
     </div>
 </section>
 
 <section>
     <h2>Three tools built to address this</h2>
-    <p style="font-size: 0.75em; color: var(--dx-text-secondary); margin-bottom: 24px;">Each application tackles a different point where research knowledge is typically lost.</p>
+    <p style="font-size: 0.75em; color: var(--dx-text-secondary); margin-bottom: 24px;">Each tackles a different point where research knowledge is typically lost.</p>
     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; font-size: 0.78em;">
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 20px; background: var(--dx-holo-bg); text-align: center;">
-            <div style="font-family: monospace; color: var(--dx-gold); letter-spacing: 1px; font-size: 0.85em; margin-bottom: 10px;">[ CUPCAKE ]</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.6; margin-bottom: 10px;">Record what was done, how, and with what — structured so that anyone can find and reuse it later.</div>
-            <div style="font-size: 0.8em; color: var(--dx-gold-dim); font-family: monospace;">RECORD &amp; ORGANISE</div>
+        <div style="border: 1px solid var(--dx-gold-dim); padding: 24px 20px; background: var(--dx-holo-bg); text-align: center;">
+            ${iDB}
+            <div style="font-family: monospace; color: var(--dx-gold); letter-spacing: 1px; font-size: 0.85em; margin-bottom: 8px;">[ CUPCAKE ]</div>
+            <div style="color: var(--dx-text-secondary); line-height: 1.6;">Record what was done, how, and with what.</div>
+            <div style="font-size: 0.8em; color: var(--dx-gold-dim); font-family: monospace; margin-top: 10px;">RECORD &amp; ORGANISE</div>
         </div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 20px; background: var(--dx-holo-bg); text-align: center;">
-            <div style="font-family: monospace; color: var(--dx-gold); letter-spacing: 1px; font-size: 0.85em; margin-bottom: 10px;">[ CURTAIN / PTM ]</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.6; margin-bottom: 10px;">Turn analysis results into interactive figures that anyone can explore — not just look at.</div>
-            <div style="font-size: 0.8em; color: var(--dx-gold-dim); font-family: monospace;">SHARE &amp; CITE</div>
+        <div style="border: 1px solid var(--dx-gold-dim); padding: 24px 20px; background: var(--dx-holo-bg); text-align: center;">
+            ${iDots}
+            <div style="font-family: monospace; color: var(--dx-gold); letter-spacing: 1px; font-size: 0.85em; margin-bottom: 8px;">[ CURTAIN / PTM ]</div>
+            <div style="color: var(--dx-text-secondary); line-height: 1.6;">Turn results into figures anyone can explore.</div>
+            <div style="font-size: 0.8em; color: var(--dx-gold-dim); font-family: monospace; margin-top: 10px;">SHARE &amp; CITE</div>
         </div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 20px; background: var(--dx-holo-bg); text-align: center;">
-            <div style="font-family: monospace; color: var(--dx-gold); letter-spacing: 1px; font-size: 0.85em; margin-bottom: 10px;">[ CINDER ]</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.6; margin-bottom: 10px;">Search and compare findings across many experiments at once — without repeating the analysis.</div>
-            <div style="font-size: 0.8em; color: var(--dx-gold-dim); font-family: monospace;">CONNECT &amp; DISCOVER</div>
+        <div style="border: 1px solid var(--dx-gold-dim); padding: 24px 20px; background: var(--dx-holo-bg); text-align: center;">
+            ${iLens}
+            <div style="font-family: monospace; color: var(--dx-gold); letter-spacing: 1px; font-size: 0.85em; margin-bottom: 8px;">[ CINDER ]</div>
+            <div style="color: var(--dx-text-secondary); line-height: 1.6;">Search across many experiments at once.</div>
+            <div style="font-size: 0.8em; color: var(--dx-gold-dim); font-family: monospace; margin-top: 10px;">CONNECT &amp; DISCOVER</div>
         </div>
     </div>
 </section>

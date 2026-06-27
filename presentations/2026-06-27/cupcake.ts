@@ -1,32 +1,44 @@
 import { HoloImage } from '../../src/components';
 
+const iCheck  = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><circle cx="14" cy="14" r="10" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><path d="M9 14l3 3 6-7" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/></svg>`;
+const iBlock  = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><circle cx="14" cy="14" r="10" fill="none" style="stroke:var(--dx-gold-dim);stroke-width:1.5;opacity:0.7"/><line x1="9" y1="9" x2="19" y2="19" style="stroke:var(--dx-gold-dim);stroke-width:1.5;opacity:0.7"/><line x1="19" y1="9" x2="9" y2="19" style="stroke:var(--dx-gold-dim);stroke-width:1.5;opacity:0.7"/></svg>`;
+const iGrid   = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><rect x="4" y="4" width="20" height="20" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><line x1="4" y1="10" x2="24" y2="10" style="stroke:var(--dx-gold-dim);stroke-width:1"/><line x1="4" y1="16" x2="24" y2="16" style="stroke:var(--dx-gold-dim);stroke-width:1"/><line x1="12" y1="4" x2="12" y2="24" style="stroke:var(--dx-gold-dim);stroke-width:1"/></svg>`;
+const iBolt   = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><path d="M16 4L8 16h6l-2 8 10-13h-6z" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/></svg>`;
+const iBook   = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><rect x="4" y="3" width="14" height="18" rx="1" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><line x1="7" y1="8" x2="15" y2="8" style="stroke:var(--dx-gold-dim);stroke-width:1"/><line x1="7" y1="12" x2="13" y2="12" style="stroke:var(--dx-gold-dim);stroke-width:1"/><circle cx="21" cy="21" r="4" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><line x1="24" y1="24" x2="27" y2="27" style="stroke:var(--dx-gold);stroke-width:1.5"/></svg>`;
+const iShield = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><path d="M14 3l9 4v9c0 5-9 9-9 9s-9-4-9-9V7z" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><path d="M10 14l3 3 5-6" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/></svg>`;
+const iUpload = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><path d="M14 4v14M9 9l5-5 5 5" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><path d="M6 20v4h16v-4" fill="none" style="stroke:var(--dx-gold-dim);stroke-width:1.5;opacity:0.7"/></svg>`;
+const iLens   = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><circle cx="12" cy="12" r="7" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><line x1="17" y1="17" x2="23" y2="23" style="stroke:var(--dx-gold);stroke-width:2;stroke-linecap:round"/></svg>`;
+const iDevice = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><rect x="4" y="8" width="20" height="13" rx="1" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><rect x="7" y="11" width="6" height="4" rx="0.5" fill="none" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.7"/><line x1="17" y1="13" x2="19" y2="13" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.7"/><line x1="14" y1="8" x2="14" y2="5" style="stroke:var(--dx-gold);stroke-width:1;opacity:0.6"/></svg>`;
+const iLayers = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><path d="M4 10l10-6 10 6-10 6z" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><path d="M4 16l10 6 10-6" fill="none" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.6"/><path d="M4 13l10 6 10-6" fill="none" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.35"/></svg>`;
+
 export const section = {
     title: "Cupcake",
     slides: `
 <section>
     <h1>Cupcake</h1>
-    <p>A platform for recording and managing the details behind every mass spectrometry experiment — in a format that is structured, reusable, and accepted by public repositories.</p>
+    <p>Record and manage the details behind every experiment — in a format that is structured, reusable, and accepted by public repositories.</p>
     ${HoloImage('assets/cupcake-vanilla-overview.png', 'Cupcake Vanilla Metadata Table Overview', '340px')}
 </section>
 
 <section>
-    <h2>The annotation problem</h2>
-    <p style="font-size: 0.75em; color: var(--dx-text-secondary); margin-bottom: 20px;">Public repositories like PRIDE hold tens of thousands of proteomics datasets. Only those with rich, structured metadata can be re-analysed or integrated into meta-studies.</p>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; font-size: 0.78em;">
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 18px; background: var(--dx-holo-bg);">
-            <strong style="color: var(--dx-gold); display: block; margin-bottom: 8px;">What good annotation enables</strong>
-            <ul style="color: var(--dx-text-secondary); line-height: 1.7;">
-                <li>Anyone can reproduce the experiment — knowing exactly what samples were used, how they were prepared, and which instrument parameters were applied</li>
-                <li>Datasets can be discovered by other researchers searching by organism, disease, tissue, or treatment</li>
-                <li>Results become eligible for large-scale meta-analyses</li>
+    <h2>Why structured annotation matters</h2>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; font-size: 0.78em;">
+        <div style="border: 1px solid var(--dx-gold-dim); padding: 20px; background: var(--dx-holo-bg); text-align: center;">
+            ${iCheck}
+            <strong style="color: var(--dx-gold); display: block; margin-bottom: 12px;">Good annotation enables</strong>
+            <ul style="color: var(--dx-text-secondary); line-height: 1.9; text-align: left; padding-left: 16px;">
+                <li>Independent reproduction of results</li>
+                <li>Discovery by other researchers</li>
+                <li>Inclusion in large meta-studies</li>
             </ul>
         </div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 18px; background: var(--dx-holo-bg);">
-            <strong style="color: var(--dx-gold); display: block; margin-bottom: 8px;">Why it rarely happens</strong>
-            <ul style="color: var(--dx-text-secondary); line-height: 1.7;">
-                <li>The required format (SDRF) has dozens of columns — easy to get wrong and time-consuming to fill manually</li>
-                <li>Finding the correct controlled vocabulary term requires switching between external tools</li>
-                <li>There is no official requirement, so it stays low priority until submission</li>
+        <div style="border: 1px solid var(--dx-gold-dim); padding: 20px; background: var(--dx-holo-bg); text-align: center;">
+            ${iBlock}
+            <strong style="color: var(--dx-gold-dim); display: block; margin-bottom: 12px; opacity:0.8">Why it rarely happens</strong>
+            <ul style="color: var(--dx-text-secondary); line-height: 1.9; text-align: left; padding-left: 16px; opacity:0.85">
+                <li>Many required columns — easy to get wrong</li>
+                <li>Term lookup needs external tools</li>
+                <li>No official requirement enforces it</li>
             </ul>
         </div>
     </div>
@@ -34,27 +46,31 @@ export const section = {
 
 <section>
     <h2>Cupcake Vanilla — annotation without the friction</h2>
-    <p style="font-size: 0.72em; color: var(--dx-text-secondary); margin-bottom: 14px;">A dedicated editor that makes structured annotation faster than doing it in a plain spreadsheet.</p>
     <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; font-size: 0.7em; margin-bottom: 16px;">
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 14px 8px; background: var(--dx-holo-bg); text-align: center;">
+        <div style="border: 1px solid var(--dx-gold-dim); padding: 16px 8px; background: var(--dx-holo-bg); text-align: center;">
+            ${iGrid}
             <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">TEMPLATES</div>
-            <div style="color: var(--dx-text-secondary); font-size: 0.9em; line-height: 1.5;">Define the column layout once and reuse it for every experiment of the same type</div>
+            <div style="color: var(--dx-text-secondary); font-size: 0.9em; line-height: 1.5;">Reuse column layouts across every experiment</div>
         </div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 14px 8px; background: var(--dx-holo-bg); text-align: center;">
+        <div style="border: 1px solid var(--dx-gold-dim); padding: 16px 8px; background: var(--dx-holo-bg); text-align: center;">
+            ${iBolt}
             <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">AUTO-FILL</div>
-            <div style="color: var(--dx-text-secondary); font-size: 0.9em; line-height: 1.5;">Fill hundreds of cells using simple naming patterns — no manual copy-pasting across rows</div>
+            <div style="color: var(--dx-text-secondary); font-size: 0.9em; line-height: 1.5;">Fill hundreds of cells from a pattern</div>
         </div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 14px 8px; background: var(--dx-holo-bg); text-align: center;">
+        <div style="border: 1px solid var(--dx-gold-dim); padding: 16px 8px; background: var(--dx-holo-bg); text-align: center;">
+            ${iBook}
             <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">TERM LOOKUP</div>
-            <div style="color: var(--dx-text-secondary); font-size: 0.9em; line-height: 1.5;">Search standard scientific vocabularies inline — the correct identifier is filled automatically</div>
+            <div style="color: var(--dx-text-secondary); font-size: 0.9em; line-height: 1.5;">Search scientific vocabularies inline</div>
         </div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 14px 8px; background: var(--dx-holo-bg); text-align: center;">
+        <div style="border: 1px solid var(--dx-gold-dim); padding: 16px 8px; background: var(--dx-holo-bg); text-align: center;">
+            ${iShield}
             <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">VALIDATION</div>
-            <div style="color: var(--dx-text-secondary); font-size: 0.9em; line-height: 1.5;">Check the completed annotation against the official requirements before submitting to a repository</div>
+            <div style="color: var(--dx-text-secondary); font-size: 0.9em; line-height: 1.5;">Check annotation before submission</div>
         </div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 14px 8px; background: var(--dx-holo-bg); text-align: center;">
+        <div style="border: 1px solid var(--dx-gold-dim); padding: 16px 8px; background: var(--dx-holo-bg); text-align: center;">
+            ${iUpload}
             <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">EXPORT</div>
-            <div style="color: var(--dx-text-secondary); font-size: 0.9em; line-height: 1.5;">Download in the exact file format required by PRIDE and other public repositories</div>
+            <div style="color: var(--dx-text-secondary); font-size: 0.9em; line-height: 1.5;">Download in repository-ready format</div>
         </div>
     </div>
     <div style="text-align: center;">
@@ -63,20 +79,29 @@ export const section = {
 </section>
 
 <section>
-    <h2>Structured metadata becomes a discovery layer</h2>
+    <h2>Structured metadata becomes searchable history</h2>
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 16px; font-size: 0.78em;">
         <div>
-            <div style="border: 1px solid var(--dx-gold-dim); padding: 16px; background: var(--dx-holo-bg); margin-bottom: 12px;">
-                <strong style="color: var(--dx-gold); display: block; margin-bottom: 6px;">Find any experiment, instantly</strong>
-                <div style="color: var(--dx-text-secondary); line-height: 1.6;">Filter the entire lab archive by organism, tissue, treatment, reagent, or instrument. What used to require emailing a former PhD student now takes seconds.</div>
+            <div style="border: 1px solid var(--dx-gold-dim); padding: 16px; background: var(--dx-holo-bg); margin-bottom: 12px; display:flex; gap:12px; align-items:flex-start;">
+                <div style="flex-shrink:0">${iLens.replace('display:block;margin:0 auto 10px', 'display:block;margin-top:2px')}</div>
+                <div>
+                    <strong style="color: var(--dx-gold); display: block; margin-bottom: 4px;">Find any experiment instantly</strong>
+                    <div style="color: var(--dx-text-secondary); line-height: 1.6;">Filter the entire lab archive by organism, tissue, instrument, or treatment.</div>
+                </div>
             </div>
-            <div style="border: 1px solid var(--dx-gold-dim); padding: 16px; background: var(--dx-holo-bg); margin-bottom: 12px;">
-                <strong style="color: var(--dx-gold); display: block; margin-bottom: 6px;">Templates shared across the lab</strong>
-                <div style="color: var(--dx-text-secondary); line-height: 1.6;">A template created by one person is available to everyone — new members follow the same structure from day one, without needing to be trained on the format.</div>
+            <div style="border: 1px solid var(--dx-gold-dim); padding: 16px; background: var(--dx-holo-bg); margin-bottom: 12px; display:flex; gap:12px; align-items:flex-start;">
+                <div style="flex-shrink:0">${iDevice.replace('display:block;margin:0 auto 10px', 'display:block;margin-top:2px')}</div>
+                <div>
+                    <strong style="color: var(--dx-gold); display: block; margin-bottom: 4px;">Instruments that annotate themselves</strong>
+                    <div style="color: var(--dx-text-secondary); line-height: 1.6;">Device tokens let instruments push metadata directly — less manual entry.</div>
+                </div>
             </div>
-            <div style="border: 1px solid var(--dx-gold-dim); padding: 16px; background: var(--dx-holo-bg);">
-                <strong style="color: var(--dx-gold); display: block; margin-bottom: 6px;">Beyond metadata — the full platform</strong>
-                <div style="color: var(--dx-text-secondary); line-height: 1.6;">Cupcake also supports instrument booking, reagent inventory, an electronic lab notebook with protocol import, and facility billing — as optional modules that can be added when needed.</div>
+            <div style="border: 1px solid var(--dx-gold-dim); padding: 16px; background: var(--dx-holo-bg); display:flex; gap:12px; align-items:flex-start;">
+                <div style="flex-shrink:0">${iLayers.replace('display:block;margin:0 auto 10px', 'display:block;margin-top:2px')}</div>
+                <div>
+                    <strong style="color: var(--dx-gold); display: block; margin-bottom: 4px;">There's more when you need it</strong>
+                    <div style="color: var(--dx-text-secondary); line-height: 1.6;">Instrument booking, lab notebook, and facility billing as optional add-ons.</div>
+                </div>
             </div>
         </div>
         <div style="text-align: center; display: flex; align-items: center; justify-content: center;">
