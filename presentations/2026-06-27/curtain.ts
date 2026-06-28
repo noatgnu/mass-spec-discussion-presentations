@@ -86,12 +86,12 @@ export const section = {
     <h2>CurtainPTM: changes at modification level</h2>
     <div style="display: flex; gap: 20px; margin-top: 16px; font-size: 0.78em;">
         <div style="flex: 0.9;">
-            <p style="color: var(--dx-text-secondary); line-height: 1.6; margin-bottom: 14px; font-size:0.9em;">The same interactive sharing as Curtain — with additional views for experiments that measure which sites on a protein are chemically modified.</p>
+            <p style="color: var(--dx-text-secondary); line-height: 1.6; margin-bottom: 14px; font-size:0.9em;">The same interactive sharing as Curtain but with additional functionality for modifications.</p>
             <div style="border: 1px solid var(--dx-gold-dim); padding: 14px; background: var(--dx-holo-bg); margin-bottom: 10px; display:flex; gap:10px; align-items:flex-start;">
                 <div style="flex-shrink:0">${iSeq.replace('display:block;margin:0 auto 10px', 'display:block')}</div>
                 <div>
                     <strong style="color: var(--dx-gold); display: block; margin-bottom: 4px;">PTM Position Viewer</strong>
-                    <div style="color: var(--dx-text-secondary); line-height: 1.5;">Modified sites mapped onto the protein sequence and domain diagram.</div>
+                    <div style="color: var(--dx-text-secondary); line-height: 1.5;">Modified sites mapped onto the protein sequence and comparing to available knowledgebase of modification for that protein.</div>
                 </div>
             </div>
             <div style="border: 1px solid var(--dx-gold-dim); padding: 14px; background: var(--dx-holo-bg); margin-bottom: 10px; display:flex; gap:10px; align-items:flex-start;">
@@ -99,13 +99,6 @@ export const section = {
                 <div>
                     <strong style="color: var(--dx-gold); display: block; margin-bottom: 4px;">Profile Plots</strong>
                     <div style="color: var(--dx-text-secondary); line-height: 1.5;">Modification abundance across all samples at a glance.</div>
-                </div>
-            </div>
-            <div style="border: 1px solid var(--dx-gold-dim); padding: 14px; background: var(--dx-holo-bg); display:flex; gap:10px; align-items:flex-start;">
-                <div style="flex-shrink:0">${iDBs.replace('display:block;margin:0 auto 10px', 'display:block')}</div>
-                <div>
-                    <strong style="color: var(--dx-gold); display: block; margin-bottom: 4px;">Specialist Databases</strong>
-                    <div style="color: var(--dx-text-secondary); line-height: 1.5;">Kinase-substrate relationships and site annotations inline.</div>
                 </div>
             </div>
         </div>
@@ -116,7 +109,7 @@ export const section = {
 </section>
 
 <section>
-    <h2>Designed for sharing at every stage</h2>
+    <h2>Login with your ORCID and create DOI for your publication</h2>
     <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 20px; font-size: 0.75em;">
         <div style="border: 1px solid var(--dx-gold-dim); padding: 18px 12px; background: var(--dx-holo-bg); text-align: center;">
             ${iLink}
@@ -131,12 +124,7 @@ export const section = {
         <div style="border: 1px solid var(--dx-gold-dim); padding: 18px 12px; background: var(--dx-holo-bg); text-align: center;">
             ${iFolder}
             <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">COLLECTIONS</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.5;">Group sessions from one project together</div>
-        </div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 18px 12px; background: var(--dx-holo-bg); text-align: center;">
-            ${iDual}
-            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">SIDE-BY-SIDE</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.5;">Compare two sessions in the same window</div>
+            <div style="color: var(--dx-text-secondary); line-height: 1.5;">Group sessions to be shared in a single link</div>
         </div>
     </div>
 </section>
