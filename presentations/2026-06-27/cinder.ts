@@ -13,26 +13,26 @@ export const section = {
     slides: `
 <section>
     <h1>Cinder</h1>
-    <p>Search and compare findings across many experiments at once — so that years of individual analyses can finally talk to each other.</p>
+    <p>Collating your results into searchable collections</p>
     ${HoloImage('assets/cinder-overview.png', 'Cinder Application Overview', '340px')}
 </section>
 
 <section>
-    <h2>Each experiment shouldn't stand alone</h2>
+    <h2>The convenience of being able to search all your previous works for specific targets of interests</h2>
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; font-size: 0.78em;">
         <div>
             <div style="border: 1px solid var(--dx-gold-dim); padding: 16px; background: var(--dx-holo-bg); margin-bottom: 12px; display:flex; gap:12px; align-items:flex-start;">
                 <div style="flex-shrink:0">${iFiles.replace('display:block;margin:0 auto 10px', 'display:block;margin-top:2px')}</div>
                 <div>
-                    <strong style="color: var(--dx-gold); display: block; margin-bottom: 4px;">Manual lookup doesn't scale</strong>
+                    <strong style="color: var(--dx-gold); display: block; margin-bottom: 4px;">Manual lookup is time consuming</strong>
                     <div style="color: var(--dx-text-secondary); line-height: 1.5;">Searching for a protein across dozens of experiments means opening files one by one.</div>
                 </div>
             </div>
             <div style="border: 1px solid var(--dx-gold-dim); padding: 16px; background: var(--dx-holo-bg); display:flex; gap:12px; align-items:flex-start;">
                 <div style="flex-shrink:0">${iLens.replace('display:block;margin:0 auto 10px', 'display:block;margin-top:2px')}</div>
                 <div>
-                    <strong style="color: var(--dx-gold); display: block; margin-bottom: 4px;">No aggregated view exists</strong>
-                    <div style="color: var(--dx-text-secondary); line-height: 1.5;">"Where is Protein X regulated?" can't be answered across a full lab archive without starting over.</div>
+                    <strong style="color: var(--dx-gold); display: block; margin-bottom: 4px;">Building a database of results is nontrivial</strong>
+                    <div style="color: var(--dx-text-secondary); line-height: 1.5;">Without a central database, it is tricky to perform any search at all</div>
                 </div>
             </div>
         </div>
@@ -54,58 +54,26 @@ export const section = {
         <div style="padding: 16px; background: var(--dx-holo-bg); border: 1px solid var(--dx-gold-dim); border-right: none; text-align: center;">
             ${iDL}
             <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">01 · COLLECT</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.6;">Paste Curtain session links — no re-upload needed</div>
-        </div>
-        <div style="padding: 16px; background: var(--dx-holo-bg); border: 1px solid var(--dx-gold-dim); border-right: none; text-align: center;">
-            ${iLens}
-            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">02 · SEARCH</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.6;">Type a protein name — results from every experiment</div>
+            <div style="color: var(--dx-text-secondary); line-height: 1.6;">Manually import search and differential analysis output separately or from existing Curtain sessions</div>
         </div>
         <div style="padding: 16px; background: var(--dx-holo-bg); border: 1px solid var(--dx-gold-dim); border-right: none; text-align: center;">
             ${iFilter}
-            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">03 · SELECT</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.6;">Choose experiments and configure condition labels</div>
+            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">02 · COLLATE</div>
+            <div style="color: var(--dx-text-secondary); line-height: 1.6;">Create shareable collection of experiments</div>
+        </div>
+        <div style="padding: 16px; background: var(--dx-holo-bg); border: 1px solid var(--dx-gold-dim); border-right: none; text-align: center;">
+            ${iLens}
+            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">03 · SEARCH</div>
+            <div style="color: var(--dx-text-secondary); line-height: 1.6;">Use curated protein list or your owned protein of interests</div>
         </div>
         <div style="padding: 16px; background: var(--dx-holo-bg); border: 1px solid var(--dx-gold-dim); text-align: center;">
             ${iHeat}
             <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">04 · VISUALISE</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.6;">Heatmap or network — share with a permanent link</div>
+            <div style="color: var(--dx-text-secondary); line-height: 1.6;">Explore the result in bar charts of intensity across different samples or a heatmap of changes direction across experiments</div>
         </div>
     </div>
     <div style="text-align: center;">
         ${HoloImage('assets/cinder-search.png', 'Cinder Cross-Dataset Search', '230px')}
-    </div>
-</section>
-
-<section>
-    <h2>Organise and share cross-experiment findings</h2>
-    <div style="display: flex; gap: 20px; margin-top: 14px; font-size: 0.78em;">
-        <div style="flex: 0.9;">
-            <div style="border: 1px solid var(--dx-gold-dim); padding: 14px; background: var(--dx-holo-bg); margin-bottom: 10px; display:flex; gap:10px; align-items:flex-start;">
-                <div style="flex-shrink:0">${iHeat.replace('display:block;margin:0 auto 10px', 'display:block')}</div>
-                <div>
-                    <strong style="color: var(--dx-gold); display: block; margin-bottom: 4px;">Multi-experiment heatmap</strong>
-                    <div style="color: var(--dx-text-secondary); line-height: 1.5;">All fold changes in one colour-coded grid — reorder, rename, export.</div>
-                </div>
-            </div>
-            <div style="border: 1px solid var(--dx-gold-dim); padding: 14px; background: var(--dx-holo-bg); margin-bottom: 10px; display:flex; gap:10px; align-items:flex-start;">
-                <div style="flex-shrink:0">${iNodes.replace('display:block;margin:0 auto 10px', 'display:block')}</div>
-                <div>
-                    <strong style="color: var(--dx-gold); display: block; margin-bottom: 4px;">Network diagram</strong>
-                    <div style="color: var(--dx-text-secondary); line-height: 1.5;">Hits mapped onto protein interactions with enrichment labels.</div>
-                </div>
-            </div>
-            <div style="border: 1px solid var(--dx-gold-dim); padding: 14px; background: var(--dx-holo-bg); display:flex; gap:10px; align-items:flex-start;">
-                <div style="flex-shrink:0">${iTag.replace('display:block;margin:0 auto 10px', 'display:block')}</div>
-                <div>
-                    <strong style="color: var(--dx-gold); display: block; margin-bottom: 4px;">Projects &amp; tags</strong>
-                    <div style="color: var(--dx-text-secondary); line-height: 1.5;">Organise collations and share them with a permanent URL.</div>
-                </div>
-            </div>
-        </div>
-        <div style="flex: 1.1; text-align: center; display: flex; align-items: center; justify-content: center;">
-            ${HoloImage('assets/cinder-collate.png', 'Cinder Multi-Experiment Heatmap', '370px')}
-        </div>
     </div>
 </section>
 `

@@ -19,30 +19,29 @@ export const section = {
     slides: `
 <section>
     <h1>Curtain &amp; CurtainPTM</h1>
-    <p>Turn analysis results into interactive figures that anyone can explore — and share them with a link that works like a citation.</p>
+    <p>Visualize, customize, explore, share, and cite MS-based proteomics differential analyses.</p>
     ${HoloImage('assets/curtain-overview.png', 'Curtain Application Overview', '340px')}
 </section>
 
 <section>
-    <h2>What's wrong with a static figure?</h2>
+    <h2>The traditional published visualization is not good enough</h2>
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; font-size: 0.78em;">
         <div style="border: 1px solid var(--dx-gold-dim); padding: 20px; background: var(--dx-holo-bg); text-align: center;">
             ${iDoc}
             <strong style="color: var(--dx-gold-dim); display: block; margin-bottom: 12px; opacity:0.8">A figure in a paper</strong>
             <ul style="color: var(--dx-text-secondary); line-height: 1.9; text-align: left; padding-left: 16px;">
                 <li>Visible but not queryable</li>
-                <li>Numbers inaccessible to readers</li>
-                <li>Cannot be verified by reviewers</li>
-                <li>Orphaned after publication</li>
+                <li>Numbers inaccessible to readers right away</li>
+                <li>Cannot be further explored</li>
             </ul>
         </div>
         <div style="border: 1px solid var(--dx-gold-dim); padding: 20px; background: var(--dx-holo-bg); text-align: center;">
             ${iClick}
             <strong style="color: var(--dx-gold); display: block; margin-bottom: 12px;">A Curtain session</strong>
             <ul style="color: var(--dx-text-secondary); line-height: 1.9; text-align: left; padding-left: 16px;">
-                <li>Click any point — name and values on hover</li>
+                <li>Highlight and identify change direction and intensity of any protein of interests</li>
                 <li>Readers filter and re-annotate freely</li>
-                <li>Link is citable like any reference</li>
+                <li>Create citable link through DOI</li>
                 <li>Importable directly into Cinder</li>
             </ul>
         </div>
@@ -50,7 +49,7 @@ export const section = {
 </section>
 
 <section>
-    <h2>Curtain — visualising which proteins changed</h2>
+    <h2>Curtain: changes at protein level</h2>
     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; font-size: 0.71em; margin-bottom: 14px;">
         <div style="border: 1px solid var(--dx-gold-dim); padding: 14px 8px; background: var(--dx-holo-bg); text-align: center;">
             ${iClick}
@@ -63,11 +62,6 @@ export const section = {
             <div style="color: var(--dx-text-secondary); line-height: 1.5;">Compare levels across all samples</div>
         </div>
         <div style="border: 1px solid var(--dx-gold-dim); padding: 14px 8px; background: var(--dx-holo-bg); text-align: center;">
-            ${iNodes}
-            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 4px;">INTERACTION NETWORKS</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.5;">See how hit proteins connect</div>
-        </div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 14px 8px; background: var(--dx-holo-bg); text-align: center;">
             ${iFunnel}
             <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 4px;">PATHWAY ENRICHMENT</div>
             <div style="color: var(--dx-text-secondary); line-height: 1.5;">Find over-represented biology</div>
@@ -75,7 +69,7 @@ export const section = {
         <div style="border: 1px solid var(--dx-gold-dim); padding: 14px 8px; background: var(--dx-holo-bg); text-align: center;">
             ${iHeat}
             <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 4px;">SAMPLE QUALITY</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.5;">Spot batch effects and outliers</div>
+            <div style="color: var(--dx-text-secondary); line-height: 1.5;">You can provide imputation and peptide number information for these quality information to be shown</div>
         </div>
         <div style="border: 1px solid var(--dx-gold-dim); padding: 14px 8px; background: var(--dx-holo-bg); text-align: center;">
             ${iLink}
@@ -89,7 +83,7 @@ export const section = {
 </section>
 
 <section>
-    <h2>CurtainPTM — for modification-focused experiments</h2>
+    <h2>CurtainPTM: changes at modification level</h2>
     <div style="display: flex; gap: 20px; margin-top: 16px; font-size: 0.78em;">
         <div style="flex: 0.9;">
             <p style="color: var(--dx-text-secondary); line-height: 1.6; margin-bottom: 14px; font-size:0.9em;">The same interactive sharing as Curtain — with additional views for experiments that measure which sites on a protein are chemically modified.</p>
