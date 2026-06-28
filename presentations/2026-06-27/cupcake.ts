@@ -16,28 +16,28 @@ export const section = {
     slides: `
 <section>
     <h1>Cupcake</h1>
-    <p>Record and manage the details behind every experiment — in a format that is structured, reusable, and accepted by public repositories.</p>
+    <p>Proteomics information management made easier</p>
     ${HoloImage('assets/cupcake-vanilla-overview.png', 'Cupcake Vanilla Metadata Table Overview', '340px')}
 </section>
 
 <section>
-    <h2>Why structured annotation matters</h2>
+    <h2>Structured information is the requirement for modern practice</h2>
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; font-size: 0.78em;">
         <div style="border: 1px solid var(--dx-gold-dim); padding: 20px; background: var(--dx-holo-bg); text-align: center;">
             ${iCheck}
             <strong style="color: var(--dx-gold); display: block; margin-bottom: 12px;">Good annotation enables</strong>
             <ul style="color: var(--dx-text-secondary); line-height: 1.9; text-align: left; padding-left: 16px;">
-                <li>Independent reproduction of results</li>
-                <li>Discovery by other researchers</li>
-                <li>Inclusion in large meta-studies</li>
+                <li>Independent reproduction</li>
+                <li>Discovery</li>
+                <li>Meta-studies</li>
             </ul>
         </div>
         <div style="border: 1px solid var(--dx-gold-dim); padding: 20px; background: var(--dx-holo-bg); text-align: center;">
             ${iBlock}
             <strong style="color: var(--dx-gold-dim); display: block; margin-bottom: 12px; opacity:0.8">Why it rarely happens</strong>
             <ul style="color: var(--dx-text-secondary); line-height: 1.9; text-align: left; padding-left: 16px; opacity:0.85">
-                <li>Many required columns — easy to get wrong</li>
-                <li>Term lookup needs external tools</li>
+                <li>Complexity in structure</li>
+                <li>Constantly need to lookup correct ontology</li>
                 <li>No official requirement enforces it</li>
             </ul>
         </div>
@@ -45,7 +45,7 @@ export const section = {
 </section>
 
 <section>
-    <h2>Cupcake Vanilla — annotation without the friction</h2>
+    <h2>A better experience with SDRF-based structural metadata</h2>
     <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; font-size: 0.7em; margin-bottom: 16px;">
         <div style="border: 1px solid var(--dx-gold-dim); padding: 16px 8px; background: var(--dx-holo-bg); text-align: center;">
             ${iGrid}
@@ -55,7 +55,7 @@ export const section = {
         <div style="border: 1px solid var(--dx-gold-dim); padding: 16px 8px; background: var(--dx-holo-bg); text-align: center;">
             ${iBolt}
             <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">AUTO-FILL</div>
-            <div style="color: var(--dx-text-secondary); font-size: 0.9em; line-height: 1.5;">Fill hundreds of cells from a pattern</div>
+            <div style="color: var(--dx-text-secondary); font-size: 0.9em; line-height: 1.5;">Fill cells with different patterns</div>
         </div>
         <div style="border: 1px solid var(--dx-gold-dim); padding: 16px 8px; background: var(--dx-holo-bg); text-align: center;">
             ${iBook}
@@ -65,7 +65,7 @@ export const section = {
         <div style="border: 1px solid var(--dx-gold-dim); padding: 16px 8px; background: var(--dx-holo-bg); text-align: center;">
             ${iShield}
             <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">VALIDATION</div>
-            <div style="color: var(--dx-text-secondary); font-size: 0.9em; line-height: 1.5;">Check annotation before submission</div>
+            <div style="color: var(--dx-text-secondary); font-size: 0.9em; line-height: 1.5;">Check annotation before export</div>
         </div>
         <div style="border: 1px solid var(--dx-gold-dim); padding: 16px 8px; background: var(--dx-holo-bg); text-align: center;">
             ${iUpload}
@@ -79,27 +79,27 @@ export const section = {
 </section>
 
 <section>
-    <h2>Structured metadata becomes searchable history</h2>
+    <h2>Institutional database of searchable experiment</h2>
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 16px; font-size: 0.78em;">
         <div>
             <div style="border: 1px solid var(--dx-gold-dim); padding: 16px; background: var(--dx-holo-bg); margin-bottom: 12px; display:flex; gap:12px; align-items:flex-start;">
                 <div style="flex-shrink:0">${iLens.replace('display:block;margin:0 auto 10px', 'display:block;margin-top:2px')}</div>
                 <div>
-                    <strong style="color: var(--dx-gold); display: block; margin-bottom: 4px;">Find any experiment instantly</strong>
+                    <strong style="color: var(--dx-gold); display: block; margin-bottom: 4px;">Find experiments in the context you are interested in</strong>
                     <div style="color: var(--dx-text-secondary); line-height: 1.6;">Filter the entire lab archive by organism, tissue, instrument, or treatment.</div>
                 </div>
             </div>
             <div style="border: 1px solid var(--dx-gold-dim); padding: 16px; background: var(--dx-holo-bg); margin-bottom: 12px; display:flex; gap:12px; align-items:flex-start;">
                 <div style="flex-shrink:0">${iDevice.replace('display:block;margin:0 auto 10px', 'display:block;margin-top:2px')}</div>
                 <div>
-                    <strong style="color: var(--dx-gold); display: block; margin-bottom: 4px;">Instruments that annotate themselves</strong>
-                    <div style="color: var(--dx-text-secondary); line-height: 1.6;">Device tokens let instruments push metadata directly — less manual entry.</div>
+                    <strong style="color: var(--dx-gold); display: block; margin-bottom: 4px;">Potential for instrument to push data directly to the database</strong>
+                    <div style="color: var(--dx-text-secondary); line-height: 1.6;">Devices can use long term authentication to access the entire API for data read-out and data input.</div>
                 </div>
             </div>
             <div style="border: 1px solid var(--dx-gold-dim); padding: 16px; background: var(--dx-holo-bg); display:flex; gap:12px; align-items:flex-start;">
                 <div style="flex-shrink:0">${iLayers.replace('display:block;margin:0 auto 10px', 'display:block;margin-top:2px')}</div>
                 <div>
-                    <strong style="color: var(--dx-gold); display: block; margin-bottom: 4px;">There's more when you need it</strong>
+                    <strong style="color: var(--dx-gold); display: block; margin-bottom: 4px;">Use it for lab management and notebook</strong>
                     <div style="color: var(--dx-text-secondary); line-height: 1.6;">Instrument booking, lab notebook, and facility billing as optional add-ons.</div>
                 </div>
             </div>

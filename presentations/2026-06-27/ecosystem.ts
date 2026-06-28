@@ -23,18 +23,18 @@ export const section = {
         <div style="border: 1px solid var(--dx-gold-dim); padding: 18px; background: var(--dx-holo-bg);">
             <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.9em; letter-spacing: 1px; margin-bottom: 10px;">CURTAIN / PTM</div>
             <ul style="color: var(--dx-text-secondary); line-height: 1.8; list-style: none; padding: 0; margin: 0;">
-                <li>▸ Upload result tables</li>
-                <li>▸ Create interactive figures</li>
-                <li>▸ Share via link or DOI</li>
+                <li>Upload result tables</li>
+                <li>Create interactive figures</li>
+                <li>Share via link or DOI</li>
             </ul>
         </div>
         <div style="display: flex; align-items: center; padding: 0 10px; color: var(--dx-gold); font-size: 1.4em; font-family: monospace;">▶</div>
         <div style="border: 1px solid var(--dx-gold-dim); padding: 18px; background: var(--dx-holo-bg);">
             <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.9em; letter-spacing: 1px; margin-bottom: 10px;">CINDER</div>
             <ul style="color: var(--dx-text-secondary); line-height: 1.8; list-style: none; padding: 0; margin: 0;">
-                <li>▸ Import sessions by link</li>
-                <li>▸ Search across all at once</li>
-                <li>▸ Share combined views</li>
+                <li>Import sessions by link</li>
+                <li>Search across all at once</li>
+                <li>Share combined views</li>
             </ul>
         </div>
     </div>
