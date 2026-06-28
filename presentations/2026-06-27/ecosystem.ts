@@ -8,15 +8,15 @@ export const section = {
     title: "Putting It Together",
     slides: `
 <section>
-    <h2>One continuous workflow</h2>
-    <p style="font-size: 0.72em; color: var(--dx-text-secondary); margin-bottom: 18px;">Data recorded in one tool flows into the next.</p>
+    <h2>A more streamline process for visualization and documentation</h2>
+    <p style="font-size: 0.72em; color: var(--dx-text-secondary); margin-bottom: 18px;">Where to place the data that you would need to archive and published.</p>
     <div style="display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 0; font-size: 0.74em; align-items: stretch;">
         <div style="border: 1px solid var(--dx-gold-dim); padding: 18px; background: var(--dx-holo-bg);">
             <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.9em; letter-spacing: 1px; margin-bottom: 10px;">CUPCAKE</div>
             <ul style="color: var(--dx-text-secondary); line-height: 1.8; list-style: none; padding: 0; margin: 0;">
-                <li>▸ Record experiment details</li>
-                <li>▸ Annotate samples</li>
-                <li>▸ Build a searchable archive</li>
+                <li>Record experiment details</li>
+                <li>Annotate samples</li>
+                <li>Build a searchable archive</li>
             </ul>
         </div>
         <div style="display: flex; align-items: center; padding: 0 10px; color: var(--dx-gold); font-size: 1.4em; font-family: monospace;">▶</div>
