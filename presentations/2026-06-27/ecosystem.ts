@@ -76,18 +76,18 @@ export const section = {
     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 20px; text-align: center; font-size: 0.78em;">
         <div style="border: 1px solid var(--dx-gold-dim); padding: 18px; background: var(--dx-holo-bg);">
             <p style="font-family: monospace; color: var(--dx-gold); margin-bottom: 12px; font-size: 0.85em; letter-spacing: 1px;">[ CUPCAKE ]</p>
-            ${QRCode('https://github.com/noatgnu/cupcake', { size: 120 })}
-            <div style="color: var(--dx-text-secondary); margin-top: 10px; font-size: 0.9em;">github.com/noatgnu/cupcake</div>
+            ${QRCode('https://ccv.proteo.info', { size: 120 })}
+            <div style="color: var(--dx-text-secondary); margin-top: 10px; font-size: 0.9em;">ccv.proteo.info</div>
         </div>
         <div style="border: 1px solid var(--dx-gold-dim); padding: 18px; background: var(--dx-holo-bg);">
             <p style="font-family: monospace; color: var(--dx-gold); margin-bottom: 12px; font-size: 0.85em; letter-spacing: 1px;">[ CURTAIN ]</p>
-            ${QRCode('https://github.com/noatgnu/curtain', { size: 120 })}
-            <div style="color: var(--dx-text-secondary); margin-top: 10px; font-size: 0.9em;">github.com/noatgnu/curtain</div>
+            ${QRCode('https://curtain.proteo.info', { size: 120 })}
+            <div style="color: var(--dx-text-secondary); margin-top: 10px; font-size: 0.9em;">curtain.proteo.info</div>
         </div>
         <div style="border: 1px solid var(--dx-gold-dim); padding: 18px; background: var(--dx-holo-bg);">
             <p style="font-family: monospace; color: var(--dx-gold); margin-bottom: 12px; font-size: 0.85em; letter-spacing: 1px;">[ CINDER ]</p>
-            ${QRCode('https://github.com/noatgnu/cinderbackend', { size: 120 })}
-            <div style="color: var(--dx-text-secondary); margin-top: 10px; font-size: 0.9em;">github.com/noatgnu/cinderbackend</div>
+            ${QRCode('https://cinder.proteo.info', { size: 120 })}
+            <div style="color: var(--dx-text-secondary); margin-top: 10px; font-size: 0.9em;">cinder.proteo.info</div>
         </div>
     </div>
 </section>
