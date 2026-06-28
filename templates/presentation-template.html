@@ -565,9 +565,26 @@
 		<script src="../_assets/reveal.js/plugin/highlight/highlight.js"></script>
 		<script src="../_assets/qr-code-styling.js"></script>
 		<script>
+			const _exportMode = new URLSearchParams(window.location.search).has('export');
+			if (_exportMode) {
+				const _hideStyle = document.createElement('style');
+				_hideStyle.textContent = [
+					'#dx-hud','#hotkeys-hud','#meta-top-left','#meta-top-right',
+					'#meta-bottom-left','#meta-bottom-right','.controls','.progress',
+					'.slide-number','.holo-img-hint','#holo-lightbox','.timer',
+					'.scanline','#zoomIndicator','#laserPointer','#synth-canvas',
+					'#qr-button','#qr-modal','aside.notes'
+				].map(s => `${s}{display:none!important;}`).join('') +
+				'*{animation:none!important;transition:none!important;}';
+				document.head.appendChild(_hideStyle);
+			}
+
 			Reveal.initialize({
-				hash: true,
+				hash: !_exportMode,
 				slideNumber: false,
+				width: 1280,
+				height: 720,
+				transition: _exportMode ? 'none' : 'slide',
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
 			});
 
@@ -903,6 +920,7 @@
 			function glitchElement(el) {
 				const originalText = el.getAttribute('data-original-text') || el.innerText;
 				if (!el.getAttribute('data-original-text')) el.setAttribute('data-original-text', originalText);
+				if (_exportMode) { el.innerText = originalText; return; }
 				el.innerHTML = '';
 				const spans = originalText.split('').map(char => {
 					const span = document.createElement('span');
