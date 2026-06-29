@@ -44,34 +44,6 @@ export const section = {
 </section>
 
 <section>
-    <h2>What this looks like in practice</h2>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; font-size: 0.78em;">
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 20px; background: var(--dx-holo-bg);">
-            <div style="display:flex; align-items:center; gap:8px; margin-bottom:10px;">
-                ${iPerson}
-                <p style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin:0">[ FOR THE RESEARCHER ]</p>
-            </div>
-            <ul style="color: var(--dx-text-secondary); line-height: 1.9;">
-                <li>Annotation takes minutes — templates do the repetitive work</li>
-                <li>Sharing is a link, not an attachment chain</li>
-                <li>Look up a protein across all past experiments in seconds</li>
-            </ul>
-        </div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 20px; background: var(--dx-holo-bg);">
-            <div style="display:flex; align-items:center; gap:8px; margin-bottom:10px;">
-                ${iGlobe}
-                <p style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin:0">[ FOR THE COMMUNITY ]</p>
-            </div>
-            <ul style="color: var(--dx-text-secondary); line-height: 1.9;">
-                <li>Knowledge persists when people leave the lab</li>
-                <li>Reviewers can verify and build on published results</li>
-                <li>Each citable session is a permanent contribution</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<section>
     <h2>Access &amp; Resources</h2>
     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 20px; text-align: center; font-size: 0.78em;">
         <div style="border: 1px solid var(--dx-gold-dim); padding: 18px; background: var(--dx-holo-bg);">
