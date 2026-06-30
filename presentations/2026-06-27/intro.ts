@@ -10,6 +10,17 @@ export const section = {
     title: "The Problem",
     slides: `
 <section>
+    <div style="display:flex; flex-direction:column; justify-content:center; align-items:center; height:100%; text-align:center; padding: 0 80px;">
+        <div style="font-family: serif; font-size: 1.6em; line-height: 1.6; color: var(--dx-text); font-style: italic; margin-bottom: 32px;">
+            &ldquo;Those who cannot remember the past are condemned to repeat it.&rdquo;
+        </div>
+        <div style="width: 48px; height: 2px; background: var(--dx-gold); margin: 0 auto 24px;"></div>
+        <div style="font-family: monospace; font-size: 0.72em; color: var(--dx-gold); letter-spacing: 1px;">GEORGE SANTAYANA</div>
+        <div style="font-family: monospace; font-size: 0.6em; color: var(--dx-text-secondary); letter-spacing: 1px; margin-top: 6px;">The Life of Reason, Vol. 1 (1905)</div>
+    </div>
+</section>
+
+<section>
     <h2>A story that happens in every lab</h2>
     <svg viewBox="0 0 900 82" style="width:100%; height:auto; display:block; margin: 6px 0 16px 0;" xmlns="http://www.w3.org/2000/svg">
         <text x="8" y="46" font-family="monospace" font-size="9" letter-spacing="1" style="fill: var(--dx-gold)">EXPERIMENT</text>
