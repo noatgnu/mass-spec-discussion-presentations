@@ -11,7 +11,7 @@ export function QRCode(data: string, options: { size?: number, margin?: number }
     const id = `qr-${Math.random().toString(36).substr(2, 9)}`;
 
     return `
-<div id="${id}" class="qr-code-container" style="display: inline-block; padding: ${margin}px; border: 1px solid var(--dx-gold); background: var(--dx-holo-bg); box-shadow: 0 0 20px rgba(255, 180, 0, 0.1);"></div>
+<div id="${id}" class="qr-code-container" style="display: inline-block; line-height: 0; padding: ${margin}px; border: 1px solid var(--dx-gold); background: var(--dx-holo-bg); box-shadow: 0 0 20px rgba(255, 180, 0, 0.1);"></div>
 <script>
     (function() {
         const checkLibrary = setInterval(() => {
@@ -43,6 +43,8 @@ export function QRCode(data: string, options: { size?: number, margin?: number }
                     }
                 });
                 qrCode.append(document.getElementById("${id}"));
+                const svg = document.getElementById("${id}").querySelector('svg');
+                if (svg) svg.style.display = 'block';
             }
         }, 100);
     })();
