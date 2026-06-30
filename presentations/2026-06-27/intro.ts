@@ -9,16 +9,6 @@ const iLens  = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:b
 export const section = {
     title: "The Problem",
     slides: `
-<section>
-    <div style="display:flex; flex-direction:column; justify-content:center; align-items:center; height:100%; text-align:center; padding: 0 80px;">
-        <div style="font-family: serif; font-size: 1.6em; line-height: 1.6; color: var(--dx-text); font-style: italic; margin-bottom: 32px;">
-            &ldquo;Those who cannot remember the past are condemned to repeat it.&rdquo;
-        </div>
-        <div style="width: 48px; height: 2px; background: var(--dx-gold); margin: 0 auto 24px;"></div>
-        <div style="font-family: monospace; font-size: 0.72em; color: var(--dx-gold); letter-spacing: 1px;">GEORGE SANTAYANA</div>
-        <div style="font-family: monospace; font-size: 0.6em; color: var(--dx-text-secondary); letter-spacing: 1px; margin-top: 6px;">The Life of Reason, Vol. 1 (1905)</div>
-    </div>
-</section>
 
 <section>
     <h2>A story that happens in every lab</h2>
@@ -65,31 +55,6 @@ export const section = {
             ${iCycle}
             <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">04 · REPEAT</div>
             <div style="color: var(--dx-text-secondary); line-height: 1.6;">The next project starts from scratch.</div>
-        </div>
-    </div>
-</section>
-
-<section>
-    <h2>Three tools built to address this</h2>
-    <p style="font-size: 0.75em; color: var(--dx-text-secondary); margin-bottom: 24px;">Each tackles a different point where research knowledge is typically lost.</p>
-    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; font-size: 0.78em;">
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 24px 20px; background: var(--dx-holo-bg); text-align: center;">
-            ${iDB}
-            <div style="font-family: monospace; color: var(--dx-gold); letter-spacing: 1px; font-size: 0.85em; margin-bottom: 8px;">[ CUPCAKE ]</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.6;">Record what was done, how, and with what.</div>
-            <div style="font-size: 0.8em; color: var(--dx-gold-dim); font-family: monospace; margin-top: 10px;">RECORD &amp; ORGANISE</div>
-        </div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 24px 20px; background: var(--dx-holo-bg); text-align: center;">
-            ${iDots}
-            <div style="font-family: monospace; color: var(--dx-gold); letter-spacing: 1px; font-size: 0.85em; margin-bottom: 8px;">[ CURTAIN / PTM ]</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.6;">Turn results into figures anyone can explore.</div>
-            <div style="font-size: 0.8em; color: var(--dx-gold-dim); font-family: monospace; margin-top: 10px;">SHARE &amp; CITE</div>
-        </div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 24px 20px; background: var(--dx-holo-bg); text-align: center;">
-            ${iLens}
-            <div style="font-family: monospace; color: var(--dx-gold); letter-spacing: 1px; font-size: 0.85em; margin-bottom: 8px;">[ CINDER ]</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.6;">Search across many experiments at once.</div>
-            <div style="font-size: 0.8em; color: var(--dx-gold-dim); font-family: monospace; margin-top: 10px;">CONNECT &amp; DISCOVER</div>
         </div>
     </div>
 </section>

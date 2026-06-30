@@ -21,30 +21,6 @@ export const section = {
 </section>
 
 <section>
-    <h2>Structured information is the requirement for modern practice</h2>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; font-size: 0.78em;">
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 20px; background: var(--dx-holo-bg); text-align: center;">
-            ${iCheck}
-            <strong style="color: var(--dx-gold); display: block; margin-bottom: 12px;">Good annotation enables</strong>
-            <ul style="color: var(--dx-text-secondary); line-height: 1.9; text-align: left; padding-left: 16px;">
-                <li>Independent reproduction</li>
-                <li>Discovery</li>
-                <li>Meta-studies</li>
-            </ul>
-        </div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 20px; background: var(--dx-holo-bg); text-align: center;">
-            ${iBlock}
-            <strong style="color: var(--dx-gold-dim); display: block; margin-bottom: 12px; opacity:0.8">Why it rarely happens</strong>
-            <ul style="color: var(--dx-text-secondary); line-height: 1.9; text-align: left; padding-left: 16px; opacity:0.85">
-                <li>Complexity in structure</li>
-                <li>Constantly need to lookup correct ontology</li>
-                <li>No official requirement enforces it</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<section>
     <h2>A better experience with SDRF-based structural metadata</h2>
     <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; font-size: 0.7em; margin-bottom: 16px;">
         <div style="border: 1px solid var(--dx-gold-dim); padding: 16px 8px; background: var(--dx-holo-bg); text-align: center;">

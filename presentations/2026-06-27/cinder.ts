@@ -18,37 +18,6 @@ export const section = {
 </section>
 
 <section>
-    <h2>The convenience of being able to search all your previous works for specific targets of interests</h2>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; font-size: 0.78em;">
-        <div>
-            <div style="border: 1px solid var(--dx-gold-dim); padding: 16px; background: var(--dx-holo-bg); margin-bottom: 12px; display:flex; gap:12px; align-items:flex-start;">
-                <div style="flex-shrink:0">${iFiles.replace('display:block;margin:0 auto 10px', 'display:block;margin-top:2px')}</div>
-                <div>
-                    <strong style="color: var(--dx-gold); display: block; margin-bottom: 4px;">Manual lookup is time consuming</strong>
-                    <div style="color: var(--dx-text-secondary); line-height: 1.5;">Searching for a protein across dozens of experiments means opening files one by one.</div>
-                </div>
-            </div>
-            <div style="border: 1px solid var(--dx-gold-dim); padding: 16px; background: var(--dx-holo-bg); display:flex; gap:12px; align-items:flex-start;">
-                <div style="flex-shrink:0">${iLens.replace('display:block;margin:0 auto 10px', 'display:block;margin-top:2px')}</div>
-                <div>
-                    <strong style="color: var(--dx-gold); display: block; margin-bottom: 4px;">Building a database of results is nontrivial</strong>
-                    <div style="color: var(--dx-text-secondary); line-height: 1.5;">Without a central database, it is tricky to perform any search at all</div>
-                </div>
-            </div>
-        </div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 18px; background: var(--dx-holo-bg);">
-            <p style="font-family: monospace; color: var(--dx-gold); margin-bottom: 10px; font-size: 0.85em; letter-spacing: 1px;">[ CINDER SOLVES THIS ]</p>
-            <ul style="color: var(--dx-text-secondary); line-height: 1.9; font-size: 0.95em;">
-                <li>Import sessions from Curtain by link</li>
-                <li>Search across all sessions at once</li>
-                <li>View results from every experiment side by side</li>
-                <li>Share the combined view permanently</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<section>
     <h2>From sessions to insight in four steps</h2>
     <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; font-size: 0.72em; margin-bottom: 14px;">
         <div style="padding: 16px; background: var(--dx-holo-bg); border: 1px solid var(--dx-gold-dim); border-right: none; text-align: center;">

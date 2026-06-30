@@ -24,31 +24,6 @@ export const section = {
 </section>
 
 <section>
-    <h2>The traditional published visualization is not good enough</h2>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; font-size: 0.78em;">
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 20px; background: var(--dx-holo-bg); text-align: center;">
-            ${iDoc}
-            <strong style="color: var(--dx-gold-dim); display: block; margin-bottom: 12px; opacity:0.8">A figure in a paper</strong>
-            <ul style="color: var(--dx-text-secondary); line-height: 1.9; text-align: left; padding-left: 16px;">
-                <li>Visible but not queryable</li>
-                <li>Numbers inaccessible to readers right away</li>
-                <li>Cannot be further explored</li>
-            </ul>
-        </div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 20px; background: var(--dx-holo-bg); text-align: center;">
-            ${iClick}
-            <strong style="color: var(--dx-gold); display: block; margin-bottom: 12px;">A Curtain session</strong>
-            <ul style="color: var(--dx-text-secondary); line-height: 1.9; text-align: left; padding-left: 16px;">
-                <li>Highlight and identify change direction and intensity of any protein of interests</li>
-                <li>Readers filter and re-annotate freely</li>
-                <li>Create citable link through DOI</li>
-                <li>Importable directly into Cinder</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<section>
     <h2>Curtain: changes at protein level</h2>
     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; font-size: 0.71em; margin-bottom: 14px;">
         <div style="border: 1px solid var(--dx-gold-dim); padding: 14px 8px; background: var(--dx-holo-bg); text-align: center;">

@@ -10,7 +10,6 @@ function getPresentationDirs(): string[] {
         console.error('Presentations directory not found');
         return [];
     }
-
     return fs.readdirSync(PRESENTATIONS_DIR).filter(file => {
         const dirPath = path.join(PRESENTATIONS_DIR, file);
         const htmlPath = path.join(dirPath, 'index.html');
@@ -20,14 +19,13 @@ function getPresentationDirs(): string[] {
 
 function startServer(): ChildProcess {
     console.log(`Starting server on port ${PORT}...`);
-    const server = spawn('npx', ['serve', 'presentations', '-l', String(PORT)], {
+    return spawn('npx', ['serve', 'presentations', '-l', String(PORT)], {
         stdio: 'pipe',
         shell: true
     });
-    return server;
 }
 
-function waitForServer(port: number, timeout: number = 10000): Promise<void> {
+function waitForServer(port: number, timeout = 10000): Promise<void> {
     return new Promise((resolve, reject) => {
         const start = Date.now();
         const check = () => {
@@ -35,11 +33,8 @@ function waitForServer(port: number, timeout: number = 10000): Promise<void> {
                 execSync(`curl -s http://localhost:${port} > /dev/null 2>&1`, { stdio: 'ignore' });
                 resolve();
             } catch {
-                if (Date.now() - start > timeout) {
-                    reject(new Error('Server startup timeout'));
-                } else {
-                    setTimeout(check, 500);
-                }
+                if (Date.now() - start > timeout) reject(new Error('Server startup timeout'));
+                else setTimeout(check, 500);
             }
         };
         check();
@@ -47,16 +42,17 @@ function waitForServer(port: number, timeout: number = 10000): Promise<void> {
 }
 
 function exportToPdf(presentationName: string): void {
-    const url = `http://localhost:${PORT}/${presentationName}/index.html`;
+    const url = `http://localhost:${PORT}/${presentationName}/index.html?export`;
     const outputDir = path.join(PRESENTATIONS_DIR, presentationName);
     const outputPath = path.join(outputDir, `${presentationName}.pdf`);
 
     console.log(`Exporting ${presentationName} to PDF...`);
 
     try {
-        execSync(`npx decktape reveal "${url}" "${outputPath}" --size 1920x1080`, {
-            stdio: 'inherit'
-        });
+        execSync(
+            `npx decktape reveal "${url}" "${outputPath}" --size 1920x1080 --load-pause 2000`,
+            { stdio: 'inherit' }
+        );
         console.log(`Successfully exported: ${outputPath}`);
     } catch (error) {
         console.error(`Failed to export ${presentationName}:`, error);
@@ -69,14 +65,12 @@ async function main() {
     const specificName = args.find(arg => !arg.startsWith('--'));
 
     const presentations = getPresentationDirs();
-
     if (presentations.length === 0) {
         console.error('No presentations found. Run "npm run generate" first.');
         process.exit(1);
     }
 
     let toExport: string[] = [];
-
     if (exportAll) {
         toExport = presentations;
     } else if (specificName) {
@@ -97,11 +91,9 @@ async function main() {
     }
 
     const server = startServer();
-
     try {
         await waitForServer(PORT);
         console.log('Server ready.');
-
         for (const name of toExport) {
             exportToPdf(name);
         }

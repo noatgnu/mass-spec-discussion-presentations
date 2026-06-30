@@ -1,5 +1,5 @@
 export const presentation = {
-    title: "A Streamline Toolbox For a Modern Proteomics Data Sharing and Management",
+    title: "CUPCAKE, CURTAIN, CINDER: A collection of tools for better data management, sharing and reuse",
     loc: "12-Minute Overview",
     theme: "light" as const,
     showToc: true,
