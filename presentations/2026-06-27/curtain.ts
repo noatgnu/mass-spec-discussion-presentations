@@ -1,4 +1,4 @@
-import { HoloImage } from '../../src/components';
+import { HoloImage, QRCode } from '../../src/components';
 
 const iDoc    = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><rect x="5" y="4" width="18" height="20" rx="1" fill="none" style="stroke:var(--dx-gold-dim);stroke-width:1.5;opacity:0.7"/><line x1="9" y1="10" x2="19" y2="10" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.5"/><line x1="9" y1="14" x2="17" y2="14" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.5"/><line x1="9" y1="18" x2="13" y2="18" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.5"/></svg>`;
 const iClick  = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><line x1="4" y1="24" x2="24" y2="24" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.4"/><line x1="4" y1="4" x2="4" y2="24" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.4"/><circle cx="8" cy="20" r="1.5" style="fill:var(--dx-gold-dim)"/><circle cx="12" cy="15" r="1.5" style="fill:var(--dx-gold-dim)"/><circle cx="16" cy="10" r="3" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><line x1="18" y1="8" x2="22" y2="4" style="stroke:var(--dx-gold);stroke-width:1.5"/><circle cx="20" cy="17" r="1.5" style="fill:var(--dx-gold-dim)"/></svg>`;
@@ -54,6 +54,21 @@ export const section = {
     </div>
     <div style="text-align: center;">
         ${HoloImage('assets/curtain-volcano.png', 'Curtain Interactive Scatter Plot', '210px')}
+    </div>
+</section>
+
+<section>
+    <h2>A live session — try it yourself</h2>
+    <div style="display: grid; grid-template-columns: 1fr auto; gap: 24px; margin-top: 16px; align-items: center;">
+        <div style="text-align: center;">
+            ${HoloImage('assets/curtain.volcano.plot.overview.png', 'Curtain Volcano Plot Session Overview', '390px')}
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; min-width: 140px;">
+            <div style="border: 1px solid var(--dx-gold-dim); padding: 14px; background: var(--dx-holo-bg); text-align: center;">
+                ${QRCode('https://doi.org/10.71663/curtain.fc34-wd57', { size: 110 })}
+                <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.6em; letter-spacing: 1px; margin-top: 8px;">doi.org/10.71663/<br>curtain.fc34-wd57</div>
+            </div>
+        </div>
     </div>
 </section>
 
