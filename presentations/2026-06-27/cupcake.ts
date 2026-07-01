@@ -17,7 +17,7 @@ export const section = {
 <section>
     <h1>Cupcake</h1>
     <p>Proteomics information management made easier</p>
-    ${HoloImage('assets/cupcake-vanilla-overview.png', 'Cupcake Vanilla Metadata Table Overview', '340px')}
+    ${HoloImage('assets/cupcake.overview.table.png', 'Cupcake Vanilla Metadata Table Overview', '700px')}
 </section>
 
 <section>
@@ -49,8 +49,9 @@ export const section = {
             <div style="color: var(--dx-text-secondary); font-size: 0.9em; line-height: 1.5;">Download in repository-ready format</div>
         </div>
     </div>
-    <div style="text-align: center;">
-        ${HoloImage('assets/cupcake-autofill.png', 'Cupcake Vanilla Auto-Fill', '240px')}
+    <div style="display: flex; justify-content: center; gap: 16px; align-items: center;">
+        ${HoloImage('assets/cupcake-autofill.png', 'Cupcake Vanilla Auto-Fill', '200px')}
+        ${HoloImage('assets/cupcake.vanilla.create.from.schema.png', 'Cupcake Vanilla Create From Schema', '200px')}
     </div>
 </section>
 
