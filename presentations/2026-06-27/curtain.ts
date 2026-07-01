@@ -24,8 +24,8 @@ export const section = {
 </section>
 
 <section>
-    <h2>Curtain: changes at protein level</h2>
-    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; font-size: 0.71em; margin-bottom: 14px;">
+    <h2>Proteome level differential analysis visualization</h2>
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; font-size: 0.71em; margin-bottom: 14px;">
         <div style="border: 1px solid var(--dx-gold-dim); padding: 14px 8px; background: var(--dx-holo-bg); text-align: center;">
             ${iClick}
             <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 4px;">INTERACTIVE SCATTER</div>
@@ -33,23 +33,18 @@ export const section = {
         </div>
         <div style="border: 1px solid var(--dx-gold-dim); padding: 14px 8px; background: var(--dx-holo-bg); text-align: center;">
             ${iBars}
-            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 4px;">ABUNDANCE PROFILES</div>
+            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 4px;">INTENSITY PROFILES</div>
             <div style="color: var(--dx-text-secondary); line-height: 1.5;">Compare levels across all samples</div>
-        </div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 14px 8px; background: var(--dx-holo-bg); text-align: center;">
-            ${iFunnel}
-            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 4px;">PATHWAY ENRICHMENT</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.5;">Find over-represented biology</div>
         </div>
         <div style="border: 1px solid var(--dx-gold-dim); padding: 14px 8px; background: var(--dx-holo-bg); text-align: center;">
             ${iHeat}
             <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 4px;">SAMPLE QUALITY</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.5;">You can provide imputation and peptide number information for these quality information to be shown</div>
+            <div style="color: var(--dx-text-secondary); line-height: 1.5;">Imputation and peptide number information for these quality information can be shown if provided</div>
         </div>
         <div style="border: 1px solid var(--dx-gold-dim); padding: 14px 8px; background: var(--dx-holo-bg); text-align: center;">
             ${iLink}
             <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 4px;">CITABLE LINK</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.5;">Register a DOI for any session</div>
+            <div style="color: var(--dx-text-secondary); line-height: 1.5;">Register a permanent DOI for any sessions or collections</div>
         </div>
     </div>
 </section>
@@ -72,7 +67,7 @@ export const section = {
 </section>
 
 <section>
-    <h2>CurtainPTM: changes at modification level</h2>
+    <h2>CurtainPTM</h2>
     <div style="display: flex; gap: 20px; margin-top: 16px; font-size: 0.78em;">
         <div style="flex: 0.9;">
             <p style="color: var(--dx-text-secondary); line-height: 1.6; margin-bottom: 14px; font-size:0.9em;">The same interactive sharing as Curtain but with additional functionality for modifications.</p>
@@ -86,8 +81,8 @@ export const section = {
             <div style="border: 1px solid var(--dx-gold-dim); padding: 14px; background: var(--dx-holo-bg); margin-bottom: 10px; display:flex; gap:10px; align-items:flex-start;">
                 <div style="flex-shrink:0">${iWave.replace('display:block;margin:0 auto 10px', 'display:block')}</div>
                 <div>
-                    <strong style="color: var(--dx-gold); display: block; margin-bottom: 4px;">Profile Plots</strong>
-                    <div style="color: var(--dx-text-secondary); line-height: 1.5;">Modification abundance across all samples at a glance.</div>
+                    <strong style="color: var(--dx-gold); display: block; margin-bottom: 4px;">PTM Knowledgebase Comparison</strong>
+                    <div style="color: var(--dx-text-secondary); line-height: 1.5;">Comparing your experimental data with known PTM positions.</div>
                 </div>
             </div>
         </div>
@@ -104,7 +99,7 @@ export const section = {
             <div style="border: 1px solid var(--dx-gold-dim); padding: 14px 12px; background: var(--dx-holo-bg); text-align: center;">
                 ${iLink}
                 <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 4px;">LINK SHARING</div>
-                <div style="color: var(--dx-text-secondary); line-height: 1.5;">Permanent URL — no login to view</div>
+                <div style="color: var(--dx-text-secondary); line-height: 1.5;">DOI Permanent URL</div>
             </div>
             <div style="border: 1px solid var(--dx-gold-dim); padding: 14px 12px; background: var(--dx-holo-bg); text-align: center;">
                 ${iPerson}

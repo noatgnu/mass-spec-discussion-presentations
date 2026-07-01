@@ -65,13 +65,6 @@ export const section = {
                     <div style="color: var(--dx-text-secondary); line-height: 1.6;">Filter the entire lab archive by organism, tissue, instrument, or treatment.</div>
                 </div>
             </div>
-            <div style="border: 1px solid var(--dx-gold-dim); padding: 16px; background: var(--dx-holo-bg); margin-bottom: 12px; display:flex; gap:12px; align-items:flex-start;">
-                <div style="flex-shrink:0">${iDevice.replace('display:block;margin:0 auto 10px', 'display:block;margin-top:2px')}</div>
-                <div>
-                    <strong style="color: var(--dx-gold); display: block; margin-bottom: 4px;">Potential for instrument to push data directly to the database</strong>
-                    <div style="color: var(--dx-text-secondary); line-height: 1.6;">Devices can use long term authentication to access the entire API for data read-out and data input.</div>
-                </div>
-            </div>
             <div style="border: 1px solid var(--dx-gold-dim); padding: 16px; background: var(--dx-holo-bg); display:flex; gap:12px; align-items:flex-start;">
                 <div style="flex-shrink:0">${iLayers.replace('display:block;margin:0 auto 10px', 'display:block;margin-top:2px')}</div>
                 <div>
