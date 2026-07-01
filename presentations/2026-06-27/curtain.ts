@@ -52,21 +52,20 @@ export const section = {
             <div style="color: var(--dx-text-secondary); line-height: 1.5;">Register a DOI for any session</div>
         </div>
     </div>
-    <div style="text-align: center;">
-        ${HoloImage('assets/curtain-volcano.png', 'Curtain Interactive Scatter Plot', '210px')}
-    </div>
 </section>
 
 <section>
     <h2>A live session — try it yourself</h2>
     <div style="display: grid; grid-template-columns: 1fr auto; gap: 24px; margin-top: 16px; align-items: center;">
-        <div style="text-align: center;">
-            ${HoloImage('assets/curtain.volcano.plot.overview.png', 'Curtain Volcano Plot Session Overview', '390px')}
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-items: start;">
+            ${HoloImage('assets/curtain.volcano.plot.overview.png', 'Curtain Volcano Plot Session Overview', '155px')}
+            ${HoloImage('assets/curtain.bar.chart.overview.png', 'Curtain Bar Chart Overview', '155px')}
+            ${HoloImage('assets/curtain.bar.chart.settings.png', 'Curtain Bar Chart Settings', '155px')}
+            ${HoloImage('assets/curtain.batch.search.protein.list.png', 'Curtain Batch Search Protein List', '155px')}
         </div>
         <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; min-width: 140px;">
             <div style="border: 1px solid var(--dx-gold-dim); padding: 14px; background: var(--dx-holo-bg); text-align: center;">
                 ${QRCode('https://doi.org/10.71663/curtain.fc34-wd57', { size: 110 })}
-                <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.6em; letter-spacing: 1px; margin-top: 8px;">doi.org/10.71663/<br>curtain.fc34-wd57</div>
             </div>
         </div>
     </div>

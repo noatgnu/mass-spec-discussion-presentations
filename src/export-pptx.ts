@@ -21,7 +21,7 @@ function toInW(px: number): number { return (px / SLIDE_W) * CONTENT_W; }
 function toInH(py: number): number { return (py / SLIDE_H) * CONTENT_H; }
 function ptX(px: number): number { return PPTX_MARGIN + toInW(px); }
 function ptY(py: number): number { return PPTX_MARGIN + toInH(py); }
-function toPt(px: number): number { return Math.max(6, Math.round(px * (CONTENT_H * 72 / SLIDE_H))); }
+function toPt(px: number): number { return Math.max(6, Math.round(px * (PPTX_H * 72 / SLIDE_H))); }
 function toCharSpacing(letterSpacingPx: number): number { return Math.round(letterSpacingPx * 0.75 * 100) / 100; }
 
 const UI_HIDE_SELECTORS = [
@@ -70,6 +70,10 @@ interface ExtractedElement {
     elementX?: number;
     elementY?: number;
     src?: string;
+    originalFilename?: string;
+    naturalWidth?: number;
+    naturalHeight?: number;
+    cssMaxHeight?: number;
     dataUrl?: string;
     clipX?: number; clipY?: number; clipW?: number; clipH?: number;
 }
@@ -234,6 +238,10 @@ async function extractSlideElements(page: Page, slidesRect: { x: number; y: numb
         const h = slide.querySelector('h1, h2, h3');
         if (h) titleText = (h as HTMLElement).getAttribute('data-original-text') || (h as HTMLElement).innerText || '';
 
+        // Reveal.js centers slide content vertically via section.style.top.
+        // Subtract it so all y coordinates are relative to the section top, not the viewport center.
+        const slideOffsetY = parseFloat(slide.style.top) || 0;
+
         function walk(el: Element, depth: number) {
             if (depth > 15) return;
             const style = window.getComputedStyle(el as HTMLElement);
@@ -244,9 +252,9 @@ async function extractSlideElements(page: Page, slidesRect: { x: number; y: numb
             if (rect.width < 1 || rect.height < 1) return;
 
             const tag = el.tagName.toLowerCase();
-            // Convert viewport px → slide CSS px (1280×720 space) by undoing scale and offset
+            // Convert viewport px → slide CSS px (1280×720 space), removing vertical centering offset
             const x = (rect.left - sr.x) / sr.scale;
-            const y = (rect.top - sr.y) / sr.scale;
+            const y = (rect.top - sr.y) / sr.scale - slideOffsetY;
             const w = rect.width / sr.scale;
             const h = rect.height / sr.scale;
 
@@ -272,7 +280,11 @@ async function extractSlideElements(page: Page, slidesRect: { x: number; y: numb
                 return;
             }
             if (tag === 'img') {
-                elements.push({ type: 'image', tag, x, y, w, h, src: (el as HTMLImageElement).src });
+                const imgEl = el as HTMLImageElement;
+                const rawMaxH = window.getComputedStyle(imgEl).maxHeight;
+                const cssMaxHeight = rawMaxH && rawMaxH !== 'none' ? parseFloat(rawMaxH) : 0;
+                const originalFilename = imgEl.getAttribute('data-export-filename') || '';
+                elements.push({ type: 'image', tag, x, y, w, h, src: imgEl.src, originalFilename, naturalWidth: imgEl.naturalWidth, naturalHeight: imgEl.naturalHeight, cssMaxHeight: isNaN(cssMaxHeight) ? 0 : cssMaxHeight });
                 return;
             }
 
@@ -377,6 +389,77 @@ async function extractSlideElements(page: Page, slidesRect: { x: number; y: numb
     }, slidesRect) as Promise<{ elements: ExtractedElement[]; title: string }>;
 }
 
+function readPngDimensions(filePath: string): { w: number; h: number } | null {
+    try {
+        const buf = Buffer.alloc(24);
+        const fd = fs.openSync(filePath, 'r');
+        fs.readSync(fd, buf, 0, 24, 0);
+        fs.closeSync(fd);
+        if (buf[0] === 0x89 && buf[1] === 0x50 && buf[2] === 0x4E && buf[3] === 0x47) {
+            return { w: buf.readUInt32BE(16), h: buf.readUInt32BE(20) };
+        }
+        return null;
+    } catch {
+        return null;
+    }
+}
+
+async function injectSlideImages(page: Page, presentationDir: string): Promise<void> {
+    const unloadedSrcs: string[] = await page.evaluate(() => {
+        const slide = (
+            document.querySelector('.reveal .slides section.present > section.present') ||
+            document.querySelector('.reveal .slides section.present')
+        ) as HTMLElement | null;
+        if (!slide) return [];
+        return (Array.from(slide.querySelectorAll('img')) as HTMLImageElement[])
+            .filter(el => el.naturalWidth === 0 && el.src)
+            .map(el => el.src);
+    });
+    if (unloadedSrcs.length === 0) return;
+
+    const dataUrlMap: Record<string, string> = {};
+    for (const src of unloadedSrcs) {
+        const filename = path.basename(new URL(src).pathname).split('?')[0];
+        const localPath = path.join(presentationDir, filename);
+        const assetsPath = path.join(presentationDir, 'assets', filename);
+        const filePath = fs.existsSync(localPath) ? localPath : fs.existsSync(assetsPath) ? assetsPath : null;
+        if (filePath) {
+            const ext = path.extname(filename).slice(1).toLowerCase();
+            const mime = ext === 'jpg' || ext === 'jpeg' ? 'image/jpeg' : `image/${ext}`;
+            dataUrlMap[filename] = `data:${mime};base64,${fs.readFileSync(filePath).toString('base64')}`;
+        }
+    }
+    if (Object.keys(dataUrlMap).length === 0) return;
+
+    await page.evaluate((map: Record<string, string>) => {
+        return new Promise<void>(resolve => {
+            const slide = (
+                document.querySelector('.reveal .slides section.present > section.present') ||
+                document.querySelector('.reveal .slides section.present')
+            ) as HTMLElement | null;
+            if (!slide) { resolve(); return; }
+            const imgs = (Array.from(slide.querySelectorAll('img')) as HTMLImageElement[])
+                .filter(el => el.naturalWidth === 0);
+            if (imgs.length === 0) { resolve(); return; }
+            let done = 0;
+            const check = () => { if (++done >= imgs.length) resolve(); };
+            imgs.forEach(el => {
+                const filename = el.src.split('/').pop()?.split('?')[0] || '';
+                if (map[filename]) {
+                    el.setAttribute('data-export-filename', filename);
+                    el.onload = check;
+                    el.onerror = check;
+                    el.src = map[filename];
+                } else {
+                    check();
+                }
+            });
+        });
+    }, dataUrlMap);
+
+    await new Promise(r => setTimeout(r, 500));
+}
+
 async function screenshotClip(page: Page, clipX: number, clipY: number, clipW: number, clipH: number): Promise<string> {
     const buf = await page.screenshot({
         clip: { x: clipX, y: clipY, width: Math.max(1, clipW), height: Math.max(1, clipH) },
@@ -400,7 +483,13 @@ async function buildPptxSlide(
     presentationDir: string,
     slidesRect: { x: number; y: number; w: number; h: number; scale: number }
 ): Promise<void> {
+    await injectSlideImages(page, presentationDir);
+
     const bgColor = await getSlideBackground(page);
+    const themeGold = await page.evaluate(() => {
+        const v = window.getComputedStyle(document.documentElement).getPropertyValue('--dx-gold').trim();
+        return v.startsWith('#') ? v.slice(1).toUpperCase() : 'FFB400';
+    });
     const slide = pres.addSlide();
     slide.background = { color: bgColor };
 
@@ -464,12 +553,54 @@ async function buildPptxSlide(
 
     for (const img of images) {
         if (!img.src) continue;
-        const urlPath = new URL(img.src).pathname;
-        const localPath = path.join(presentationDir, path.basename(urlPath));
-        const assetsPath = path.join(presentationDir, 'assets', path.basename(urlPath));
-        const finalPath = fs.existsSync(localPath) ? localPath : fs.existsSync(assetsPath) ? assetsPath : null;
+        const isDataUrl = img.src.startsWith('data:');
+        const filename = img.originalFilename || (isDataUrl ? '' : path.basename(new URL(img.src).pathname));
+        const localPath = filename ? path.join(presentationDir, filename) : '';
+        const assetsPath = filename ? path.join(presentationDir, 'assets', filename) : '';
+        const finalPath = filename && fs.existsSync(localPath) ? localPath
+            : filename && fs.existsSync(assetsPath) ? assetsPath : null;
+        if (!finalPath && !isDataUrl) continue;
+
+        const diskDims = finalPath ? readPngDimensions(finalPath) : null;
+        const natW = img.naturalWidth || diskDims?.w || 0;
+        const natH = img.naturalHeight || diskDims?.h || 0;
+        const imageLoaded = (img.naturalWidth ?? 0) > 0;
+        // .reveal img has padding:15px; getBoundingClientRect includes it.
+        const PAD = 15;
+        const refH = imageLoaded ? Math.max(1, img.h - PAD * 2) : (img.cssMaxHeight && img.cssMaxHeight > 0 ? img.cssMaxHeight : Math.max(1, img.h - PAD * 2));
+        const refW = (natW && natH) ? refH * (natW / natH) : Math.max(1, img.w - PAD * 2);
+        const elX = img.x;
+        const elY = img.y;
+        const elW = imageLoaded ? img.w : refW + PAD * 2;
+        const elH = imageLoaded ? img.h : refH + PAD * 2;
+        const contentX = elX + PAD;
+        const contentY = elY + PAD;
+        const ih = toInH(refH);
+        const iw = toInW(refW);
+        const ix = ptX(contentX);
+        const iy = ptY(contentY);
+        console.log(`    [IMG] ${filename || '(data)'}: loaded=${imageLoaded} rendered=${img.w.toFixed(0)}x${img.h.toFixed(0)} natural=${natW}x${natH} → pptx=${iw.toFixed(3)}"x${ih.toFixed(3)}" @ (${ix.toFixed(3)},${iy.toFixed(3)})`);
         if (finalPath) {
-            slide.addImage({ path: finalPath, x: ptX(img.x), y: ptY(img.y), w: toInW(img.w), h: toInH(img.h), sizing: { type: 'contain', w: toInW(img.w), h: toInH(img.h) } });
+            slide.addImage({ path: finalPath, x: ix, y: iy, w: iw, h: ih });
+        } else {
+            slide.addImage({ data: img.src, x: ix, y: iy, w: iw, h: ih });
+        }
+        // Corner brackets replicating .reveal img CSS frame (15×15px, 2px lines)
+        const noLine = { type: 'none' as const };
+        const bLen = toInW(PAD);
+        const bThk = toInH(2);
+        const bx = ptX(elX);
+        const by = ptY(elY);
+        const bw = toInW(elW);
+        const bh = toInH(elH);
+        const corners = [
+            [bx, by, bLen, bThk], [bx, by, bThk, bLen],
+            [bx + bw - bLen, by, bLen, bThk], [bx + bw - bThk, by, bThk, bLen],
+            [bx, by + bh - bThk, bLen, bThk], [bx, by + bh - bLen, bThk, bLen],
+            [bx + bw - bLen, by + bh - bThk, bLen, bThk], [bx + bw - bThk, by + bh - bLen, bThk, bLen],
+        ];
+        for (const [cx, cy, cw, ch] of corners) {
+            slide.addShape(pres.ShapeType.rect, { x: cx, y: cy, w: cw, h: ch, fill: { color: themeGold }, line: noLine });
         }
     }
 
@@ -481,14 +612,16 @@ async function buildPptxSlide(
         const align = t.align === 'center' ? 'center' : t.align === 'right' ? 'right' : 'left';
         const lineH = t.lineHeight || 1.2;
         const pptxLineH = (ptSize / 72) * lineH;
-        // Title slides use a larger multiplier to prevent fit:shrink from collapsing the text
-        // into the bar — the h1 margin-bottom (30px) needs room between text and bar.
-        const thMultiplier = (isTitleSlide && t.isH1) ? 1.25 : 1.08;
+        // pptxgenjs lineSpacingMultiple is relative to PowerPoint's auto spacing (1.2× font size),
+        // whereas CSS line-height is relative to font size directly. Divide by 1.2 to match.
+        const pptxLineSpacing = lineH / 1.2;
+        // toPt uses PPTX_H (7.5") but toInH uses CONTENT_H (6.8"); the ratio PPTX_H/CONTENT_H
+        // accounts for this so h2/h1 boxes exactly fit their PPTX text, preserving the DOM gap.
+        // Body text uses 1.2 for a generous safety margin.
+        const thMultiplier = (isTitleSlide && t.isH1) ? 1.25 : (t.isH1 || t.isH2) ? (PPTX_H / CONTENT_H) : 1.2;
         const th = Math.max(pptxLineH * 1.05, toInH(t.h) * thMultiplier);
         const tx = ptX(t.x);
         const tw = toInW(t.w);
-        // Reveal.js centering runs before multi-line text wraps, leaving the h1 below center.
-        // For title slides (single h1), recalculate the vertical center from the actual element height.
         const ty = (isTitleSlide && t.isH1) ? (PPTX_H - th) / 2 : ptY(t.y);
         slide.addText(t.text || '', {
             x: tx, y: ty, w: tw, h: th,
@@ -499,7 +632,7 @@ async function buildPptxSlide(
             color: t.color || '888888',
             align,
             valign: 'top',
-            lineSpacingMultiple: lineH,
+            lineSpacingMultiple: pptxLineSpacing,
             charSpacing: t.charSpacing ? toCharSpacing(t.charSpacing) : undefined,
             wrap: true,
             margin: 0,
@@ -554,7 +687,7 @@ async function exportToPptx(presentationName: string): Promise<void> {
 
     try {
         const page: Page = await browser.newPage();
-        await page.setViewport({ width: SLIDE_W, height: SLIDE_H, deviceScaleFactor: 1 });
+        await page.setViewport({ width: SLIDE_W, height: SLIDE_H, deviceScaleFactor: 1.5 });
 
         await page.goto(url, { waitUntil: 'networkidle0', timeout: 30000 });
         await page.waitForFunction(() => !!(window as any).Reveal && (window as any).Reveal.isReady(), { timeout: 15000 });

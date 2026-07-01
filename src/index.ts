@@ -102,13 +102,13 @@ function loadSection(presentationDir: string, sectionName: string): Section | nu
 
 function generateTocSlide(title: string, sections: { name: string; section: Section }[]): string {
     const tocItems = sections
-        .map((s, index) => `<li><a href="#/section-${index + 1}">${s.section.title}</a></li>`)
+        .map((s, index) => `<li style="padding: 6px 0;"><a href="#/section-${index + 1}" style="color: var(--dx-text); text-decoration: none;">${s.section.title}</a></li>`)
         .join('\n                        ');
 
     return `
                 <section id="toc">
                     <h2>Table of Contents</h2>
-                    <ol>
+                    <ol style="width: 100%; text-align: left; margin-top: 20px; font-size: 1.15em; line-height: 1.8; padding-left: 2em;">
                         ${tocItems}
                     </ol>
                 </section>`;
