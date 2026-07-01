@@ -20,7 +20,7 @@ export const section = {
 <section>
     <h1>Curtain &amp; CurtainPTM</h1>
     <p>Visualize, customize, explore, share, and cite MS-based proteomics differential analyses.</p>
-    ${HoloImage('assets/curtain.intro.parameters.png', 'Curtain Input Parameters Overview', '500px')}
+    ${HoloImage('assets/curtain.intro.parameters.png', 'Curtain Input Parameters Overview', '550px')}
 </section>
 
 <section>
@@ -55,17 +55,17 @@ export const section = {
 </section>
 
 <section>
-    <h2>A live session — try it yourself</h2>
+    <h2>Try it yourself</h2>
     <div style="display: grid; grid-template-columns: 1fr auto; gap: 20px; margin-top: 16px; align-items: center;">
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-items: center; justify-items: center;">
-            ${HoloImage('assets/curtain.volcano.plot.overview.png', 'Curtain Volcano Plot Session Overview', '220px')}
-            ${HoloImage('assets/curtain.bar.chart.overview.png', 'Curtain Bar Chart Overview', '220px')}
-            ${HoloImage('assets/curtain.bar.chart.settings.png', 'Curtain Bar Chart Settings', '220px')}
-            ${HoloImage('assets/curtain.batch.search.protein.list.png', 'Curtain Batch Search Protein List', '220px')}
+            ${HoloImage('assets/curtain.volcano.plot.overview.png', 'Curtain Volcano Plot Session Overview', '300px')}
+            ${HoloImage('assets/curtain.bar.chart.overview.png', 'Curtain Bar Chart Overview', '300px')}
+            ${HoloImage('assets/curtain.bar.chart.settings.png', 'Curtain Bar Chart Settings', '300px')}
+            ${HoloImage('assets/curtain.batch.search.protein.list.png', 'Curtain Batch Search Protein List', '300px')}
         </div>
         <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; min-width: 130px;">
             <div style="border: 1px solid var(--dx-gold-dim); padding: 12px; background: var(--dx-holo-bg); text-align: center;">
-                ${QRCode('https://doi.org/10.71663/curtain.fc34-wd57', { size: 100 })}
+                ${QRCode('https://doi.org/10.71663/curtain.fc34-wd57', { size: 200 })}
             </div>
         </div>
     </div>
@@ -92,7 +92,7 @@ export const section = {
             </div>
         </div>
         <div style="flex: 1.1; text-align: center; display: flex; align-items: center; justify-content: center;">
-            ${HoloImage('assets/curtainptm-overview.png', 'CurtainPTM PTM Position Viewer', '370px')}
+            ${HoloImage('assets/curtainptm.ptm.position.viewer.png', 'CurtainPTM PTM Position Viewer', '600px')}
         </div>
     </div>
 </section>
@@ -118,7 +118,7 @@ export const section = {
             </div>
         </div>
         <div style="display: flex; justify-content: center;">
-            ${HoloImage('assets/curtain.doi.registration.form.png', 'DOI Registration Form', '390px')}
+            ${HoloImage('assets/curtain.doi.registration.form.png', 'DOI Registration Form', '600px')}
         </div>
     </div>
 </section>

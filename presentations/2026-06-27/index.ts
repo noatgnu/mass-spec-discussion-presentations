@@ -1,6 +1,6 @@
 export const presentation = {
-    title: "CUPCAKE, CURTAIN, CINDER: A collection of tools for better data management, sharing and reuse",
-    loc: "12-Minute Overview",
+    title: "Data Management and Visualization for Proteomics with CUPCAKE, CURTAIN, and CINDER",
+    loc: "Overview",
     theme: "light" as const,
     showToc: true,
     sections: [

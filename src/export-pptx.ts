@@ -566,15 +566,18 @@ async function buildPptxSlide(
         const natH = img.naturalHeight || diskDims?.h || 0;
         const imageLoaded = (img.naturalWidth ?? 0) > 0;
         // .reveal img has padding:15px; getBoundingClientRect includes it.
-        const PAD = 15;
-        const refH = imageLoaded ? Math.max(1, img.h - PAD * 2) : (img.cssMaxHeight && img.cssMaxHeight > 0 ? img.cssMaxHeight : Math.max(1, img.h - PAD * 2));
-        const refW = (natW && natH) ? refH * (natW / natH) : Math.max(1, img.w - PAD * 2);
+        // In PPTX there is no zoom, so we draw the image at full content size and
+        // place the corner brackets just 3px outside the image content boundary.
+        const CSS_PAD = 15;
+        const BRACKET_GAP = 3;
+        const refH = imageLoaded ? Math.max(1, img.h - CSS_PAD * 2) : (img.cssMaxHeight && img.cssMaxHeight > 0 ? img.cssMaxHeight : Math.max(1, img.h - CSS_PAD * 2));
+        const refW = (natW && natH) ? refH * (natW / natH) : Math.max(1, img.w - CSS_PAD * 2);
         const elX = img.x;
         const elY = img.y;
-        const elW = imageLoaded ? img.w : refW + PAD * 2;
-        const elH = imageLoaded ? img.h : refH + PAD * 2;
-        const contentX = elX + PAD;
-        const contentY = elY + PAD;
+        const elW = imageLoaded ? img.w : refW + CSS_PAD * 2;
+        const elH = imageLoaded ? img.h : refH + CSS_PAD * 2;
+        const contentX = elX + CSS_PAD;
+        const contentY = elY + CSS_PAD;
         const ih = toInH(refH);
         const iw = toInW(refW);
         const ix = ptX(contentX);
@@ -585,14 +588,14 @@ async function buildPptxSlide(
         } else {
             slide.addImage({ data: img.src, x: ix, y: iy, w: iw, h: ih });
         }
-        // Corner brackets replicating .reveal img CSS frame (15×15px, 2px lines)
+        // Corner brackets drawn 3px outside the image content (not element bounds).
         const noLine = { type: 'none' as const };
-        const bLen = toInW(PAD);
+        const bLen = toInW(10);
         const bThk = toInH(2);
-        const bx = ptX(elX);
-        const by = ptY(elY);
-        const bw = toInW(elW);
-        const bh = toInH(elH);
+        const bx = ptX(contentX - BRACKET_GAP);
+        const by = ptY(contentY - BRACKET_GAP);
+        const bw = iw + toInW(BRACKET_GAP * 2);
+        const bh = ih + toInH(BRACKET_GAP * 2);
         const corners = [
             [bx, by, bLen, bThk], [bx, by, bThk, bLen],
             [bx + bw - bLen, by, bLen, bThk], [bx + bw - bThk, by, bThk, bLen],
