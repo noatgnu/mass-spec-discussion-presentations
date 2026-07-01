@@ -5,44 +5,8 @@ const iGlobe  = `<svg width="22" height="22" viewBox="0 0 28 28" style="display:
 const iLink   = `<svg width="22" height="22" viewBox="0 0 28 28" style="display:block;margin-bottom:4px"><path d="M8 17l-2 2a5 5 0 0 0 8 0l4-4" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><path d="M20 11l2-2a5 5 0 0 0-8 0l-4 4" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><line x1="11" y1="17" x2="17" y2="11" style="stroke:var(--dx-gold-dim);stroke-width:1.5;opacity:0.5"/></svg>`;
 
 export const section = {
-    title: "Putting It Together",
+    title: "Conclusion",
     slides: `
-<section>
-    <h2>A more streamline process for visualization and documentation</h2>
-    <p style="font-size: 0.72em; color: var(--dx-text-secondary); margin-bottom: 18px;">Where to place the data that you would need to archive and published.</p>
-    <div style="display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 0; font-size: 0.74em; align-items: stretch;">
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 18px; background: var(--dx-holo-bg);">
-            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.9em; letter-spacing: 1px; margin-bottom: 10px;">CUPCAKE</div>
-            <ul style="color: var(--dx-text-secondary); line-height: 1.8; list-style: none; padding: 0; margin: 0;">
-                <li>Record experiment details</li>
-                <li>Annotate samples</li>
-                <li>Build a searchable archive</li>
-            </ul>
-        </div>
-        <div style="display: flex; align-items: center; padding: 0 10px; color: var(--dx-gold); font-size: 1.4em; font-family: monospace;">▶</div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 18px; background: var(--dx-holo-bg);">
-            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.9em; letter-spacing: 1px; margin-bottom: 10px;">CURTAIN / PTM</div>
-            <ul style="color: var(--dx-text-secondary); line-height: 1.8; list-style: none; padding: 0; margin: 0;">
-                <li>Upload result tables</li>
-                <li>Create interactive figures</li>
-                <li>Share via link or DOI</li>
-            </ul>
-        </div>
-        <div style="display: flex; align-items: center; padding: 0 10px; color: var(--dx-gold); font-size: 1.4em; font-family: monospace;">▶</div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 18px; background: var(--dx-holo-bg);">
-            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.9em; letter-spacing: 1px; margin-bottom: 10px;">CINDER</div>
-            <ul style="color: var(--dx-text-secondary); line-height: 1.8; list-style: none; padding: 0; margin: 0;">
-                <li>Import sessions by link</li>
-                <li>Search across all at once</li>
-                <li>Share combined views</li>
-            </ul>
-        </div>
-    </div>
-    <div style="margin-top: 16px; border: 1px solid var(--dx-gold-dim); padding: 12px 20px; background: var(--dx-holo-bg); font-size: 0.74em; text-align: center; color: var(--dx-text-secondary);">
-        Open-source · Self-hostable · No vendor lock-in
-    </div>
-</section>
-
 <section>
     <h2>Access &amp; Resources</h2>
     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 20px; text-align: center; font-size: 0.78em;">
