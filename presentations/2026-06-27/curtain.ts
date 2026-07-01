@@ -20,7 +20,7 @@ export const section = {
 <section>
     <h1>Curtain &amp; CurtainPTM</h1>
     <p>Visualize, customize, explore, share, and cite MS-based proteomics differential analyses.</p>
-    ${HoloImage('assets/curtain-overview.png', 'Curtain Application Overview', '340px')}
+    ${HoloImage('assets/curtain.intro.parameters.png', 'Curtain Input Parameters Overview', '500px')}
 </section>
 
 <section>
@@ -56,16 +56,16 @@ export const section = {
 
 <section>
     <h2>A live session — try it yourself</h2>
-    <div style="display: grid; grid-template-columns: 1fr auto; gap: 24px; margin-top: 16px; align-items: center;">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-items: start;">
-            ${HoloImage('assets/curtain.volcano.plot.overview.png', 'Curtain Volcano Plot Session Overview', '155px')}
-            ${HoloImage('assets/curtain.bar.chart.overview.png', 'Curtain Bar Chart Overview', '155px')}
-            ${HoloImage('assets/curtain.bar.chart.settings.png', 'Curtain Bar Chart Settings', '155px')}
-            ${HoloImage('assets/curtain.batch.search.protein.list.png', 'Curtain Batch Search Protein List', '155px')}
+    <div style="display: grid; grid-template-columns: 1fr auto; gap: 20px; margin-top: 16px; align-items: center;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-items: center; justify-items: center;">
+            ${HoloImage('assets/curtain.volcano.plot.overview.png', 'Curtain Volcano Plot Session Overview', '220px')}
+            ${HoloImage('assets/curtain.bar.chart.overview.png', 'Curtain Bar Chart Overview', '220px')}
+            ${HoloImage('assets/curtain.bar.chart.settings.png', 'Curtain Bar Chart Settings', '220px')}
+            ${HoloImage('assets/curtain.batch.search.protein.list.png', 'Curtain Batch Search Protein List', '220px')}
         </div>
-        <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; min-width: 140px;">
-            <div style="border: 1px solid var(--dx-gold-dim); padding: 14px; background: var(--dx-holo-bg); text-align: center;">
-                ${QRCode('https://doi.org/10.71663/curtain.fc34-wd57', { size: 110 })}
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; min-width: 130px;">
+            <div style="border: 1px solid var(--dx-gold-dim); padding: 12px; background: var(--dx-holo-bg); text-align: center;">
+                ${QRCode('https://doi.org/10.71663/curtain.fc34-wd57', { size: 100 })}
             </div>
         </div>
     </div>
@@ -99,21 +99,26 @@ export const section = {
 
 <section>
     <h2>Login with your ORCID and create DOI for your publication</h2>
-    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 20px; font-size: 0.75em;">
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 18px 12px; background: var(--dx-holo-bg); text-align: center;">
-            ${iLink}
-            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">LINK SHARING</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.5;">Permanent URL — no login to view</div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 16px; align-items: center;">
+        <div style="display: flex; flex-direction: column; gap: 10px; font-size: 0.75em;">
+            <div style="border: 1px solid var(--dx-gold-dim); padding: 14px 12px; background: var(--dx-holo-bg); text-align: center;">
+                ${iLink}
+                <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 4px;">LINK SHARING</div>
+                <div style="color: var(--dx-text-secondary); line-height: 1.5;">Permanent URL — no login to view</div>
+            </div>
+            <div style="border: 1px solid var(--dx-gold-dim); padding: 14px 12px; background: var(--dx-holo-bg); text-align: center;">
+                ${iPerson}
+                <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 4px;">ORCID LOGIN</div>
+                <div style="color: var(--dx-text-secondary); line-height: 1.5;">Own sessions and track access with your researcher ID</div>
+            </div>
+            <div style="border: 1px solid var(--dx-gold-dim); padding: 14px 12px; background: var(--dx-holo-bg); text-align: center;">
+                ${iFolder}
+                <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 4px;">COLLECTIONS</div>
+                <div style="color: var(--dx-text-secondary); line-height: 1.5;">Group sessions to be shared in a single link</div>
+            </div>
         </div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 18px 12px; background: var(--dx-holo-bg); text-align: center;">
-            ${iPerson}
-            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">ORCID LOGIN</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.5;">Own sessions and track access with your researcher ID</div>
-        </div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 18px 12px; background: var(--dx-holo-bg); text-align: center;">
-            ${iFolder}
-            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">COLLECTIONS</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.5;">Group sessions to be shared in a single link</div>
+        <div style="display: flex; justify-content: center;">
+            ${HoloImage('assets/curtain.doi.registration.form.png', 'DOI Registration Form', '390px')}
         </div>
     </div>
 </section>
