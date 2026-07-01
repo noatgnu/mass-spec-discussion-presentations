@@ -22,36 +22,48 @@ export const section = {
 
 <section>
     <h2>A better experience with SDRF-based structural metadata</h2>
-    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; font-size: 0.7em; margin-bottom: 16px;">
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 16px 8px; background: var(--dx-holo-bg); text-align: center;">
-            ${iGrid}
-            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">TEMPLATES</div>
-            <div style="color: var(--dx-text-secondary); font-size: 0.9em; line-height: 1.5;">Reuse column layouts across every experiment</div>
+    <div style="display: grid; grid-template-columns: 260px 1fr; gap: 16px; margin-top: 14px; align-items: stretch;">
+        <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.68em;">
+            <div style="border: 1px solid var(--dx-gold-dim); padding: 10px 8px; background: var(--dx-holo-bg); display: flex; gap: 8px; align-items: center;">
+                <div style="flex-shrink:0">${iGrid.replace('display:block;margin:0 auto 10px', 'display:block')}</div>
+                <div>
+                    <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 2px;">TEMPLATES</div>
+                    <div style="color: var(--dx-text-secondary); line-height: 1.4;">Reuse column layouts across every experiment</div>
+                </div>
+            </div>
+            <div style="border: 1px solid var(--dx-gold-dim); padding: 10px 8px; background: var(--dx-holo-bg); display: flex; gap: 8px; align-items: center;">
+                <div style="flex-shrink:0">${iBolt.replace('display:block;margin:0 auto 10px', 'display:block')}</div>
+                <div>
+                    <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 2px;">AUTO-FILL</div>
+                    <div style="color: var(--dx-text-secondary); line-height: 1.4;">Fill cells with different patterns</div>
+                </div>
+            </div>
+            <div style="border: 1px solid var(--dx-gold-dim); padding: 10px 8px; background: var(--dx-holo-bg); display: flex; gap: 8px; align-items: center;">
+                <div style="flex-shrink:0">${iBook.replace('display:block;margin:0 auto 10px', 'display:block')}</div>
+                <div>
+                    <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 2px;">TERM LOOKUP</div>
+                    <div style="color: var(--dx-text-secondary); line-height: 1.4;">Search scientific vocabularies inline</div>
+                </div>
+            </div>
+            <div style="border: 1px solid var(--dx-gold-dim); padding: 10px 8px; background: var(--dx-holo-bg); display: flex; gap: 8px; align-items: center;">
+                <div style="flex-shrink:0">${iShield.replace('display:block;margin:0 auto 10px', 'display:block')}</div>
+                <div>
+                    <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 2px;">VALIDATION</div>
+                    <div style="color: var(--dx-text-secondary); line-height: 1.4;">Check annotation before export</div>
+                </div>
+            </div>
+            <div style="border: 1px solid var(--dx-gold-dim); padding: 10px 8px; background: var(--dx-holo-bg); display: flex; gap: 8px; align-items: center;">
+                <div style="flex-shrink:0">${iUpload.replace('display:block;margin:0 auto 10px', 'display:block')}</div>
+                <div>
+                    <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 2px;">EXPORT</div>
+                    <div style="color: var(--dx-text-secondary); line-height: 1.4;">Download in repository-ready format</div>
+                </div>
+            </div>
         </div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 16px 8px; background: var(--dx-holo-bg); text-align: center;">
-            ${iBolt}
-            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">AUTO-FILL</div>
-            <div style="color: var(--dx-text-secondary); font-size: 0.9em; line-height: 1.5;">Fill cells with different patterns</div>
+        <div style="display: flex; flex-direction: column; gap: 10px; align-items: center; justify-content: center;">
+            ${HoloImage('assets/cupcake.vanilla.metadata.lookup.autofill.png', 'Cupcake Vanilla Metadata Lookup', '240px')}
+            ${HoloImage('assets/cupcake.vanilla.create.from.schema.png', 'Cupcake Vanilla Create From Schema', '240px')}
         </div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 16px 8px; background: var(--dx-holo-bg); text-align: center;">
-            ${iBook}
-            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">TERM LOOKUP</div>
-            <div style="color: var(--dx-text-secondary); font-size: 0.9em; line-height: 1.5;">Search scientific vocabularies inline</div>
-        </div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 16px 8px; background: var(--dx-holo-bg); text-align: center;">
-            ${iShield}
-            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">VALIDATION</div>
-            <div style="color: var(--dx-text-secondary); font-size: 0.9em; line-height: 1.5;">Check annotation before export</div>
-        </div>
-        <div style="border: 1px solid var(--dx-gold-dim); padding: 16px 8px; background: var(--dx-holo-bg); text-align: center;">
-            ${iUpload}
-            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">EXPORT</div>
-            <div style="color: var(--dx-text-secondary); font-size: 0.9em; line-height: 1.5;">Download in repository-ready format</div>
-        </div>
-    </div>
-    <div style="display: flex; justify-content: center; gap: 16px; align-items: center;">
-        ${HoloImage('assets/cupcake-autofill.png', 'Cupcake Vanilla Auto-Fill', '200px')}
-        ${HoloImage('assets/cupcake.vanilla.create.from.schema.png', 'Cupcake Vanilla Create From Schema', '200px')}
     </div>
 </section>
 
