@@ -13,12 +13,12 @@ export const section = {
     slides: `
 <section>
     <h1>Cinder</h1>
-    <p>Collating your results into searchable collections</p>
+    <p>Search your entire library of data analysis results</p>
     ${HoloImage('assets/cinder-overview.png', 'Cinder Application Overview', '340px')}
 </section>
 
 <section>
-    <h2>From sessions to insight in four steps</h2>
+    <h2>A Step Further From CURTAIN</h2>
     <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; font-size: 0.72em; margin-bottom: 14px;">
         <div style="padding: 16px; background: var(--dx-holo-bg); border: 1px solid var(--dx-gold-dim); border-right: none; text-align: center;">
             ${iDL}
