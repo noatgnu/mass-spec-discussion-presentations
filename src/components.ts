@@ -54,7 +54,9 @@ export function QRCode(data: string, options: { size?: number, margin?: number }
 export interface HoloImageFacetOptions {
     width?: string;
     height?: string;
-    cropPosition?: string;
+    /** CSS object-position string ('center', 'left') or a number 0–100 representing
+     *  the horizontal percentage into the image where the crop window is anchored. */
+    cropPosition?: string | number;
     captionPosition?: 'top' | 'bottom';
     margin?: string;
     stretch?: boolean;
@@ -62,7 +64,8 @@ export interface HoloImageFacetOptions {
 
 /**
  * Shows a narrow vertical crop of an image with a caption. Clicking opens the full image in the lightbox.
- * cropPosition is passed directly to CSS object-position (e.g. 'center', 'left', '25% center').
+ * cropPosition accepts a CSS object-position string ('center', 'left', '25% top') or a number 0–100
+ * that anchors the crop window at that horizontal percentage into the source image.
  */
 export function HoloImageFacet(
     src: string,
@@ -79,9 +82,13 @@ export function HoloImageFacet(
         stretch = false,
     } = options;
 
+    const objectPosition = typeof cropPosition === 'number'
+        ? `${Math.min(100, Math.max(0, cropPosition))}% center`
+        : cropPosition;
+
     const captionHtml = `<div style="font-family: monospace; font-size: 0.65em; color: var(--dx-gold); letter-spacing: 0.5px; text-align: center; padding: 4px 2px; line-height: 1.4; opacity: 0.85; flex-shrink: 0;">${caption}</div>`;
     const cropStyle = stretch
-        ? `position: relative; overflow: hidden; width: ${width}; flex: 1; min-height: 0; border: 1px solid var(--dx-gold-dim);`
+        ? `position: relative; overflow: hidden; width: 100%; flex: 1; min-height: 0; border: 1px solid var(--dx-gold-dim);`
         : `position: relative; overflow: hidden; width: ${width}; height: ${height}; border: 1px solid var(--dx-gold-dim); flex-shrink: 0;`;
     const wrapperStyle = stretch
         ? `display: flex; flex-direction: column; margin: ${margin}; width: ${width}; gap: 4px; align-self: stretch;`
@@ -92,7 +99,7 @@ export function HoloImageFacet(
     ${captionPosition === 'top' ? captionHtml : ''}
     <div data-pptx-export="screenshot" style="${cropStyle}">
         <img src="${src}" alt="${alt}" class="holo-facet-img"
-             style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: ${cropPosition};">
+             style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: ${objectPosition}; margin: 0; border: none; box-shadow: none;">
         <div class="holo-img-hint" style="
             position: absolute; bottom: 6px; right: 6px;
             color: var(--dx-gold); font-family: monospace; font-size: 9px;
@@ -109,16 +116,19 @@ export interface HoloImageFacetGridItem {
     src: string;
     alt: string;
     caption: string;
-    cropPosition?: string;
+    cropPosition?: string | number;
 }
 
 /**
- * Lays out a row of HoloImageFacet items that together fill the full available width,
- * with each facet stretching to fill the available vertical space beneath the title.
- * Wrap the slide section in display:flex flex-direction:column height:100% and this
- * container takes flex:1.
+ * Generates a full <section> slide containing a row of facet images that fill the
+ * available space beneath the title. Uses an absolutely-positioned inner wrapper so
+ * that the flex layout is not overridden by Reveal.js's own section styling.
  */
-export function HoloImageFacetGrid(items: HoloImageFacetGridItem[], captionPosition: 'top' | 'bottom' = 'bottom'): string {
+export function HoloImageFacetGrid(
+    title: string,
+    items: HoloImageFacetGridItem[],
+    captionPosition: 'top' | 'bottom' = 'bottom'
+): string {
     const facets = items.map(item =>
         HoloImageFacet(item.src, item.alt, item.caption, {
             width: `${Math.floor(100 / items.length)}%`,
@@ -128,9 +138,15 @@ export function HoloImageFacetGrid(items: HoloImageFacetGridItem[], captionPosit
         })
     ).join('\n');
 
-    return `<div style="display: flex; justify-content: center; align-items: stretch; gap: 12px; flex: 1; min-height: 0; width: 100%;">
+    return `
+<section style="height: 720px;">
+    <div style="position: absolute; inset: 0; display: flex; flex-direction: column; padding: 20px 40px;">
+        <h2>${title}</h2>
+        <div style="display: flex; justify-content: center; align-items: stretch; gap: 12px; flex: 1; min-height: 0; margin-top: 14px; width: 100%;">
 ${facets}
-</div>`;
+        </div>
+    </div>
+</section>`;
 }
 
 /**

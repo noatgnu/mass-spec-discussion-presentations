@@ -47,7 +47,7 @@ const UI_HIDE_SELECTORS = [
 ];
 
 interface ExtractedElement {
-    type: 'rect' | 'text' | 'image' | 'svg' | 'canvas';
+    type: 'rect' | 'text' | 'image' | 'svg' | 'canvas' | 'clip';
     tag: string;
     x: number; y: number; w: number; h: number;
     text?: string;
@@ -286,6 +286,10 @@ async function extractSlideElements(page: Page, slidesRect: { x: number; y: numb
             }
             if (tag === 'canvas') {
                 elements.push({ type: 'canvas', tag, x, y, w, h, dataUrl: (el as HTMLCanvasElement).toDataURL('image/png') });
+                return;
+            }
+            if ((el as HTMLElement).dataset?.pptxExport === 'screenshot') {
+                elements.push({ type: 'clip', tag, x, y, w, h, clipX: rect.left, clipY: rect.top, clipW: rect.width, clipH: rect.height });
                 return;
             }
             if (tag === 'img') {
@@ -557,6 +561,14 @@ async function buildPptxSlide(
     for (const cv of canvases) {
         if (cv.dataUrl) {
             slide.addImage({ data: cv.dataUrl, x: ptX(cv.x), y: ptY(cv.y), w: toInW(cv.w), h: toInH(cv.h) });
+        }
+    }
+
+    const clips = elements.filter(e => e.type === 'clip');
+    for (const clip of clips) {
+        if (clip.clipW && clip.clipH && clip.clipW > 0 && clip.clipH > 0) {
+            const imgData = await screenshotClip(page, clip.clipX!, clip.clipY!, clip.clipW, clip.clipH);
+            slide.addImage({ data: imgData, x: ptX(clip.x), y: ptY(clip.y), w: toInW(clip.w), h: toInH(clip.h) });
         }
     }
 

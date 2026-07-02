@@ -1,4 +1,4 @@
-import { HoloImageFacet } from '../../src/components';
+import { HoloImageFacetGrid } from '../../src/components';
 
 
 export const section = {
@@ -27,13 +27,10 @@ export const section = {
     </div>
 </section>
 
-<section style="display: flex; flex-direction: column; height: 100%;">
-    <h2>Cupcake - adopting field best practices</h2>
-    <div style="display: flex; justify-content: center; align-items: stretch; gap: 16px; flex: 1; min-height: 0; margin-top: 18px;">
-        ${HoloImageFacet('assets/cupcake.overview.table.png', 'Cupcake metadata table overview', 'OVERVIEW TABLE', { width: '220px', cropPosition: 'left', stretch: true })}
-        ${HoloImageFacet('assets/cupcake.vanilla.metadata.lookup.autofill.png', 'Cupcake metadata autofill', 'METADATA AUTOFILL', { width: '220px', cropPosition: 'center', stretch: true })}
-        ${HoloImageFacet('assets/cupcake.vanilla.create.from.schema.png', 'Cupcake create from schema', 'SCHEMA BUILDER', { width: '220px', cropPosition: 'center', stretch: true })}
-    </div>
-</section>
+${HoloImageFacetGrid('Cupcake - adopting field best practices', [
+    { src: 'assets/cupcake.overview.table.png',                   alt: 'Cupcake metadata table overview', caption: 'OVERVIEW TABLE',    cropPosition: 'left'   },
+    { src: 'assets/cupcake.vanilla.metadata.lookup.autofill.png', alt: 'Cupcake metadata autofill',       caption: 'METADATA AUTOFILL', cropPosition: 'center' },
+    { src: 'assets/cupcake.vanilla.create.from.schema.png',       alt: 'Cupcake create from schema',      caption: 'SCHEMA BUILDER',    cropPosition: 'center' },
+])}
 `
 };
