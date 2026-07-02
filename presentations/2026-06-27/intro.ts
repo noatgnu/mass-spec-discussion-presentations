@@ -65,24 +65,24 @@ export const section = {
         </div>
 
         <div class="fragment" data-fragment-index="0" style="font-family: monospace; font-size: 0.72em; color: var(--dx-gold); text-align: right; padding: 5px 4px 5px 0; display: flex; align-items: center; justify-content: flex-end; border-top: 1px solid var(--dx-gold-dim); opacity: 0.85;">CUPCAKE</div>
-        <div class="fragment" data-fragment-index="0" style="border-top: 1px solid var(--dx-gold-dim); padding: 5px 0;"><div style="background: var(--dx-gold-dim); height: 10px; margin-left: 3px;"></div></div>
-        <div class="fragment" data-fragment-index="0" style="border-top: 1px solid var(--dx-gold-dim); padding: 5px 0;"><div style="background: var(--dx-gold-dim); height: 10px; margin-right: 3px;"></div></div>
+        <div class="fragment" data-fragment-index="0" style="border-top: 1px solid var(--dx-gold-dim); padding: 0 3px; display: flex; align-items: center;"><div style="background: var(--dx-gold-dim); height: 10px; width: 100%;"></div></div>
+        <div class="fragment" data-fragment-index="0" style="border-top: 1px solid var(--dx-gold-dim); padding: 0 3px; display: flex; align-items: center;"><div style="background: var(--dx-gold-dim); height: 10px; width: 100%;"></div></div>
         <div class="fragment" data-fragment-index="0" style="border-top: 1px solid var(--dx-gold-dim); padding: 5px 3px;"></div>
-        <div class="fragment" data-fragment-index="0" style="border-top: 1px solid var(--dx-gold-dim); padding: 5px 3px;"><div style="background: var(--dx-gold-dim); height: 10px;"></div></div>
+        <div class="fragment" data-fragment-index="0" style="border-top: 1px solid var(--dx-gold-dim); padding: 0 3px; display: flex; align-items: center;"><div style="background: var(--dx-gold-dim); height: 10px; width: 100%;"></div></div>
         <div class="fragment" data-fragment-index="0" style="border-top: 1px solid var(--dx-gold-dim); padding: 5px 3px;"></div>
 
         <div class="fragment" data-fragment-index="1" style="font-family: monospace; font-size: 0.72em; color: var(--dx-gold); text-align: right; padding: 4px 4px 4px 0; display: flex; align-items: center; justify-content: flex-end; border-top: 1px solid var(--dx-gold-dim); opacity: 0.85;">CURTAIN</div>
         <div class="fragment" data-fragment-index="1" style="border-top: 1px solid var(--dx-gold-dim); padding: 4px 3px;"></div>
         <div class="fragment" data-fragment-index="1" style="border-top: 1px solid var(--dx-gold-dim); padding: 4px 3px;"></div>
-        <div class="fragment" data-fragment-index="1" style="border-top: 1px solid var(--dx-gold-dim); padding: 4px 3px;"><div style="background: var(--dx-gold-dim); height: 10px;"></div></div>
+        <div class="fragment" data-fragment-index="1" style="border-top: 1px solid var(--dx-gold-dim); padding: 0 3px; display: flex; align-items: center;"><div style="background: var(--dx-gold-dim); height: 10px; width: 100%;"></div></div>
         <div class="fragment" data-fragment-index="1" style="border-top: 1px solid var(--dx-gold-dim); padding: 4px 3px;"></div>
         <div class="fragment" data-fragment-index="1" style="border-top: 1px solid var(--dx-gold-dim); padding: 4px 3px;"></div>
 
         <div class="fragment" data-fragment-index="2" style="font-family: monospace; font-size: 0.72em; color: var(--dx-gold); text-align: right; padding: 4px 4px 5px 0; display: flex; align-items: center; justify-content: flex-end; border-top: 1px solid var(--dx-gold-dim); opacity: 0.85;">CINDER</div>
         <div class="fragment" data-fragment-index="2" style="border-top: 1px solid var(--dx-gold-dim); padding: 4px 3px 5px;"></div>
         <div class="fragment" data-fragment-index="2" style="border-top: 1px solid var(--dx-gold-dim); padding: 4px 3px 5px;"></div>
-        <div class="fragment" data-fragment-index="2" style="border-top: 1px solid var(--dx-gold-dim); padding: 4px 0 5px;"><div style="background: var(--dx-gold-dim); height: 10px; margin-left: 3px;"></div></div>
-        <div class="fragment" data-fragment-index="2" style="border-top: 1px solid var(--dx-gold-dim); padding: 4px 0 5px;"><div style="background: var(--dx-gold-dim); height: 10px; margin-right: 3px;"></div></div>
+        <div class="fragment" data-fragment-index="2" style="border-top: 1px solid var(--dx-gold-dim); padding: 0 3px; display: flex; align-items: center;"><div style="background: var(--dx-gold-dim); height: 10px; width: 100%;"></div></div>
+        <div class="fragment" data-fragment-index="2" style="border-top: 1px solid var(--dx-gold-dim); padding: 0 3px; display: flex; align-items: center;"><div style="background: var(--dx-gold-dim); height: 10px; width: 100%;"></div></div>
         <div class="fragment" data-fragment-index="2" style="border-top: 1px solid var(--dx-gold-dim); padding: 4px 3px 5px;"></div>
     </div>
 </section>

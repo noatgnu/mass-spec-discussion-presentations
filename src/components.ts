@@ -51,6 +51,88 @@ export function QRCode(data: string, options: { size?: number, margin?: number }
 </script>`;
 }
 
+export interface HoloImageFacetOptions {
+    width?: string;
+    height?: string;
+    cropPosition?: string;
+    captionPosition?: 'top' | 'bottom';
+    margin?: string;
+    stretch?: boolean;
+}
+
+/**
+ * Shows a narrow vertical crop of an image with a caption. Clicking opens the full image in the lightbox.
+ * cropPosition is passed directly to CSS object-position (e.g. 'center', 'left', '25% center').
+ */
+export function HoloImageFacet(
+    src: string,
+    alt: string,
+    caption: string,
+    options: HoloImageFacetOptions = {}
+): string {
+    const {
+        width = '160px',
+        height = '260px',
+        cropPosition = 'center',
+        captionPosition = 'bottom',
+        margin = '0',
+        stretch = false,
+    } = options;
+
+    const captionHtml = `<div style="font-family: monospace; font-size: 0.65em; color: var(--dx-gold); letter-spacing: 0.5px; text-align: center; padding: 4px 2px; line-height: 1.4; opacity: 0.85; flex-shrink: 0;">${caption}</div>`;
+    const cropStyle = stretch
+        ? `position: relative; overflow: hidden; width: ${width}; flex: 1; min-height: 0; border: 1px solid var(--dx-gold-dim);`
+        : `position: relative; overflow: hidden; width: ${width}; height: ${height}; border: 1px solid var(--dx-gold-dim); flex-shrink: 0;`;
+    const wrapperStyle = stretch
+        ? `display: flex; flex-direction: column; margin: ${margin}; width: ${width}; gap: 4px; align-self: stretch;`
+        : `display: inline-flex; flex-direction: column; margin: ${margin}; width: ${width}; gap: 4px;`;
+
+    return `
+<div style="${wrapperStyle}">
+    ${captionPosition === 'top' ? captionHtml : ''}
+    <div data-pptx-export="screenshot" style="${cropStyle}">
+        <img src="${src}" alt="${alt}" class="holo-facet-img"
+             style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: ${cropPosition};">
+        <div class="holo-img-hint" style="
+            position: absolute; bottom: 6px; right: 6px;
+            color: var(--dx-gold); font-family: monospace; font-size: 9px;
+            background: rgba(0,0,0,0.7); padding: 2px 6px;
+            border: 1px solid var(--dx-gold); pointer-events: none;
+            letter-spacing: 1px; opacity: 0.7; z-index: 5;
+        ">[ EXPAND ]</div>
+    </div>
+    ${captionPosition === 'bottom' ? captionHtml : ''}
+</div>`;
+}
+
+export interface HoloImageFacetGridItem {
+    src: string;
+    alt: string;
+    caption: string;
+    cropPosition?: string;
+}
+
+/**
+ * Lays out a row of HoloImageFacet items that together fill the full available width,
+ * with each facet stretching to fill the available vertical space beneath the title.
+ * Wrap the slide section in display:flex flex-direction:column height:100% and this
+ * container takes flex:1.
+ */
+export function HoloImageFacetGrid(items: HoloImageFacetGridItem[], captionPosition: 'top' | 'bottom' = 'bottom'): string {
+    const facets = items.map(item =>
+        HoloImageFacet(item.src, item.alt, item.caption, {
+            width: `${Math.floor(100 / items.length)}%`,
+            cropPosition: item.cropPosition ?? 'center',
+            captionPosition,
+            stretch: true,
+        })
+    ).join('\n');
+
+    return `<div style="display: flex; justify-content: center; align-items: stretch; gap: 12px; flex: 1; min-height: 0; width: 100%;">
+${facets}
+</div>`;
+}
+
 /**
  * Generates an image wrapped in a holographic container with a zoom hint.
  */

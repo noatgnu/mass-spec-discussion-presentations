@@ -1,4 +1,4 @@
-import { HoloImage } from '../../src/components';
+import { HoloImageFacet } from '../../src/components';
 
 
 export const section = {
@@ -10,11 +10,11 @@ export const section = {
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; font-size: 0.75em; text-align: left;">
         <div class="fragment" data-fragment-index="0" style="border: 1px solid var(--dx-gold-dim); padding: 12px 14px; background: var(--dx-holo-bg);">
             <div style="font-family: monospace; color: var(--dx-gold); letter-spacing: 1px; margin-bottom: 6px;">01 · INCOMPLETE</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.5;">Critical sample details - organism, tissue, treatment, instrument - are routinely left unrecorded</div>
+            <div style="color: var(--dx-text-secondary); line-height: 1.5;">Critical sample details are routinely left unrecorded</div>
         </div>
         <div class="fragment" data-fragment-index="1" style="border: 1px solid var(--dx-gold-dim); padding: 12px 14px; background: var(--dx-holo-bg);">
             <div style="font-family: monospace; color: var(--dx-gold); letter-spacing: 1px; margin-bottom: 6px;">02 · INCONSISTENT</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.5;">The same condition appears in dozens of forms - free text with no controlled vocabulary or standard terms</div>
+            <div style="color: var(--dx-text-secondary); line-height: 1.5;">Inconsistent information that does not follow any controlled vocabulary</div>
         </div>
         <div class="fragment" data-fragment-index="2" style="border: 1px solid var(--dx-gold-dim); padding: 12px 14px; background: var(--dx-holo-bg);">
             <div style="font-family: monospace; color: var(--dx-gold); letter-spacing: 1px; margin-bottom: 6px;">03 · FRAGMENTED</div>
@@ -27,12 +27,12 @@ export const section = {
     </div>
 </section>
 
-<section>
+<section style="display: flex; flex-direction: column; height: 100%;">
     <h2>Cupcake - adopting field best practices</h2>
-    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 14px; align-items: start; justify-items: center;">
-        ${HoloImage('assets/cupcake.overview.table.png', 'Cupcake metadata table overview', '9999px', '5px')}
-        ${HoloImage('assets/cupcake.vanilla.metadata.lookup.autofill.png', 'Cupcake metadata autofill', '9999px', '5px')}
-        ${HoloImage('assets/cupcake.vanilla.create.from.schema.png', 'Cupcake create from schema', '9999px', '5px')}
+    <div style="display: flex; justify-content: center; align-items: stretch; gap: 16px; flex: 1; min-height: 0; margin-top: 18px;">
+        ${HoloImageFacet('assets/cupcake.overview.table.png', 'Cupcake metadata table overview', 'OVERVIEW TABLE', { width: '220px', cropPosition: 'left', stretch: true })}
+        ${HoloImageFacet('assets/cupcake.vanilla.metadata.lookup.autofill.png', 'Cupcake metadata autofill', 'METADATA AUTOFILL', { width: '220px', cropPosition: 'center', stretch: true })}
+        ${HoloImageFacet('assets/cupcake.vanilla.create.from.schema.png', 'Cupcake create from schema', 'SCHEMA BUILDER', { width: '220px', cropPosition: 'center', stretch: true })}
     </div>
 </section>
 `
