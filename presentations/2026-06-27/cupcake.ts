@@ -1,94 +1,38 @@
 import { HoloImage } from '../../src/components';
 
-const iCheck  = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><circle cx="14" cy="14" r="10" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><path d="M9 14l3 3 6-7" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/></svg>`;
-const iBlock  = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><circle cx="14" cy="14" r="10" fill="none" style="stroke:var(--dx-gold-dim);stroke-width:1.5;opacity:0.7"/><line x1="9" y1="9" x2="19" y2="19" style="stroke:var(--dx-gold-dim);stroke-width:1.5;opacity:0.7"/><line x1="19" y1="9" x2="9" y2="19" style="stroke:var(--dx-gold-dim);stroke-width:1.5;opacity:0.7"/></svg>`;
-const iGrid   = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><rect x="4" y="4" width="20" height="20" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><line x1="4" y1="10" x2="24" y2="10" style="stroke:var(--dx-gold-dim);stroke-width:1"/><line x1="4" y1="16" x2="24" y2="16" style="stroke:var(--dx-gold-dim);stroke-width:1"/><line x1="12" y1="4" x2="12" y2="24" style="stroke:var(--dx-gold-dim);stroke-width:1"/></svg>`;
-const iBolt   = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><path d="M16 4L8 16h6l-2 8 10-13h-6z" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/></svg>`;
-const iBook   = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><rect x="4" y="3" width="14" height="18" rx="1" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><line x1="7" y1="8" x2="15" y2="8" style="stroke:var(--dx-gold-dim);stroke-width:1"/><line x1="7" y1="12" x2="13" y2="12" style="stroke:var(--dx-gold-dim);stroke-width:1"/><circle cx="21" cy="21" r="4" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><line x1="24" y1="24" x2="27" y2="27" style="stroke:var(--dx-gold);stroke-width:1.5"/></svg>`;
-const iShield = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><path d="M14 3l9 4v9c0 5-9 9-9 9s-9-4-9-9V7z" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><path d="M10 14l3 3 5-6" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/></svg>`;
-const iUpload = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><path d="M14 4v14M9 9l5-5 5 5" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><path d="M6 20v4h16v-4" fill="none" style="stroke:var(--dx-gold-dim);stroke-width:1.5;opacity:0.7"/></svg>`;
-const iLens   = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><circle cx="12" cy="12" r="7" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><line x1="17" y1="17" x2="23" y2="23" style="stroke:var(--dx-gold);stroke-width:2;stroke-linecap:round"/></svg>`;
-const iDevice = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><rect x="4" y="8" width="20" height="13" rx="1" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><rect x="7" y="11" width="6" height="4" rx="0.5" fill="none" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.7"/><line x1="17" y1="13" x2="19" y2="13" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.7"/><line x1="14" y1="8" x2="14" y2="5" style="stroke:var(--dx-gold);stroke-width:1;opacity:0.6"/></svg>`;
-const iLayers = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><path d="M4 10l10-6 10 6-10 6z" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><path d="M4 16l10 6 10-6" fill="none" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.6"/><path d="M4 13l10 6 10-6" fill="none" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.35"/></svg>`;
 
 export const section = {
     title: "Cupcake",
     slides: `
 <section>
-    <h1>Cupcake</h1>
-    <p>Proteomics information management made easier</p>
-    ${HoloImage('assets/cupcake.overview.table.png', 'Cupcake Vanilla Metadata Table Overview', '700px')}
-</section>
-
-<section>
-    <h2>A better experience with SDRF-based structural metadata</h2>
-    <div style="display: grid; grid-template-columns: 340px 1fr; gap: 16px; margin-top: 14px; align-items: stretch;">
-        <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.68em;">
-            <div style="border: 1px solid var(--dx-gold-dim); padding: 10px 8px; background: var(--dx-holo-bg); display: flex; gap: 8px; align-items: center;">
-                <div style="flex-shrink:0">${iGrid.replace('display:block;margin:0 auto 10px', 'display:block')}</div>
-                <div>
-                    <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 2px;">TEMPLATES</div>
-                    <div style="color: var(--dx-text-secondary); line-height: 1.4;">Reuse column layouts across every experiment</div>
-                </div>
-            </div>
-            <div style="border: 1px solid var(--dx-gold-dim); padding: 10px 8px; background: var(--dx-holo-bg); display: flex; gap: 8px; align-items: center;">
-                <div style="flex-shrink:0">${iBolt.replace('display:block;margin:0 auto 10px', 'display:block')}</div>
-                <div>
-                    <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 2px;">AUTO-FILL</div>
-                    <div style="color: var(--dx-text-secondary); line-height: 1.4;">Fill cells with different patterns</div>
-                </div>
-            </div>
-            <div style="border: 1px solid var(--dx-gold-dim); padding: 10px 8px; background: var(--dx-holo-bg); display: flex; gap: 8px; align-items: center;">
-                <div style="flex-shrink:0">${iBook.replace('display:block;margin:0 auto 10px', 'display:block')}</div>
-                <div>
-                    <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 2px;">TERM LOOKUP</div>
-                    <div style="color: var(--dx-text-secondary); line-height: 1.4;">Search scientific vocabularies inline</div>
-                </div>
-            </div>
-            <div style="border: 1px solid var(--dx-gold-dim); padding: 10px 8px; background: var(--dx-holo-bg); display: flex; gap: 8px; align-items: center;">
-                <div style="flex-shrink:0">${iShield.replace('display:block;margin:0 auto 10px', 'display:block')}</div>
-                <div>
-                    <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 2px;">VALIDATION</div>
-                    <div style="color: var(--dx-text-secondary); line-height: 1.4;">Check annotation before export</div>
-                </div>
-            </div>
-            <div style="border: 1px solid var(--dx-gold-dim); padding: 10px 8px; background: var(--dx-holo-bg); display: flex; gap: 8px; align-items: center;">
-                <div style="flex-shrink:0">${iUpload.replace('display:block;margin:0 auto 10px', 'display:block')}</div>
-                <div>
-                    <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 2px;">EXPORT</div>
-                    <div style="color: var(--dx-text-secondary); line-height: 1.4;">Download in repository-ready format</div>
-                </div>
-            </div>
+    <h2>The incomplete metadata problem</h2>
+    <p style="font-size: 0.85em; color: var(--dx-text-secondary); margin: 12px 0 0; line-height: 1.6;">Proteomics experiments generate rich data but the metadata describing them is often incomplete, inconsistently recorded, and stored in ways that make it hard to reuse or share.</p>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; font-size: 0.75em; text-align: left;">
+        <div class="fragment" data-fragment-index="0" style="border: 1px solid var(--dx-gold-dim); padding: 12px 14px; background: var(--dx-holo-bg);">
+            <div style="font-family: monospace; color: var(--dx-gold); letter-spacing: 1px; margin-bottom: 6px;">01 · INCOMPLETE</div>
+            <div style="color: var(--dx-text-secondary); line-height: 1.5;">Critical sample details - organism, tissue, treatment, instrument - are routinely left unrecorded</div>
         </div>
-        <div style="display: flex; flex-direction: column; gap: 5px; align-items: center; justify-content: center;">
-            ${HoloImage('assets/cupcake.vanilla.metadata.lookup.autofill.png', 'Cupcake Vanilla Metadata Lookup', '290px', '10px 10px 3px 3px')}
-            ${HoloImage('assets/cupcake.vanilla.create.from.schema.png', 'Cupcake Vanilla Create From Schema', '290px', '3px 10px 10px 3px')}
+        <div class="fragment" data-fragment-index="1" style="border: 1px solid var(--dx-gold-dim); padding: 12px 14px; background: var(--dx-holo-bg);">
+            <div style="font-family: monospace; color: var(--dx-gold); letter-spacing: 1px; margin-bottom: 6px;">02 · INCONSISTENT</div>
+            <div style="color: var(--dx-text-secondary); line-height: 1.5;">The same condition appears in dozens of forms - free text with no controlled vocabulary or standard terms</div>
+        </div>
+        <div class="fragment" data-fragment-index="2" style="border: 1px solid var(--dx-gold-dim); padding: 12px 14px; background: var(--dx-holo-bg);">
+            <div style="font-family: monospace; color: var(--dx-gold); letter-spacing: 1px; margin-bottom: 6px;">03 · FRAGMENTED</div>
+            <div style="color: var(--dx-text-secondary); line-height: 1.5;">What is recorded ends up scattered across emails, lab books, and ad-hoc spreadsheets that drift apart</div>
+        </div>
+        <div class="fragment" data-fragment-index="3" style="border: 1px solid var(--dx-gold-dim); padding: 12px 14px; background: var(--dx-holo-bg);">
+            <div style="font-family: monospace; color: var(--dx-gold); letter-spacing: 1px; margin-bottom: 6px;">04 · IRREPRODUCIBLE</div>
+            <div style="color: var(--dx-text-secondary); line-height: 1.5;">Without consistent metadata it is impossible to reproduce, compare across studies, or meet deposition requirements</div>
         </div>
     </div>
 </section>
 
 <section>
-    <h2>Institutional database of searchable experiment</h2>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 16px; font-size: 0.78em;">
-        <div>
-            <div style="border: 1px solid var(--dx-gold-dim); padding: 16px; background: var(--dx-holo-bg); margin-bottom: 12px; display:flex; gap:12px; align-items:flex-start;">
-                <div style="flex-shrink:0">${iLens.replace('display:block;margin:0 auto 10px', 'display:block;margin-top:2px')}</div>
-                <div>
-                    <strong style="color: var(--dx-gold); display: block; margin-bottom: 4px;">Find experiments in the context you are interested in</strong>
-                    <div style="color: var(--dx-text-secondary); line-height: 1.6;">Filter the entire lab archive by organism, tissue, instrument, or treatment.</div>
-                </div>
-            </div>
-            <div style="border: 1px solid var(--dx-gold-dim); padding: 16px; background: var(--dx-holo-bg); display:flex; gap:12px; align-items:flex-start;">
-                <div style="flex-shrink:0">${iLayers.replace('display:block;margin:0 auto 10px', 'display:block;margin-top:2px')}</div>
-                <div>
-                    <strong style="color: var(--dx-gold); display: block; margin-bottom: 4px;">Use it for lab management and notebook</strong>
-                    <div style="color: var(--dx-text-secondary); line-height: 1.6;">Instrument booking, lab notebook, and facility billing as optional add-ons.</div>
-                </div>
-            </div>
-        </div>
-        <div style="text-align: center; display: flex; align-items: center; justify-content: center;">
-            ${HoloImage('assets/cupcake.vanilla.cell.line.table.search.png', 'Cupcake experiment search', '600px')}
-        </div>
+    <h2>Cupcake - adopting field best practices</h2>
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 14px; align-items: start; justify-items: center;">
+        ${HoloImage('assets/cupcake.overview.table.png', 'Cupcake metadata table overview', '9999px', '5px')}
+        ${HoloImage('assets/cupcake.vanilla.metadata.lookup.autofill.png', 'Cupcake metadata autofill', '9999px', '5px')}
+        ${HoloImage('assets/cupcake.vanilla.create.from.schema.png', 'Cupcake create from schema', '9999px', '5px')}
     </div>
 </section>
 `

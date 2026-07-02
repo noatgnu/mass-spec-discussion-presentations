@@ -1,48 +1,36 @@
 import { HoloImage } from '../../src/components';
 
-const iFiles  = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><rect x="5" y="8" width="11" height="14" rx="1" fill="none" style="stroke:var(--dx-gold-dim);stroke-width:1.2;opacity:0.5"/><rect x="9" y="5" width="11" height="14" rx="1" fill="none" style="stroke:var(--dx-gold-dim);stroke-width:1.2;opacity:0.7"/><rect x="13" y="2" width="11" height="14" rx="1" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/></svg>`;
-const iLens   = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><circle cx="12" cy="12" r="7" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><line x1="17" y1="17" x2="23" y2="23" style="stroke:var(--dx-gold);stroke-width:2;stroke-linecap:round"/></svg>`;
-const iDL     = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><path d="M14 5v14M9 13l5 6 5-6" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><path d="M5 21v4h18v-4" fill="none" style="stroke:var(--dx-gold-dim);stroke-width:1.5;opacity:0.7"/></svg>`;
-const iFilter = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><line x1="5" y1="8" x2="23" y2="8" style="stroke:var(--dx-gold);stroke-width:1.5"/><line x1="8" y1="14" x2="20" y2="14" style="stroke:var(--dx-gold);stroke-width:1.5"/><line x1="11" y1="20" x2="17" y2="20" style="stroke:var(--dx-gold);stroke-width:1.5"/></svg>`;
-const iHeat   = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><rect x="3" y="3" width="6" height="6" rx="0.5" fill="none" style="stroke:var(--dx-gold);stroke-width:1;opacity:0.9"/><rect x="10" y="3" width="6" height="6" rx="0.5" fill="none" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.3"/><rect x="17" y="3" width="6" height="6" rx="0.5" fill="none" style="stroke:var(--dx-gold);stroke-width:1;opacity:0.7"/><rect x="3" y="10" width="6" height="6" rx="0.5" fill="none" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.3"/><rect x="10" y="10" width="6" height="6" rx="0.5" fill="none" style="stroke:var(--dx-gold);stroke-width:1;opacity:0.9"/><rect x="17" y="10" width="6" height="6" rx="0.5" fill="none" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.5"/><rect x="3" y="17" width="6" height="6" rx="0.5" fill="none" style="stroke:var(--dx-gold);stroke-width:1;opacity:0.6"/><rect x="10" y="17" width="6" height="6" rx="0.5" fill="none" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.3"/><rect x="17" y="17" width="6" height="6" rx="0.5" fill="none" style="stroke:var(--dx-gold);stroke-width:1;opacity:0.9"/></svg>`;
-const iNodes  = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><circle cx="14" cy="14" r="3.5" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><circle cx="5" cy="7" r="2.5" fill="none" style="stroke:var(--dx-gold-dim);stroke-width:1.2"/><circle cx="23" cy="7" r="2.5" fill="none" style="stroke:var(--dx-gold-dim);stroke-width:1.2"/><circle cx="5" cy="21" r="2.5" fill="none" style="stroke:var(--dx-gold-dim);stroke-width:1.2"/><circle cx="23" cy="21" r="2.5" fill="none" style="stroke:var(--dx-gold-dim);stroke-width:1.2"/><line x1="11" y1="12" x2="7" y2="9" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.7"/><line x1="17" y1="12" x2="21" y2="9" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.7"/><line x1="11" y1="16" x2="7" y2="19" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.7"/><line x1="17" y1="16" x2="21" y2="19" style="stroke:var(--dx-gold-dim);stroke-width:1;opacity:0.7"/></svg>`;
-const iTag    = `<svg width="28" height="28" viewBox="0 0 28 28" style="display:block;margin:0 auto 10px"><path d="M4 4h10l10 10-10 10L4 14z" fill="none" style="stroke:var(--dx-gold);stroke-width:1.5"/><circle cx="9" cy="9" r="2" fill="none" style="stroke:var(--dx-gold-dim);stroke-width:1"/></svg>`;
 
 export const section = {
     title: "Cinder",
     slides: `
 <section>
-    <h1>Cinder</h1>
-    <p>Search your entire library of data analysis results</p>
-    ${HoloImage('assets/cinder-overview.png', 'Cinder Application Overview', '340px')}
+    <h2>Experiments in isolation</h2>
+    <p style="font-size: 0.85em; color: var(--dx-text-secondary); margin: 12px 0 0; line-height: 1.6;">Curtain makes a single experiment explorable. But as experiment libraries grow, comparing a protein across multiple conditions means manually opening every session one by one.</p>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; font-size: 0.75em; text-align: left;">
+        <div class="fragment" data-fragment-index="0" style="border: 1px solid var(--dx-gold-dim); padding: 12px 14px; background: var(--dx-holo-bg);">
+            <div style="font-family: monospace; color: var(--dx-gold); letter-spacing: 1px; margin-bottom: 6px;">01 · SILOED</div>
+            <div style="color: var(--dx-text-secondary); line-height: 1.5;">Every Curtain session contains exactly one experiment with no cross-session view</div>
+        </div>
+        <div class="fragment" data-fragment-index="1" style="border: 1px solid var(--dx-gold-dim); padding: 12px 14px; background: var(--dx-holo-bg);">
+            <div style="font-family: monospace; color: var(--dx-gold); letter-spacing: 1px; margin-bottom: 6px;">02 · MANUAL</div>
+            <div style="color: var(--dx-text-secondary); line-height: 1.5;">Checking one protein across ten experiments means opening and searching ten sessions individually</div>
+        </div>
+        <div class="fragment" data-fragment-index="2" style="border: 1px solid var(--dx-gold-dim); padding: 12px 14px; background: var(--dx-holo-bg);">
+            <div style="font-family: monospace; color: var(--dx-gold); letter-spacing: 1px; margin-bottom: 6px;">03 · UNCOLLECTABLE</div>
+            <div style="color: var(--dx-text-secondary); line-height: 1.5;">No way to bundle related experiments into a shareable library for a lab or publication</div>
+        </div>
+        <div class="fragment" data-fragment-index="3" style="border: 1px solid var(--dx-gold-dim); padding: 12px 14px; background: var(--dx-holo-bg);">
+            <div style="font-family: monospace; color: var(--dx-gold); letter-spacing: 1px; margin-bottom: 6px;">04 · INVISIBLE</div>
+            <div style="color: var(--dx-text-secondary); line-height: 1.5;">Shared datasets have no cross-study discovery surface - relevant experiments remain unknown</div>
+        </div>
+    </div>
 </section>
 
 <section>
-    <h2>A Step Further From CURTAIN</h2>
-    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; font-size: 0.72em; margin-bottom: 14px;">
-        <div style="padding: 16px; background: var(--dx-holo-bg); border: 1px solid var(--dx-gold-dim); border-right: none; text-align: center;">
-            ${iDL}
-            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">01 · COLLECT</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.6;">Manually import search and differential analysis output separately or from existing Curtain sessions</div>
-        </div>
-        <div style="padding: 16px; background: var(--dx-holo-bg); border: 1px solid var(--dx-gold-dim); border-right: none; text-align: center;">
-            ${iFilter}
-            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">02 · COLLATE</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.6;">Create shareable collection of experiments</div>
-        </div>
-        <div style="padding: 16px; background: var(--dx-holo-bg); border: 1px solid var(--dx-gold-dim); border-right: none; text-align: center;">
-            ${iLens}
-            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">03 · SEARCH</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.6;">Use curated protein list or your owned protein of interests</div>
-        </div>
-        <div style="padding: 16px; background: var(--dx-holo-bg); border: 1px solid var(--dx-gold-dim); text-align: center;">
-            ${iHeat}
-            <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">04 · VISUALISE</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.6;">Explore the result in bar charts of intensity across different samples or a heatmap of changes direction across experiments</div>
-        </div>
-    </div>
-    <div style="text-align: center;">
-        ${HoloImage('assets/cinder-search.png', 'Cinder Cross-Dataset Search', '230px')}
+    <h2>Cinder</h2>
+    <div style="text-align: center; margin-top: 14px;">
+        ${HoloImage('assets/cinder.cross-dataset-search.png', 'Cinder cross-dataset search', '550px', '5px')}
     </div>
 </section>
 `

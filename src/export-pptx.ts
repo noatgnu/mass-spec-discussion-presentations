@@ -197,6 +197,15 @@ async function navigateToSlide(page: Page, h: number, v: number): Promise<void> 
     await stopGlitchAnimations(page);
 }
 
+async function revealAllFragments(page: Page): Promise<void> {
+    await page.evaluate(() => {
+        document.querySelectorAll('.reveal .slides section.present .fragment').forEach(el => {
+            el.classList.add('visible');
+            el.classList.remove('current-fragment');
+        });
+    });
+}
+
 async function getSlidesRect(page: Page): Promise<{ x: number; y: number; w: number; h: number; scale: number }> {
     return page.evaluate(() => {
         const el = document.querySelector('.reveal .slides') as HTMLElement;
@@ -715,6 +724,7 @@ async function exportToPptx(presentationName: string): Promise<void> {
             console.log(`  Processing slide ${i + 1}/${slidePositions.length} [${h},${v}]`);
             await navigateToSlide(page, h, v);
             await waitForContent(page);
+            await revealAllFragments(page);
             await buildPptxSlide(pres, page, presentationDir, slidesRect);
         }
 
