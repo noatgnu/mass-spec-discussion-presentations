@@ -22,7 +22,7 @@ export const section = {
 
 <section>
     <h2>A better experience with SDRF-based structural metadata</h2>
-    <div style="display: grid; grid-template-columns: 260px 1fr; gap: 16px; margin-top: 14px; align-items: stretch;">
+    <div style="display: grid; grid-template-columns: 340px 1fr; gap: 16px; margin-top: 14px; align-items: stretch;">
         <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.68em;">
             <div style="border: 1px solid var(--dx-gold-dim); padding: 10px 8px; background: var(--dx-holo-bg); display: flex; gap: 8px; align-items: center;">
                 <div style="flex-shrink:0">${iGrid.replace('display:block;margin:0 auto 10px', 'display:block')}</div>
@@ -60,9 +60,9 @@ export const section = {
                 </div>
             </div>
         </div>
-        <div style="display: flex; flex-direction: column; gap: 10px; align-items: center; justify-content: center;">
-            ${HoloImage('assets/cupcake.vanilla.metadata.lookup.autofill.png', 'Cupcake Vanilla Metadata Lookup', '240px')}
-            ${HoloImage('assets/cupcake.vanilla.create.from.schema.png', 'Cupcake Vanilla Create From Schema', '240px')}
+        <div style="display: flex; flex-direction: column; gap: 5px; align-items: center; justify-content: center;">
+            ${HoloImage('assets/cupcake.vanilla.metadata.lookup.autofill.png', 'Cupcake Vanilla Metadata Lookup', '290px', '10px 10px 3px 3px')}
+            ${HoloImage('assets/cupcake.vanilla.create.from.schema.png', 'Cupcake Vanilla Create From Schema', '290px', '3px 10px 10px 3px')}
         </div>
     </div>
 </section>
@@ -87,7 +87,7 @@ export const section = {
             </div>
         </div>
         <div style="text-align: center; display: flex; align-items: center; justify-content: center;">
-            ${HoloImage('assets/cupcake-search.png', 'Cupcake experiment search', '360px')}
+            ${HoloImage('assets/cupcake.vanilla.cell.line.table.search.png', 'Cupcake experiment search', '600px')}
         </div>
     </div>
 </section>

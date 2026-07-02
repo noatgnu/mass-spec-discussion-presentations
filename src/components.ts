@@ -54,9 +54,9 @@ export function QRCode(data: string, options: { size?: number, margin?: number }
 /**
  * Generates an image wrapped in a holographic container with a zoom hint.
  */
-export function HoloImage(src: string, alt: string, height: string = '450px'): string {
+export function HoloImage(src: string, alt: string, height: string = '450px', margin: string = '10px'): string {
     return `
-<div class="holo-img-container" style="position: relative; display: inline-block; margin: 10px; max-width: 100%;">
+<div class="holo-img-container" style="position: relative; display: inline-block; margin: ${margin}; max-width: 100%;">
     <img src="${src}" alt="${alt}" style="max-height: ${height}; width: auto; max-width: 100%; display: block; object-fit: contain;">
     <div class="holo-img-hint" style="
         position: absolute; 

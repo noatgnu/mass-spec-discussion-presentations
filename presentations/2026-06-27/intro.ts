@@ -44,7 +44,7 @@ export const section = {
         <div style="padding: 16px; background: var(--dx-holo-bg); border: 1px solid var(--dx-gold-dim); border-right: none; text-align: center;">
             ${iExit}
             <div style="font-family: monospace; color: var(--dx-gold); font-size: 0.85em; letter-spacing: 1px; margin-bottom: 6px;">02 · MOVE ON</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.6;">People graduate. Their knowledge leaves with them.</div>
+            <div style="color: var(--dx-text-secondary); line-height: 1.6;">People graduate or move on. Their knowledge leaves with them.</div>
         </div>
         <div style="padding: 16px; background: var(--dx-holo-bg); border: 1px solid var(--dx-gold-dim); border-right: none; text-align: center;">
             ${iDoc}

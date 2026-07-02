@@ -1,5 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
+import { QRCode } from './components';
 
 require('ts-node').register({ transpileOnly: true });
 
@@ -72,6 +73,7 @@ interface PresentationConfig {
     showToc?: boolean;
     showPageNumbers?: boolean | string;
     loc?: string;
+    url?: string;
     sections?: string[];
     slides?: string;
     markdown?: string;
@@ -100,17 +102,34 @@ function loadSection(presentationDir: string, sectionName: string): Section | nu
     return section;
 }
 
-function generateTocSlide(title: string, sections: { name: string; section: Section }[]): string {
+function generateTocSlide(title: string, sections: { name: string; section: Section }[], url?: string): string {
     const tocItems = sections
         .map((s, index) => `<li style="padding: 6px 0;"><a href="#/section-${index + 1}" style="color: var(--dx-text); text-decoration: none;">${s.section.title}</a></li>`)
         .join('\n                        ');
 
+    const qrColumn = url ? `
+                        <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; padding-left: 20px; border-left: 1px solid var(--dx-gold-dim);">
+                            <div style="border: 1px solid var(--dx-gold-dim); padding: 10px; background: var(--dx-holo-bg);">
+                                ${QRCode(url, { size: 180 })}
+                            </div>
+                            <div style="font-family: monospace; color: var(--dx-gold-dim); font-size: 0.5em; letter-spacing: 1px; text-align: center;">ONLINE VERSION</div>
+                        </div>` : '';
+
+    const layout = url
+        ? `<div style="display: flex; gap: 20px; align-items: flex-start; margin-top: 20px;">
+                        <ol style="flex: 1; text-align: left; font-size: 1.15em; line-height: 1.8; padding-left: 2em; margin: 0;">
+                            ${tocItems}
+                        </ol>
+                        ${qrColumn}
+                    </div>`
+        : `<ol style="width: 100%; text-align: left; margin-top: 20px; font-size: 1.15em; line-height: 1.8; padding-left: 2em;">
+                        ${tocItems}
+                    </ol>`;
+
     return `
                 <section id="toc">
                     <h2>Table of Contents</h2>
-                    <ol style="width: 100%; text-align: left; margin-top: 20px; font-size: 1.15em; line-height: 1.8; padding-left: 2em;">
-                        ${tocItems}
-                    </ol>
+                    ${layout}
                 </section>`;
 }
 
@@ -156,7 +175,7 @@ function buildMultiSectionPresentation(
     let allSlides = generateTitleSlide(config.title);
 
     if (config.showToc !== false) {
-        allSlides += generateTocSlide(config.title, loadedSections);
+        allSlides += generateTocSlide(config.title, loadedSections, config.url);
     }
 
     loadedSections.forEach((s, index) => {
