@@ -62,6 +62,17 @@ export interface HoloImageFacetOptions {
     stretch?: boolean;
 }
 
+function parseCssObjectPosition(pos: string): { x: number; y: number } {
+    const keyword: Record<string, number> = { left: 0, top: 0, center: 50, right: 100, bottom: 100 };
+    const parts = pos.trim().split(/\s+/);
+    const parse = (v: string) => {
+        if (v in keyword) return keyword[v];
+        const m = v.match(/^(\d+(?:\.\d+)?)%$/);
+        return m ? parseFloat(m[1]) : 50;
+    };
+    return { x: parse(parts[0] ?? 'center'), y: parse(parts[1] ?? 'center') };
+}
+
 /**
  * Shows a narrow vertical crop of an image with a caption. Clicking opens the full image in the lightbox.
  * cropPosition accepts a CSS object-position string ('center', 'left', '25% top') or a number 0–100
@@ -85,6 +96,11 @@ export function HoloImageFacet(
     const objectPosition = typeof cropPosition === 'number'
         ? `${Math.min(100, Math.max(0, cropPosition))}% center`
         : cropPosition;
+    const isGif = src.toLowerCase().endsWith('.gif');
+    const gifCrop = isGif ? parseCssObjectPosition(objectPosition) : null;
+    const gifAttr = isGif
+        ? ` data-pptx-gif-src="${src}" data-pptx-gif-crop-x="${gifCrop!.x}" data-pptx-gif-crop-y="${gifCrop!.y}"`
+        : '';
 
     const captionHtml = `<div style="font-family: monospace; font-size: 0.65em; color: var(--dx-gold); letter-spacing: 0.5px; text-align: center; padding: 4px 2px; line-height: 1.4; opacity: 0.85; flex-shrink: 0;">${caption}</div>`;
     const cropStyle = stretch
@@ -97,7 +113,7 @@ export function HoloImageFacet(
     return `
 <div style="${wrapperStyle}">
     ${captionPosition === 'top' ? captionHtml : ''}
-    <div data-pptx-export="screenshot" style="${cropStyle}">
+    <div data-pptx-export="screenshot"${gifAttr} style="${cropStyle}">
         <img src="${src}" alt="${alt}" class="holo-facet-img"
              style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: ${objectPosition}; margin: 0; border: none; box-shadow: none;">
         <div class="holo-img-hint" style="
@@ -117,6 +133,8 @@ export interface HoloImageFacetGridItem {
     alt: string;
     caption: string;
     cropPosition?: string | number;
+    /** Overrides the equal-split column width, e.g. for a portrait image sitting next to a landscape one. */
+    width?: string;
 }
 
 /**
@@ -129,9 +147,10 @@ export function HoloImageFacetGrid(
     items: HoloImageFacetGridItem[],
     captionPosition: 'top' | 'bottom' = 'bottom'
 ): string {
+    const defaultWidth = `${Math.floor(100 / items.length)}%`;
     const facets = items.map(item =>
         HoloImageFacet(item.src, item.alt, item.caption, {
-            width: `${Math.floor(100 / items.length)}%`,
+            width: item.width ?? defaultWidth,
             cropPosition: item.cropPosition ?? 'center',
             captionPosition,
             stretch: true,

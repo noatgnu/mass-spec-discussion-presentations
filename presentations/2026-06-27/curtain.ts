@@ -1,4 +1,4 @@
-import { HoloImage } from '../../src/components';
+import { HoloImageFacetGrid } from '../../src/components';
 
 
 export const section = {
@@ -27,12 +27,9 @@ export const section = {
     </div>
 </section>
 
-<section>
-    <h2>Curtain</h2>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; align-items: start; justify-items: center;">
-        ${HoloImage('assets/curtain.intro.parameters.png', 'Curtain input parameters', '9999px', '5px')}
-        ${HoloImage('assets/curtain.volcano.plot.overview.png', 'Curtain volcano plot overview', '9999px', '5px')}
-    </div>
-</section>
+${HoloImageFacetGrid('Curtain', [
+    { src: 'assets/curtain.mobile.volcano.plot.gif', alt: 'Curtain mobile volcano plot exploration', caption: 'VOLCANO PLOT',  width: '246px' },
+    { src: 'assets/curtain.protein.list.gif',         alt: 'Curtain mobile protein list exploration', caption: 'PROTEIN LIST', width: '246px' },
+])}
 `
 };
