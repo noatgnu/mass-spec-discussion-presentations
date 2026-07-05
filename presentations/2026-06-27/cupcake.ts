@@ -7,7 +7,7 @@ export const section = {
 <section>
     <h2>The incomplete metadata problem</h2>
     <p style="font-size: 0.85em; color: var(--dx-text-secondary); margin: 12px 0 0; line-height: 1.6;">Proteomics experiments generate rich data but the metadata describing them is often incomplete, inconsistently recorded, and stored in ways that make it hard to reuse or share.</p>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; font-size: 0.75em; text-align: left;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-top: 16px; font-size: 0.75em; text-align: left;">
         <div class="fragment" data-fragment-index="0" style="border: 1px solid var(--dx-gold-dim); background: var(--dx-holo-bg); overflow: hidden;">
             <div style="padding: 8px 14px 6px; background: var(--dx-problem-bg); border-bottom: 1px solid var(--dx-problem-border);">
                 <div style="font-family: monospace; font-size: 0.68em; color: var(--dx-problem); letter-spacing: 1px; font-weight: bold; margin-bottom: 3px;">⚠ PROBLEM</div>
@@ -15,7 +15,7 @@ export const section = {
             </div>
             <div style="padding: 8px 14px 10px; background: var(--dx-solution-bg);">
                 <div style="font-family: monospace; font-size: 0.68em; color: var(--dx-solution); letter-spacing: 1px; font-weight: bold; margin-bottom: 3px;">✓ CUPCAKE</div>
-                <div style="color: var(--dx-text-secondary); line-height: 1.5;">Guide the user with structured templates as well as allow user to document their experiment from anywhere through the web/mobile application.</div>
+                <div style="color: var(--dx-text-secondary); line-height: 1.5;">Structured templates guide the user and enforce every required field before a record can be saved</div>
             </div>
         </div>
         <div class="fragment" data-fragment-index="1" style="border: 1px solid var(--dx-gold-dim); background: var(--dx-holo-bg); overflow: hidden;">
@@ -36,16 +36,6 @@ export const section = {
             <div style="padding: 8px 14px 10px; background: var(--dx-solution-bg);">
                 <div style="font-family: monospace; font-size: 0.68em; color: var(--dx-solution); letter-spacing: 1px; font-weight: bold; margin-bottom: 3px;">✓ CUPCAKE</div>
                 <div style="color: var(--dx-text-secondary); line-height: 1.5;">A single persistent database with all your experimental metadata for search and archival purpose</div>
-            </div>
-        </div>
-        <div class="fragment" data-fragment-index="3" style="border: 1px solid var(--dx-gold-dim); background: var(--dx-holo-bg); overflow: hidden;">
-            <div style="padding: 8px 14px 6px; background: var(--dx-problem-bg); border-bottom: 1px solid var(--dx-problem-border);">
-                <div style="font-family: monospace; font-size: 0.68em; color: var(--dx-problem); letter-spacing: 1px; font-weight: bold; margin-bottom: 3px;">⚠ PROBLEM</div>
-                <div style="font-family: monospace; color: var(--dx-problem); letter-spacing: 1px; font-weight: bold;">04 · IRREPRODUCIBLE</div>
-            </div>
-            <div style="padding: 8px 14px 10px; background: var(--dx-solution-bg);">
-                <div style="font-family: monospace; font-size: 0.68em; color: var(--dx-solution); letter-spacing: 1px; font-weight: bold; margin-bottom: 3px;">✓ CUPCAKE</div>
-                <div style="color: var(--dx-text-secondary); line-height: 1.5;">Enforce the best practice for metadata format from EMBI to make sure that your experiment with the same context can be replicated</div>
             </div>
         </div>
     </div>
