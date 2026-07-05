@@ -15,7 +15,7 @@ export const section = {
             </div>
             <div style="padding: 8px 14px 10px; background: var(--dx-solution-bg);">
                 <div style="font-family: monospace; font-size: 0.68em; color: var(--dx-solution); letter-spacing: 1px; font-weight: bold; margin-bottom: 3px;">✓ CUPCAKE</div>
-                <div style="color: var(--dx-text-secondary); line-height: 1.5;">Structured templates guide the researcher through and assist to ensure data is completely filled</div>
+                <div style="color: var(--dx-text-secondary); line-height: 1.5;">Guide the user with structured templates as well as allow user to document their experiment from anywhere through the web/mobile application.</div>
             </div>
         </div>
         <div class="fragment" data-fragment-index="1" style="border: 1px solid var(--dx-gold-dim); background: var(--dx-holo-bg); overflow: hidden;">
