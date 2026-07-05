@@ -46,8 +46,15 @@ const UI_HIDE_SELECTORS = [
     'aside.notes',
 ];
 
+interface AuthorRun {
+    text: string;
+    underline?: boolean;
+    superscript?: boolean;
+    color?: string;
+}
+
 interface ExtractedElement {
-    type: 'rect' | 'text' | 'image' | 'svg' | 'canvas' | 'clip';
+    type: 'rect' | 'text' | 'image' | 'svg' | 'canvas' | 'clip' | 'authors';
     tag: string;
     x: number; y: number; w: number; h: number;
     text?: string;
@@ -79,6 +86,14 @@ interface ExtractedElement {
     gifSrc?: string;
     gifCropX?: number;
     gifCropY?: number;
+    runs?: AuthorRun[];
+    namesColor?: string;
+    namesFontSize?: number;
+    namesY?: number;
+    affiliationsText?: string;
+    affColor?: string;
+    affFontSize?: number;
+    affY?: number;
 }
 
 interface SlidePos { h: number; v: number; }
@@ -289,6 +304,45 @@ async function extractSlideElements(page: Page, slidesRect: { x: number; y: numb
             }
             if (tag === 'canvas') {
                 elements.push({ type: 'canvas', tag, x, y, w, h, dataUrl: (el as HTMLCanvasElement).toDataURL('image/png') });
+                return;
+            }
+            if ((el as HTMLElement).dataset?.pptxAuthors !== undefined) {
+                const namesEl = el.querySelector('.dx-authors') as HTMLElement | null;
+                const affEl = el.querySelector('.dx-affiliations') as HTMLElement | null;
+                const runs: { text: string; underline?: boolean; superscript?: boolean; color?: string }[] = [];
+                if (namesEl) {
+                    const baseColor = parseColor(window.getComputedStyle(namesEl).color)?.hex;
+                    namesEl.childNodes.forEach(node => {
+                        if (node.nodeType === Node.TEXT_NODE) {
+                            const t = node.textContent || '';
+                            if (t) runs.push({ text: t, color: baseColor });
+                        } else if (node.nodeType === Node.ELEMENT_NODE) {
+                            const ce = node as HTMLElement;
+                            const t = ce.textContent || '';
+                            if (t) runs.push({
+                                text: t,
+                                underline: ce.classList.contains('dx-speaker'),
+                                superscript: ce.classList.contains('dx-sup'),
+                                color: parseColor(window.getComputedStyle(ce).color)?.hex || baseColor,
+                            });
+                        }
+                    });
+                }
+                const namesRect = (namesEl || el).getBoundingClientRect();
+                const affRect = (affEl || el).getBoundingClientRect();
+                const namesColorParsed = namesEl ? parseColor(window.getComputedStyle(namesEl).color) : null;
+                const affColorParsed = affEl ? parseColor(window.getComputedStyle(affEl).color) : null;
+                elements.push({
+                    type: 'authors', tag, x, y, w, h,
+                    runs,
+                    namesColor: namesColorParsed?.hex || '888888',
+                    namesFontSize: namesEl ? parseFloat(window.getComputedStyle(namesEl).fontSize) : 12,
+                    namesY: (namesRect.top - sr.y) / sr.scale - slideOffsetY,
+                    affiliationsText: affEl ? (affEl.innerText || affEl.textContent || '').trim() : '',
+                    affColor: affColorParsed?.hex || '888888',
+                    affFontSize: affEl ? parseFloat(window.getComputedStyle(affEl).fontSize) : 10,
+                    affY: (affRect.top - sr.y) / sr.scale - slideOffsetY,
+                });
                 return;
             }
             if ((el as HTMLElement).dataset?.pptxExport === 'screenshot') {
@@ -516,6 +570,15 @@ async function getSlideBackground(page: Page): Promise<string> {
     });
 }
 
+async function getSlideBrand(page: Page): Promise<string | null> {
+    return page.evaluate(() => {
+        const currentSlide =
+            document.querySelector('.reveal .slides section.present > section.present') ||
+            document.querySelector('.reveal .slides section.present');
+        return currentSlide?.closest('section[data-brand]')?.getAttribute('data-brand') ?? null;
+    });
+}
+
 async function buildPptxSlide(
     pres: any,
     page: Page,
@@ -531,6 +594,17 @@ async function buildPptxSlide(
     });
     const slide = pres.addSlide();
     slide.background = { color: bgColor };
+
+    const brand = await getSlideBrand(page);
+    if (brand) {
+        slide.addText(brand.toUpperCase(), {
+            x: PPTX_MARGIN, y: PPTX_H - 1.4, w: CONTENT_W, h: 1.3,
+            align: 'right', valign: 'bottom',
+            fontFace: 'Courier New', bold: true, fontSize: 72,
+            color: themeGold, transparency: 93,
+            charSpacing: toCharSpacing(3),
+        });
+    }
 
     const { elements, title } = await extractSlideElements(page, slidesRect);
 
@@ -574,12 +648,10 @@ async function buildPptxSlide(
 
     for (const svg of svgs) {
         if (svg.clipW && svg.clipH && svg.clipW > 0 && svg.clipH > 0) {
-            let imgData: string;
-            if (svg.dataUrl && svg.dataUrl.trimStart().startsWith('<svg')) {
-                imgData = `data:image/svg+xml;base64,${Buffer.from(svg.dataUrl).toString('base64')}`;
-            } else {
-                imgData = await screenshotClip(page, svg.clipX!, svg.clipY!, svg.clipW, svg.clipH);
-            }
+            // Rasterize rather than embedding native SVG: PowerPoint's SVG renderer is slow
+            // with vector-heavy content (e.g. a QR code embeds as 700+ individual shapes),
+            // which visibly stalls that specific slide even though the file itself is tiny.
+            const imgData = await screenshotClip(page, svg.clipX!, svg.clipY!, svg.clipW, svg.clipH);
             slide.addImage({ data: imgData, x: ptX(svg.x), y: ptY(svg.y), w: toInW(svg.w), h: toInH(svg.h) });
         }
     }
@@ -677,7 +749,12 @@ async function buildPptxSlide(
         }
     }
 
-    const isTitleSlide = texts.length === 1 && texts[0].isH1;
+    // The single-h1 "dead center" treatment assumes nothing else shares the slide;
+    // an authors block breaks that assumption, so fall back to natural top-down
+    // positions for everything (h1 included) so they all stay consistent with each other.
+    const hasAuthors = elements.some(e => e.type === 'authors');
+    const isTitleSlide = texts.length === 1 && texts[0].isH1 && !hasAuthors;
+    let titleShiftIn = 0;
 
     for (const t of texts) {
         const ptSize = toPt(t.fontSize || 14);
@@ -696,6 +773,7 @@ async function buildPptxSlide(
         const tx = ptX(t.x);
         const tw = toInW(t.w);
         const ty = (isTitleSlide && t.isH1) ? (PPTX_H - th) / 2 : ptY(t.y);
+        if (isTitleSlide && t.isH1) titleShiftIn = ty - ptY(t.y);
         slide.addText(t.text || '', {
             x: tx, y: ty, w: tw, h: th,
             fontSize: ptSize,
@@ -740,6 +818,32 @@ async function buildPptxSlide(
                 rectRadius: 0.2 * Math.min(hBarW, hBarH),
                 fill: { color: t.color || '0077BE' },
                 line: { type: 'none' as const },
+            });
+        }
+    }
+
+    const authorsBlocks = elements.filter(e => e.type === 'authors');
+    for (const a of authorsBlocks) {
+        if (a.runs && a.runs.length > 0) {
+            const runsForPptx = a.runs.map(r => ({
+                text: r.text,
+                options: {
+                    underline: r.underline ? { style: 'sng' as const } : undefined,
+                    superscript: r.superscript || undefined,
+                    color: r.color || a.namesColor,
+                },
+            }));
+            slide.addText(runsForPptx, {
+                x: ptX(a.x), y: ptY(a.namesY ?? a.y) + titleShiftIn, w: toInW(a.w), h: toInH(a.namesFontSize ? a.namesFontSize * 1.4 : 24),
+                fontFace: 'Courier New', fontSize: toPt(a.namesFontSize || 12),
+                align: 'center', valign: 'top',
+            });
+        }
+        if (a.affiliationsText) {
+            slide.addText(a.affiliationsText, {
+                x: ptX(a.x), y: ptY(a.affY ?? a.y) + titleShiftIn, w: toInW(a.w), h: toInH(a.affFontSize ? a.affFontSize * 1.4 : 20),
+                fontFace: 'Courier New', fontSize: toPt(a.affFontSize || 10),
+                color: a.affColor, align: 'center', valign: 'top',
             });
         }
     }

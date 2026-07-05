@@ -69,6 +69,13 @@ interface Section {
     branding?: boolean;
 }
 
+interface Author {
+    name: string;
+    affiliation?: string;
+    /** Underlines this author's name to mark them as the presenting speaker. */
+    speaker?: boolean;
+}
+
 interface PresentationConfig {
     title: string;
     theme?: 'dark' | 'light';
@@ -79,6 +86,8 @@ interface PresentationConfig {
     sections?: string[];
     slides?: string;
     markdown?: string;
+    /** Optional author list shown on the title slide, with the speaker's name underlined. */
+    authors?: Author[];
 }
 
 function clearRequireCache(filePath: string): void {
@@ -135,10 +144,46 @@ function generateTocSlide(title: string, sections: { name: string; section: Sect
                 </section>`;
 }
 
-function generateTitleSlide(title: string): string {
+const SUPERSCRIPT_DIGITS = ['⁰', '¹', '²', '³', '⁴', '⁵', '⁶', '⁷', '⁸', '⁹'];
+function toSuperscript(n: number): string {
+    return String(n).split('').map(d => SUPERSCRIPT_DIGITS[parseInt(d, 10)]).join('');
+}
+
+function generateAuthorsHtml(authors: Author[]): string {
+    const affiliations: string[] = [];
+    const indexFor = (aff?: string): number | null => {
+        if (!aff) return null;
+        let idx = affiliations.indexOf(aff);
+        if (idx === -1) {
+            affiliations.push(aff);
+            idx = affiliations.length - 1;
+        }
+        return idx + 1;
+    };
+
+    const nameSpans = authors.map(a => {
+        const idx = indexFor(a.affiliation);
+        const sup = idx !== null ? `<span class="dx-sup">${toSuperscript(idx)}</span>` : '';
+        const nameClass = a.speaker ? 'dx-name dx-speaker' : 'dx-name';
+        return `<span class="${nameClass}">${a.name}</span>${sup}`;
+    });
+
+    const affiliationsHtml = affiliations
+        .map((aff, i) => `<span class="dx-sup">${toSuperscript(i + 1)}</span>&nbsp;${aff}`)
+        .join('&nbsp;&nbsp;&nbsp;');
+
+    return `
+                    <div class="dx-authors-block" data-pptx-authors>
+                        <div class="dx-authors">${nameSpans.join(', ')}</div>
+                        <div class="dx-affiliations">${affiliationsHtml}</div>
+                    </div>`;
+}
+
+function generateTitleSlide(title: string, authors?: Author[]): string {
+    const authorsHtml = authors && authors.length > 0 ? generateAuthorsHtml(authors) : '';
     return `
                 <section>
-                    <h1>${title}</h1>
+                    <h1>${title}</h1>${authorsHtml}
                 </section>`;
 }
 
@@ -178,7 +223,7 @@ function buildMultiSectionPresentation(
         return { slides: '', markdown: '' };
     }
 
-    let allSlides = generateTitleSlide(config.title);
+    let allSlides = generateTitleSlide(config.title, config.authors);
 
     if (config.showToc !== false) {
         allSlides += generateTocSlide(config.title, loadedSections, config.url);

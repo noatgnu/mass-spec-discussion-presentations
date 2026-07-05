@@ -98,9 +98,9 @@
 			}
 
 			/* Slanted Title Bar */
-			.reveal h1 { 
-				font-size: 2.5em; 
-				padding-bottom: 10px; 
+			.reveal h1 {
+				font-size: 1.8em;
+				padding-bottom: 10px;
 				position: relative;
 				display: inline-block;
 				margin-bottom: 30px;
@@ -114,6 +114,38 @@
 				height: 4px;
 				background: var(--dx-gold);
 				transform: skewX(-45deg);
+			}
+
+			/* Title slide author list */
+			.dx-authors-block {
+				margin-top: 10px;
+			}
+			.dx-authors {
+				font-family: monospace;
+				font-size: 0.95em;
+				color: var(--dx-text-secondary);
+				letter-spacing: 0.5px;
+			}
+			.dx-authors .dx-speaker {
+				color: var(--dx-gold);
+				text-decoration: underline;
+				text-decoration-color: var(--dx-gold);
+				text-underline-offset: 3px;
+			}
+			.dx-authors .dx-sup {
+				font-size: 0.75em;
+				color: var(--dx-gold-dim);
+			}
+			.dx-affiliations {
+				margin-top: 10px;
+				font-family: monospace;
+				font-size: 0.68em;
+				color: var(--dx-gold-dim);
+				opacity: 0.85;
+				letter-spacing: 0.3px;
+			}
+			.dx-affiliations .dx-sup {
+				font-size: 0.9em;
 			}
 
 			.reveal h2 { 
@@ -307,11 +339,13 @@
 			#meta-top-right { top: 20px; right: 20px; text-align: right; }
 			#meta-bottom-left { bottom: 20px; left: 20px; text-align: left; }
 
-			/* Large faded tool-name watermark, shown behind slide content for branded sections */
+			/* Large faded tool-name watermark, shown behind slide content for branded sections.
+			   Sits alongside #synth-canvas (fixed, low z-index) so it renders behind
+			   .reveal .slides content instead of on top like the #dx-hud overlay does. */
 			#dx-brand-watermark {
-				position: absolute;
-				bottom: 0.3em;
-				right: 0.2em;
+				position: fixed;
+				bottom: 30px;
+				right: 40px;
 				font-family: monospace;
 				font-weight: 900;
 				font-size: 7.5vw;
@@ -322,6 +356,8 @@
 				text-transform: uppercase;
 				white-space: nowrap;
 				text-align: right;
+				pointer-events: none;
+				z-index: 5;
 				display: none;
 			}
 
@@ -575,6 +611,7 @@
 	<body>
 		<div id="dx-world">
 			<canvas id="synth-canvas"></canvas>
+			<div id="dx-brand-watermark"></div>
 			<div class="reveal">
 				<div class="slides">
 					{{slides}}
@@ -588,7 +625,6 @@
 			<div id="meta-top-left" class="metadata-readout">STATUS: <span id="status-display">ENCRYPTED</span><br>LOC: <span id="loc-display">{{loc}}</span></div>
 			<div id="meta-top-right" class="metadata-readout">TIME: <span id="clock-display">00:00:00</span><br>COORD: <span id="coord-display">SEC-01 / PG-01</span></div>
 			<div id="meta-bottom-left" class="metadata-readout">SYSTEM: INFOLINK v2.1<br>SIGNAL: NOMINAL</div>
-			<div id="dx-brand-watermark"></div>
 
 			<div id="hotkeys-hud">
 				<span><kbd>F</kbd> Fullscreen</span>

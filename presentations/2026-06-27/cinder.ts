@@ -3,6 +3,7 @@ import { HoloImageFacetGrid } from '../../src/components';
 
 export const section = {
     title: "Cinder",
+    branding: true,
     slides: `
 <section>
     <h2>Experiments in isolation</h2>
@@ -41,12 +42,12 @@ export const section = {
     </div>
 </section>
 
-${HoloImageFacetGrid('Cinder', [
+${HoloImageFacetGrid('Browse and organize your collated experiment libraries', [
     { src: 'assets/cinder.browsing.collates.gif', alt: 'Cinder mobile browsing collates', caption: 'BROWSE COLLATES', width: '246px' },
     { src: 'assets/cinder.collate.details.gif',   alt: 'Cinder mobile collate details',    caption: 'COLLATE DETAILS', width: '246px' },
 ])}
 
-${HoloImageFacetGrid('Cinder', [
+${HoloImageFacetGrid('Search and visualize a protein across every collated experiment', [
     { src: 'assets/cinder.protein.search.list.gif',    alt: 'Cinder mobile protein filter list selection', caption: 'PROTEIN FILTER LIST',   width: '246px' },
     { src: 'assets/cinder.collate.search.gif',         alt: 'Cinder mobile collate search',              caption: 'COLLATE SEARCH',        width: '246px' },
     { src: 'assets/cinder.collate.visualization.gif',  alt: 'Cinder mobile collate visualization',        caption: 'COLLATE VISUALIZATION', width: '246px' },
