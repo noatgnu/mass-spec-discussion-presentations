@@ -57,8 +57,8 @@ ${HoloImageFacetGrid('Cupcake - adopting field best practices', [
 ])}
 
 ${HoloImageFacetGrid('Cupcake - adopting field best practices', [
-    { src: 'assets/cupcake.metadata.controlled.vocabulary.lookup.gif', alt: 'Cupcake controlled vocabulary lookup', caption: 'VOCABULARY LOOKUP',   width: '327px' },
-    { src: 'assets/cupcake.metadata.template.management.gif',         alt: 'Cupcake metadata template management', caption: 'TEMPLATE MANAGEMENT', width: '333px' },
+    { src: 'assets/cupcake.metadata.controlled.vocabulary.lookup.png', alt: 'Cupcake controlled vocabulary lookup', caption: 'VOCABULARY LOOKUP',   width: '327px' },
+    { src: 'assets/cupcake.metadata.template.management.png',         alt: 'Cupcake metadata template management', caption: 'TEMPLATE MANAGEMENT', width: '333px' },
 ])}
 `
 };
