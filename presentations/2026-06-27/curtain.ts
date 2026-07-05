@@ -35,7 +35,7 @@ export const section = {
             </div>
             <div style="padding: 8px 14px 10px; background: var(--dx-solution-bg);">
                 <div style="font-family: monospace; font-size: 0.68em; color: var(--dx-solution); letter-spacing: 1px; font-weight: bold; margin-bottom: 3px;">✓ CURTAIN</div>
-                <div style="color: var(--dx-text-secondary); line-height: 1.5;">Every session gets a permanent, citable link to the exact analysis state</div>
+                <div style="color: var(--dx-text-secondary); line-height: 1.5;">Every published session can get a citable permanent DOI backed by DataCite.</div>
             </div>
         </div>
     </div>
