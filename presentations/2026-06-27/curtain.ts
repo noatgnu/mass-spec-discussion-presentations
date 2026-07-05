@@ -3,6 +3,7 @@ import { HoloImageFacetGrid } from '../../src/components';
 
 export const section = {
     title: "Curtain",
+    branding: true,
     slides: `
 <section>
     <h2>The static figure problem</h2>

@@ -65,6 +65,8 @@ interface Section {
     title: string;
     slides?: string;
     markdown?: string;
+    /** Shows the section title as a large faded watermark in the corner of every slide in this section. */
+    branding?: boolean;
 }
 
 interface PresentationConfig {
@@ -149,8 +151,12 @@ function wrapSectionSlides(section: Section, sectionIndex: number): string {
         content = `<section data-markdown><textarea data-template>${section.markdown}</textarea></section>`;
     }
 
+    const brandAttr = section.branding
+        ? ` data-brand="${section.title.replace(/"/g, '&quot;')}"`
+        : '';
+
     return `
-                <section id="section-${sectionIndex}">
+                <section id="section-${sectionIndex}"${brandAttr}>
                     ${content}
                 </section>`;
 }

@@ -306,7 +306,25 @@
 			#meta-top-left { top: 20px; left: 20px; text-align: left; }
 			#meta-top-right { top: 20px; right: 20px; text-align: right; }
 			#meta-bottom-left { bottom: 20px; left: 20px; text-align: left; }
-			
+
+			/* Large faded tool-name watermark, shown behind slide content for branded sections */
+			#dx-brand-watermark {
+				position: absolute;
+				bottom: 0.3em;
+				right: 0.2em;
+				font-family: monospace;
+				font-weight: 900;
+				font-size: 7.5vw;
+				line-height: 1;
+				letter-spacing: 0.03em;
+				color: var(--dx-gold);
+				opacity: 0.07;
+				text-transform: uppercase;
+				white-space: nowrap;
+				text-align: right;
+				display: none;
+			}
+
 			#zoomIndicator {
 				position: absolute;
 				bottom: 20px;
@@ -570,7 +588,8 @@
 			<div id="meta-top-left" class="metadata-readout">STATUS: <span id="status-display">ENCRYPTED</span><br>LOC: <span id="loc-display">{{loc}}</span></div>
 			<div id="meta-top-right" class="metadata-readout">TIME: <span id="clock-display">00:00:00</span><br>COORD: <span id="coord-display">SEC-01 / PG-01</span></div>
 			<div id="meta-bottom-left" class="metadata-readout">SYSTEM: INFOLINK v2.1<br>SIGNAL: NOMINAL</div>
-			
+			<div id="dx-brand-watermark"></div>
+
 			<div id="hotkeys-hud">
 				<span><kbd>F</kbd> Fullscreen</span>
 				<span><kbd>S</kbd> Speaker</span>
@@ -809,6 +828,19 @@
 			}
 			Reveal.on('slidechanged', updateMetadata);
 			updateMetadata();
+
+			const brandWatermark = document.getElementById('dx-brand-watermark');
+			function updateBranding() {
+				const brandSection = Reveal.getCurrentSlide()?.closest('section[data-brand]');
+				if (brandSection) {
+					brandWatermark.innerText = brandSection.getAttribute('data-brand');
+					brandWatermark.style.display = 'block';
+				} else {
+					brandWatermark.style.display = 'none';
+				}
+			}
+			Reveal.on('slidechanged', updateBranding);
+			updateBranding();
 
 			const canvas = document.getElementById('synth-canvas');
 			const ctx = canvas.getContext('2d');
