@@ -76,6 +76,9 @@ interface ExtractedElement {
     cssMaxHeight?: number;
     dataUrl?: string;
     clipX?: number; clipY?: number; clipW?: number; clipH?: number;
+    gifSrc?: string;
+    gifCropX?: number;
+    gifCropY?: number;
 }
 
 interface SlidePos { h: number; v: number; }
@@ -289,7 +292,10 @@ async function extractSlideElements(page: Page, slidesRect: { x: number; y: numb
                 return;
             }
             if ((el as HTMLElement).dataset?.pptxExport === 'screenshot') {
-                elements.push({ type: 'clip', tag, x, y, w, h, clipX: rect.left, clipY: rect.top, clipW: rect.width, clipH: rect.height });
+                const gifSrc = (el as HTMLElement).dataset?.pptxGifSrc;
+                const gifCropX = gifSrc ? parseFloat((el as HTMLElement).dataset?.pptxGifCropX ?? '50') : undefined;
+                const gifCropY = gifSrc ? parseFloat((el as HTMLElement).dataset?.pptxGifCropY ?? '50') : undefined;
+                elements.push({ type: 'clip', tag, x, y, w, h, clipX: rect.left, clipY: rect.top, clipW: rect.width, clipH: rect.height, gifSrc, gifCropX, gifCropY });
                 return;
             }
             if (tag === 'img') {
@@ -414,6 +420,26 @@ function readPngDimensions(filePath: string): { w: number; h: number } | null {
         return null;
     } catch {
         return null;
+    }
+}
+
+function readImageDimensions(filePath: string): { w: number; h: number } | null {
+    try {
+        const sizeOf = require('image-size');
+        const result = sizeOf.default(filePath);
+        return result?.width && result?.height ? { w: result.width, h: result.height } : null;
+    } catch {
+        return null;
+    }
+}
+
+function cropGifWithFfmpeg(src: string, dest: string, cropW: number, cropH: number, cropX: number, cropY: number): boolean {
+    try {
+        const crop = `crop=${cropW}:${cropH}:${cropX}:${cropY}`;
+        execSync(`ffmpeg -i "${src}" -vf "${crop},split[s0][s1];[s0]palettegen=stats_mode=full[p];[s1][p]paletteuse=dither=none" -y "${dest}" 2>/dev/null`);
+        return true;
+    } catch {
+        return false;
     }
 }
 
@@ -566,7 +592,30 @@ async function buildPptxSlide(
 
     const clips = elements.filter(e => e.type === 'clip');
     for (const clip of clips) {
-        if (clip.clipW && clip.clipH && clip.clipW > 0 && clip.clipH > 0) {
+        if (clip.gifSrc) {
+            const filename = path.basename(clip.gifSrc.split('?')[0]);
+            const localPath = path.join(presentationDir, filename);
+            const assetsPath = path.join(presentationDir, 'assets', filename);
+            const srcPath = fs.existsSync(localPath) ? localPath : fs.existsSync(assetsPath) ? assetsPath : null;
+            if (srcPath) {
+                const dims = readImageDimensions(srcPath);
+                let gifPath = srcPath;
+                if (dims && clip.w > 0 && clip.h > 0) {
+                    const posX = clip.gifCropX ?? 50;
+                    const posY = clip.gifCropY ?? 50;
+                    const scale = Math.max(clip.w / dims.w, clip.h / dims.h);
+                    const cropW = Math.min(dims.w, Math.round(clip.w / scale));
+                    const cropH = Math.min(dims.h, Math.round(clip.h / scale));
+                    const cropX = Math.round((dims.w - cropW) * (posX / 100));
+                    const cropY = Math.round((dims.h - cropH) * (posY / 100));
+                    const tmpPath = path.join(require('os').tmpdir(), `pptx_gif_${Date.now()}_${filename}`);
+                    if (cropGifWithFfmpeg(srcPath, tmpPath, cropW, cropH, cropX, cropY)) {
+                        gifPath = tmpPath;
+                    }
+                }
+                slide.addImage({ path: gifPath, x: ptX(clip.x), y: ptY(clip.y), w: toInW(clip.w), h: toInH(clip.h) });
+            }
+        } else if (clip.clipW && clip.clipH && clip.clipW > 0 && clip.clipH > 0) {
             const imgData = await screenshotClip(page, clip.clipX!, clip.clipY!, clip.clipW, clip.clipH);
             slide.addImage({ data: imgData, x: ptX(clip.x), y: ptY(clip.y), w: toInW(clip.w), h: toInH(clip.h) });
         }

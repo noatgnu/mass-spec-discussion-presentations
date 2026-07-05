@@ -1,4 +1,4 @@
-import { HoloImage } from '../../src/components';
+import { HoloImage, HoloImageFacetGrid } from '../../src/components';
 
 
 export const section = {
@@ -6,26 +6,61 @@ export const section = {
     slides: `
 <section>
     <h2>Experiments in isolation</h2>
-    <p style="font-size: 0.85em; color: var(--dx-text-secondary); margin: 12px 0 0; line-height: 1.6;">Curtain makes a single experiment explorable. But as experiment libraries grow, comparing a protein across multiple conditions means manually opening every session one by one.</p>
+    <p style="font-size: 0.85em; color: var(--dx-text-secondary); margin: 12px 0 0; line-height: 1.6;">Curtain makes a single experiment explorable.</p>
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; font-size: 0.75em; text-align: left;">
-        <div class="fragment" data-fragment-index="0" style="border: 1px solid var(--dx-gold-dim); padding: 12px 14px; background: var(--dx-holo-bg);">
-            <div style="font-family: monospace; color: var(--dx-gold); letter-spacing: 1px; margin-bottom: 6px;">01 · SILOED</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.5;">Every Curtain session contains exactly one experiment with no cross-session view</div>
+        <div class="fragment" data-fragment-index="0" style="border: 1px solid var(--dx-gold-dim); background: var(--dx-holo-bg); overflow: hidden;">
+            <div style="padding: 8px 14px 6px; background: var(--dx-problem-bg); border-bottom: 1px solid var(--dx-problem-border);">
+                <div style="font-family: monospace; font-size: 0.68em; color: var(--dx-problem); letter-spacing: 1px; font-weight: bold; margin-bottom: 3px;">⚠ PROBLEM</div>
+                <div style="font-family: monospace; color: var(--dx-problem); letter-spacing: 1px; font-weight: bold;">01 · SILOED</div>
+            </div>
+            <div style="padding: 8px 14px 10px; background: var(--dx-solution-bg);">
+                <div style="font-family: monospace; font-size: 0.68em; color: var(--dx-solution); letter-spacing: 1px; font-weight: bold; margin-bottom: 3px;">✓ CINDER</div>
+                <div style="color: var(--dx-text-secondary); line-height: 1.5;">Collates many Curtain sessions into one cross-experiment view</div>
+            </div>
         </div>
-        <div class="fragment" data-fragment-index="1" style="border: 1px solid var(--dx-gold-dim); padding: 12px 14px; background: var(--dx-holo-bg);">
-            <div style="font-family: monospace; color: var(--dx-gold); letter-spacing: 1px; margin-bottom: 6px;">02 · MANUAL</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.5;">Checking one protein across ten experiments means opening and searching ten sessions individually</div>
+        <div class="fragment" data-fragment-index="1" style="border: 1px solid var(--dx-gold-dim); background: var(--dx-holo-bg); overflow: hidden;">
+            <div style="padding: 8px 14px 6px; background: var(--dx-problem-bg); border-bottom: 1px solid var(--dx-problem-border);">
+                <div style="font-family: monospace; font-size: 0.68em; color: var(--dx-problem); letter-spacing: 1px; font-weight: bold; margin-bottom: 3px;">⚠ PROBLEM</div>
+                <div style="font-family: monospace; color: var(--dx-problem); letter-spacing: 1px; font-weight: bold;">02 · MANUAL</div>
+            </div>
+            <div style="padding: 8px 14px 10px; background: var(--dx-solution-bg);">
+                <div style="font-family: monospace; font-size: 0.68em; color: var(--dx-solution); letter-spacing: 1px; font-weight: bold; margin-bottom: 3px;">✓ CINDER</div>
+                <div style="color: var(--dx-text-secondary); line-height: 1.5;">Search once and see a protein's status across every collated experiment at once</div>
+            </div>
         </div>
-        <div class="fragment" data-fragment-index="2" style="border: 1px solid var(--dx-gold-dim); padding: 12px 14px; background: var(--dx-holo-bg);">
-            <div style="font-family: monospace; color: var(--dx-gold); letter-spacing: 1px; margin-bottom: 6px;">03 · UNCOLLECTABLE</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.5;">No way to bundle related experiments into a shareable library for a lab or publication</div>
+        <div class="fragment" data-fragment-index="2" style="border: 1px solid var(--dx-gold-dim); background: var(--dx-holo-bg); overflow: hidden;">
+            <div style="padding: 8px 14px 6px; background: var(--dx-problem-bg); border-bottom: 1px solid var(--dx-problem-border);">
+                <div style="font-family: monospace; font-size: 0.68em; color: var(--dx-problem); letter-spacing: 1px; font-weight: bold; margin-bottom: 3px;">⚠ PROBLEM</div>
+                <div style="font-family: monospace; color: var(--dx-problem); letter-spacing: 1px; font-weight: bold;">03 · UNCOLLECTABLE</div>
+            </div>
+            <div style="padding: 8px 14px 10px; background: var(--dx-solution-bg);">
+                <div style="font-family: monospace; font-size: 0.68em; color: var(--dx-solution); letter-spacing: 1px; font-weight: bold; margin-bottom: 3px;">✓ CINDER</div>
+                <div style="color: var(--dx-text-secondary); line-height: 1.5;">Related experiments bundle into a shareable, browsable collate library</div>
+            </div>
         </div>
-        <div class="fragment" data-fragment-index="3" style="border: 1px solid var(--dx-gold-dim); padding: 12px 14px; background: var(--dx-holo-bg);">
-            <div style="font-family: monospace; color: var(--dx-gold); letter-spacing: 1px; margin-bottom: 6px;">04 · INVISIBLE</div>
-            <div style="color: var(--dx-text-secondary); line-height: 1.5;">Shared datasets have no cross-study discovery surface - relevant experiments remain unknown</div>
+        <div class="fragment" data-fragment-index="3" style="border: 1px solid var(--dx-gold-dim); background: var(--dx-holo-bg); overflow: hidden;">
+            <div style="padding: 8px 14px 6px; background: var(--dx-problem-bg); border-bottom: 1px solid var(--dx-problem-border);">
+                <div style="font-family: monospace; font-size: 0.68em; color: var(--dx-problem); letter-spacing: 1px; font-weight: bold; margin-bottom: 3px;">⚠ PROBLEM</div>
+                <div style="font-family: monospace; color: var(--dx-problem); letter-spacing: 1px; font-weight: bold;">04 · UNRECORDED NEGATIVES</div>
+            </div>
+            <div style="padding: 8px 14px 10px; background: var(--dx-solution-bg);">
+                <div style="font-family: monospace; font-size: 0.68em; color: var(--dx-solution); letter-spacing: 1px; font-weight: bold; margin-bottom: 3px;">✓ CINDER</div>
+                <div style="color: var(--dx-text-secondary); line-height: 1.5;">Negative results are captured and searchable alongside positive ones, not discarded</div>
+            </div>
         </div>
     </div>
 </section>
+
+${HoloImageFacetGrid('Cinder', [
+    { src: 'assets/cinder.browsing.collates.gif', alt: 'Cinder mobile browsing collates', caption: 'BROWSE COLLATES', width: '246px' },
+    { src: 'assets/cinder.collate.details.gif',   alt: 'Cinder mobile collate details',    caption: 'COLLATE DETAILS', width: '246px' },
+])}
+
+${HoloImageFacetGrid('Cinder', [
+    { src: 'assets/cinder.protein.search.list.gif',    alt: 'Cinder mobile protein filter list selection', caption: 'PROTEIN FILTER LIST',   width: '246px' },
+    { src: 'assets/cinder.collate.search.gif',         alt: 'Cinder mobile collate search',              caption: 'COLLATE SEARCH',        width: '246px' },
+    { src: 'assets/cinder.collate.visualization.gif',  alt: 'Cinder mobile collate visualization',        caption: 'COLLATE VISUALIZATION', width: '246px' },
+])}
 
 <section>
     <h2>Cinder</h2>
