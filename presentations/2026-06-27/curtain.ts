@@ -6,7 +6,7 @@ export const section = {
     slides: `
 <section>
     <h2>The static figure problem</h2>
-    <p style="font-size: 0.85em; color: var(--dx-text-secondary); margin: 12px 0 0; line-height: 1.6;">Differential analysis results are communicated as static figures. Once the image is exported, the data and the decisions that shaped it become invisible to everyone receiving it.</p>
+    <p style="font-size: 0.85em; color: var(--dx-text-secondary); margin: 12px 0 0; line-height: 1.6;">Published figure has almost no explorability beyond its original context.</p>
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; font-size: 0.75em; text-align: left;">
         <div class="fragment" data-fragment-index="0" style="border: 1px solid var(--dx-gold-dim); background: var(--dx-holo-bg); overflow: hidden;">
             <div style="padding: 8px 14px 6px; background: var(--dx-problem-bg); border-bottom: 1px solid var(--dx-problem-border);">
@@ -51,7 +51,7 @@ export const section = {
     </div>
 </section>
 
-${HoloImageFacetGrid('Curtain', [
+${HoloImageFacetGrid('Explore and share your differential analysis', [
     { src: 'assets/curtain.mobile.volcano.plot.gif',       alt: 'Curtain mobile volcano plot exploration',    caption: 'VOLCANO PLOT',   width: '246px' },
     { src: 'assets/curtain.protein.list.gif',               alt: 'Curtain mobile protein list exploration',    caption: 'PROTEIN LIST',   width: '246px' },
     { src: 'assets/curtain.found.proteins.filter.gif',      alt: 'Curtain mobile found proteins filter results', caption: 'FOUND PROTEINS', width: '246px' },
