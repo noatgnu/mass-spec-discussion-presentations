@@ -104,8 +104,8 @@ export function HoloImageFacet(
 
     const captionHtml = `<div style="font-family: monospace; font-size: 0.65em; color: var(--dx-gold); letter-spacing: 0.5px; text-align: center; padding: 4px 2px; line-height: 1.4; opacity: 0.85; flex-shrink: 0;">${caption}</div>`;
     const cropStyle = stretch
-        ? `position: relative; overflow: hidden; width: 100%; flex: 1; min-height: 0; border: 1px solid var(--dx-gold-dim);`
-        : `position: relative; overflow: hidden; width: ${width}; height: ${height}; border: 1px solid var(--dx-gold-dim); flex-shrink: 0;`;
+        ? `position: relative; overflow: hidden; width: 100%; flex: 1; min-height: 0;`
+        : `position: relative; overflow: hidden; width: ${width}; height: ${height}; flex-shrink: 0;`;
     const wrapperStyle = stretch
         ? `display: flex; flex-direction: column; margin: ${margin}; width: ${width}; gap: 4px; align-self: stretch;`
         : `display: inline-flex; flex-direction: column; margin: ${margin}; width: ${width}; gap: 4px;`;
@@ -113,7 +113,7 @@ export function HoloImageFacet(
     return `
 <div style="${wrapperStyle}">
     ${captionPosition === 'top' ? captionHtml : ''}
-    <div data-pptx-export="screenshot"${gifAttr} style="${cropStyle}">
+    <div class="holo-facet-frame" data-pptx-export="screenshot"${gifAttr} style="${cropStyle}">
         <img src="${src}" alt="${alt}" class="holo-facet-img"
              style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: ${objectPosition}; margin: 0; border: none; box-shadow: none;">
         <div class="holo-img-hint" style="

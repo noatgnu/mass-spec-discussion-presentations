@@ -209,6 +209,27 @@
 				transform: scale(1.02);
 			}
 
+			/* Same fractal corner brackets as .reveal img, but as an overlay since
+			   facet crop containers have no padding to draw the brackets into. */
+			.holo-facet-frame::after {
+				content: "";
+				position: absolute;
+				inset: 0;
+				pointer-events: none;
+				z-index: 4;
+				background:
+					linear-gradient(to right, var(--dx-gold) 2px, transparent 2px) 0 0,
+					linear-gradient(to bottom, var(--dx-gold) 2px, transparent 2px) 0 0,
+					linear-gradient(to left, var(--dx-gold) 2px, transparent 2px) 100% 0,
+					linear-gradient(to bottom, var(--dx-gold) 2px, transparent 2px) 100% 0,
+					linear-gradient(to right, var(--dx-gold) 2px, transparent 2px) 0 100%,
+					linear-gradient(to top, var(--dx-gold) 2px, transparent 2px) 0 100%,
+					linear-gradient(to left, var(--dx-gold) 2px, transparent 2px) 100% 100%,
+					linear-gradient(to top, var(--dx-gold) 2px, transparent 2px) 100% 100%;
+				background-repeat: no-repeat;
+				background-size: 15px 15px;
+			}
+
 			.holo-img-container:hover .holo-img-hint {
 				opacity: 1 !important;
 				background: var(--dx-gold) !important;
