@@ -41,14 +41,11 @@ export const section = {
     </div>
 </section>
 
-${HoloImageFacetGrid('Take your lab notebook to the bench', [
-    { src: 'assets/cupcake.lab.notebook.protocol.png',   alt: 'Cupcake lab notebook protocol sections', caption: 'PROTOCOL STEPS',   width: '378px' },
-    { src: 'assets/cupcake.lab.notebook.annotation.png', alt: 'Cupcake lab notebook add annotation',    caption: 'ANNOTATION INPUT', width: '378px' },
-])}
-
-${HoloImageFacetGrid('Streamlining data input and format for PRIDE', [
-    { src: 'assets/cupcake.metadata.controlled.vocabulary.lookup.png', alt: 'Cupcake controlled vocabulary lookup', caption: 'VOCABULARY LOOKUP',   width: '327px' },
-    { src: 'assets/cupcake.metadata.template.management.png',         alt: 'Cupcake metadata template management', caption: 'TEMPLATE MANAGEMENT', width: '333px' },
+${HoloImageFacetGrid('Document your metadata in a format for mass spec archival repository', [
+    { src: 'assets/cupcake.lab.notebook.protocol.png',                  alt: 'Cupcake lab notebook protocol sections', caption: 'PROTOCOL STEPS',       width: '311px' },
+    { src: 'assets/cupcake.lab.notebook.annotation.png',                alt: 'Cupcake lab notebook add annotation',    caption: 'ANNOTATION INPUT',     width: '311px' },
+    { src: 'assets/cupcake.metadata.controlled.vocabulary.lookup.png',  alt: 'Cupcake controlled vocabulary lookup',   caption: 'VOCABULARY LOOKUP',    width: '269px' },
+    { src: 'assets/cupcake.metadata.template.management.png',          alt: 'Cupcake metadata template management',   caption: 'TEMPLATE MANAGEMENT',  width: '274px' },
 ])}
 `
 };

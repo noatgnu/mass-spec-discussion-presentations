@@ -1,4 +1,4 @@
-import { HoloImage, HoloImageFacetGrid } from '../../src/components';
+import { HoloImageFacetGrid } from '../../src/components';
 
 
 export const section = {
@@ -51,12 +51,5 @@ ${HoloImageFacetGrid('Cinder', [
     { src: 'assets/cinder.collate.search.gif',         alt: 'Cinder mobile collate search',              caption: 'COLLATE SEARCH',        width: '246px' },
     { src: 'assets/cinder.collate.visualization.gif',  alt: 'Cinder mobile collate visualization',        caption: 'COLLATE VISUALIZATION', width: '246px' },
 ])}
-
-<section>
-    <h2>Cinder</h2>
-    <div style="text-align: center; margin-top: 14px;">
-        ${HoloImage('assets/cinder.cross-dataset-search.png', 'Cinder cross-dataset search', '550px', '5px')}
-    </div>
-</section>
 `
 };
