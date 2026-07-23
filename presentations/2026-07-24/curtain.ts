@@ -30,14 +30,27 @@ export const section = {
 </section>
 
 <section>
-    <h2>What's in the collection</h2>
-    <p style="font-size: 0.85em; color: var(--dx-text-secondary); margin: 12px 0 0; line-height: 1.6;">Peripheral inflammation profiling in LRRK2-linked Parkinson's disease, contributed by Rubiano-Castro, Alejandro.</p>
-    <ul style="font-size: 0.75em; color: var(--dx-text-secondary); line-height: 1.8; text-align: left; margin-top: 16px;">
-        <li>92 inflammatory markers measured by proximity extension assay (PEA)</li>
-        <li>174 plasma samples across 5 cohorts: G2019S and R1441G LRRK2-PD patients, non-manifesting carriers, idiopathic PD, and healthy controls</li>
-        <li>Sourced from a Spanish LRRK2 clinical cohort — external data, hosted and made explorable through Curtain</li>
-        <li>Key findings: EN-RAGE, HGF, CXCL9, CCL25 up-regulated in G2019S carriers; IL-6 up-regulated in idiopathic PD</li>
-    </ul>
+    <h2>Steps to register a DOI</h2>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; font-size: 0.72em; text-align: left;">
+        <div style="border: 1px solid var(--dx-gold-dim); background: var(--dx-holo-bg); overflow: hidden;">
+            <div style="padding: 8px 14px; background: var(--dx-problem-bg); border-bottom: 1px solid var(--dx-problem-border); font-family: monospace; color: var(--dx-problem); letter-spacing: 1px; font-weight: bold;">USER · SUBMITTING</div>
+            <ol style="margin: 0; padding: 10px 16px 12px 30px; color: var(--dx-text-secondary); line-height: 1.6;">
+                <li>From an owned session, open <strong>Register DOI</strong></li>
+                <li>Fill in the DataCite form: title, creators &amp; contributors (auto-filled from ORCID), publisher, license, abstract/methods, subjects, and related IDs (e.g. PRIDE, SDRF-Proteomics); optionally attach a session collection</li>
+                <li>Give a contact email and PII statement, and confirm the info-is-accurate, publication-rights, and ASAP-policy declarations</li>
+                <li>Once submitted. Curtain drafts the DOI with DataCite (status: <em>draft</em>) and locks the form pending review</li>
+            </ol>
+        </div>
+        <div style="border: 1px solid var(--dx-gold-dim); background: var(--dx-holo-bg); overflow: hidden;">
+            <div style="padding: 8px 14px; background: var(--dx-solution-bg); font-family: monospace; color: var(--dx-solution); letter-spacing: 1px; font-weight: bold;">ADMIN · APPROVING</div>
+            <ol style="margin: 0; padding: 10px 16px 12px 30px; color: var(--dx-text-secondary); line-height: 1.6;">
+                <li>Open the DOI admin queue, filtered to submissions in <em>draft</em> status</li>
+                <li>Review the submitted metadata, the linked dataset/collection, contact email, and PII statement</li>
+                <li>Approve. Publishes the DOI on DataCite and marks the session/collection permanent or reject and send it back</li>
+                <li>Curtain emails the submitter automatically with the final status</li>
+            </ol>
+        </div>
+    </div>
 </section>
 `
 };
