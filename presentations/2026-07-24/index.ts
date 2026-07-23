@@ -8,6 +8,7 @@ export const presentation = {
         { name: "Toan Phung", speaker: true },
     ],
     sections: [
-        "curtain"
+        "curtain",
+        "cinder"
     ]
 };

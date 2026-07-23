@@ -6,6 +6,33 @@ export const section = {
     branding: true,
     slides: `
 <section>
+    <h2>One DOI, an entire collection</h2>
+    <p style="font-size: 0.85em; color: var(--dx-text-secondary); margin: 12px 0 0; line-height: 1.6;">DOI registration is no longer locked to a single session — it can now cover a whole collection of linked datasets at once.</p>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; font-size: 0.75em; text-align: left;">
+        <div class="fragment" data-fragment-index="0" style="border: 1px solid var(--dx-gold-dim); background: var(--dx-holo-bg); overflow: hidden;">
+            <div style="padding: 8px 14px 6px; background: var(--dx-problem-bg); border-bottom: 1px solid var(--dx-problem-border);">
+                <div style="font-family: monospace; font-size: 0.68em; color: var(--dx-problem); letter-spacing: 1px; font-weight: bold; margin-bottom: 3px;">⚠ PROBLEM</div>
+                <div style="font-family: monospace; color: var(--dx-problem); letter-spacing: 1px; font-weight: bold;">01 · FRAGMENTED CITATIONS</div>
+            </div>
+            <div style="padding: 8px 14px 10px; background: var(--dx-solution-bg);">
+                <div style="font-family: monospace; font-size: 0.68em; color: var(--dx-solution); letter-spacing: 1px; font-weight: bold; margin-bottom: 3px;">✓ CURTAIN</div>
+                <div style="color: var(--dx-text-secondary); line-height: 1.5;">Attach a whole collection when registering. One DOI now covers every session in it.</div>
+            </div>
+        </div>
+        <div class="fragment" data-fragment-index="1" style="border: 1px solid var(--dx-gold-dim); background: var(--dx-holo-bg); overflow: hidden;">
+            <div style="padding: 8px 14px 6px; background: var(--dx-problem-bg); border-bottom: 1px solid var(--dx-problem-border);">
+                <div style="font-family: monospace; font-size: 0.68em; color: var(--dx-problem); letter-spacing: 1px; font-weight: bold; margin-bottom: 3px;">⚠ PROBLEM</div>
+                <div style="font-family: monospace; color: var(--dx-problem); letter-spacing: 1px; font-weight: bold;">02 · DATA BACKUP</div>
+            </div>
+            <div style="padding: 8px 14px 10px; background: var(--dx-solution-bg);">
+                <div style="font-family: monospace; font-size: 0.68em; color: var(--dx-solution); letter-spacing: 1px; font-weight: bold; margin-bottom: 3px;">✓ CURTAIN</div>
+                <div style="color: var(--dx-text-secondary); line-height: 1.5;">Approving a data collection DOI now also mark all the original session links as permanent.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
     <h2>Curtain update</h2>
     <p style="font-size: 0.85em; color: var(--dx-text-secondary); margin: 12px 0 0; line-height: 1.6;">Curtain issued its first DataCite DOI for a session built entirely from a data collection sourced from outside our own lab.</p>
     <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 12px; margin-top: 20px; font-size: 0.72em; text-align: left;">
