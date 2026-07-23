@@ -53,10 +53,10 @@ export const section = {
 </section>
 
 ${HoloImageFacetGrid('Simplify documenting your metadata in a format for archival purposes', [
-    { src: 'assets/cupcake.lab.notebook.protocol.png',                  alt: 'Cupcake lab notebook protocol sections', caption: 'PROTOCOL STEPS',       width: '311px' },
-    { src: 'assets/cupcake.lab.notebook.annotation.png',                alt: 'Cupcake lab notebook add annotation',    caption: 'ANNOTATION INPUT',     width: '311px' },
-    { src: 'assets/cupcake.metadata.controlled.vocabulary.lookup.png',  alt: 'Cupcake controlled vocabulary lookup',   caption: 'VOCABULARY LOOKUP',    width: '269px' },
-    { src: 'assets/cupcake.metadata.template.management.png',          alt: 'Cupcake metadata template management',   caption: 'TEMPLATE MANAGEMENT',  width: '274px' },
+    { src: 'assets/cupcake.lab.notebook.protocol.gif',                  alt: 'Cupcake lab notebook protocol sections', caption: 'PROTOCOL STEPS',       width: '311px' },
+    { src: 'assets/cupcake.lab.notebook.annotation.gif',                alt: 'Cupcake lab notebook add annotation',    caption: 'ANNOTATION INPUT',     width: '311px' },
+    { src: 'assets/cupcake.metadata.controlled.vocabulary.lookup.gif',  alt: 'Cupcake controlled vocabulary lookup',   caption: 'VOCABULARY LOOKUP',    width: '269px' },
+    { src: 'assets/cupcake.metadata.template.management.gif',          alt: 'Cupcake metadata template management',   caption: 'TEMPLATE MANAGEMENT',  width: '274px' },
 ])}
 `
 };
