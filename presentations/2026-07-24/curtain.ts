@@ -35,19 +35,19 @@ export const section = {
         <div style="border: 1px solid var(--dx-gold-dim); background: var(--dx-holo-bg); overflow: hidden;">
             <div style="padding: 8px 14px; background: var(--dx-problem-bg); border-bottom: 1px solid var(--dx-problem-border); font-family: monospace; color: var(--dx-problem); letter-spacing: 1px; font-weight: bold;">USER · SUBMITTING</div>
             <ol style="margin: 0; padding: 10px 16px 12px 30px; color: var(--dx-text-secondary); line-height: 1.6;">
-                <li>From an owned session, open <strong>Register DOI</strong></li>
-                <li>Fill in the DataCite form: title, creators &amp; contributors (auto-filled from ORCID), publisher, license, abstract/methods, subjects, and related IDs (e.g. PRIDE, SDRF-Proteomics); optionally attach a session collection</li>
-                <li>Give a contact email and PII statement, and confirm the info-is-accurate, publication-rights, and ASAP-policy declarations</li>
-                <li>Once submitted. Curtain drafts the DOI with DataCite (status: <em>draft</em>) and locks the form pending review</li>
+                <li class="fragment">From an owned session, open <strong>Register DOI</strong></li>
+                <li class="fragment">Fill in the DataCite form: title, creators &amp; contributors (auto-filled from ORCID), publisher, license, abstract/methods, subjects, and related IDs (e.g. PRIDE, SDRF-Proteomics); optionally attach a session collection</li>
+                <li class="fragment">Give a contact email and PII statement, and confirm the info-is-accurate, publication-rights, and ASAP-policy declarations</li>
+                <li class="fragment">Once submitted. Curtain drafts the DOI with DataCite (status: <em>draft</em>) and locks the form pending review</li>
             </ol>
         </div>
         <div style="border: 1px solid var(--dx-gold-dim); background: var(--dx-holo-bg); overflow: hidden;">
             <div style="padding: 8px 14px; background: var(--dx-solution-bg); font-family: monospace; color: var(--dx-solution); letter-spacing: 1px; font-weight: bold;">ADMIN · APPROVING</div>
             <ol style="margin: 0; padding: 10px 16px 12px 30px; color: var(--dx-text-secondary); line-height: 1.6;">
-                <li>Open the DOI admin queue, filtered to submissions in <em>draft</em> status</li>
-                <li>Review the submitted metadata, the linked dataset/collection, contact email, and PII statement</li>
-                <li>Approve. Publishes the DOI on DataCite and marks the session/collection permanent or reject and send it back</li>
-                <li>Curtain emails the submitter automatically with the final status</li>
+                <li class="fragment">Open the DOI admin queue, filtered to submissions in <em>draft</em> status</li>
+                <li class="fragment">Review the submitted metadata, the linked dataset/collection, contact email, and PII statement</li>
+                <li class="fragment">Approve. Publishes the DOI on DataCite and marks the session/collection permanent or reject and send it back</li>
+                <li class="fragment">Curtain emails the submitter automatically with the final status</li>
             </ol>
         </div>
     </div>
