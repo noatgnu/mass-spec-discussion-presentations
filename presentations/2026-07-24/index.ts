@@ -9,6 +9,7 @@ export const presentation = {
     ],
     sections: [
         "curtain",
-        "cinder"
+        "cinder",
+        "cupcake"
     ]
 };
