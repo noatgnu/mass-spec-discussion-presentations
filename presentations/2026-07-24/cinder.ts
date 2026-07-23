@@ -34,7 +34,7 @@ export const section = {
 
 ${HoloImageFacetGrid('Search and visualize collated results as a heatmap', [
     { src: 'assets/cinder.collate.search.gif',        alt: 'Cinder mobile collate search',         caption: 'COLLATE SEARCH',        width: '246px' },
-    { src: 'assets/cinder.collate.visualization.gif', alt: 'Cinder mobile collate heatmap visualization', caption: 'HEATMAP VISUALIZATION', width: '246px' },
+    { src: 'assets/cinder.collate.visualization.gif', alt: 'Cinder mobile collate heatmap visualization', caption: 'UPDATED VISUALIZATION', width: '246px' },
 ])}
 `
 };

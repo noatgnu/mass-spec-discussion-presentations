@@ -1,4 +1,4 @@
-import { HoloImage } from '../../src/components';
+import { HoloImage, QRCode } from '../../src/components';
 
 
 export const section = {
@@ -88,6 +88,17 @@ export const section = {
             <div class="fragment" style="border: 1px solid var(--dx-gold-dim); border-top: none; background: var(--dx-holo-bg); padding: 8px 14px;">
                 <strong style="color: var(--dx-gold);">4.</strong> Curtain emails the submitter automatically with the final status
             </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>Try the new build</h2>
+    <div style="display: flex; justify-content: center; align-items: center; gap: 40px; margin-top: 30px;">
+        <div style="text-align: center;">
+            <p style="color: var(--dx-gold); font-family: monospace; margin-bottom: 10px;">[ JOIN_TESTFLIGHT_BETA ]</p>
+            ${QRCode('https://testflight.apple.com/join/mtd2G1CF', { size: 250 })}
+            <p style="font-size: 0.6em; margin-top: 10px; color: var(--dx-gold-dim);">Scan with your iPhone to install Curtain via TestFlight</p>
         </div>
     </div>
 </section>
