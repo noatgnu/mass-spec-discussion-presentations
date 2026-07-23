@@ -32,23 +32,35 @@ export const section = {
 <section>
     <h2>Steps to register a DOI</h2>
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; font-size: 0.72em; text-align: left;">
-        <div style="border: 1px solid var(--dx-gold-dim); background: var(--dx-holo-bg); overflow: hidden;">
-            <div style="padding: 8px 14px; background: var(--dx-problem-bg); border-bottom: 1px solid var(--dx-problem-border); font-family: monospace; color: var(--dx-problem); letter-spacing: 1px; font-weight: bold;">USER · SUBMITTING</div>
-            <ol style="margin: 0; padding: 10px 16px 12px 30px; color: var(--dx-text-secondary); line-height: 1.6;">
-                <li class="fragment">From an owned session, open <strong>Register DOI</strong></li>
-                <li class="fragment">Fill in the DataCite form: title, creators &amp; contributors (auto-filled from ORCID), publisher, license, abstract/methods, subjects, and related IDs (e.g. PRIDE, SDRF-Proteomics); optionally attach a session collection</li>
-                <li class="fragment">Give a contact email and PII statement, and confirm the info-is-accurate, publication-rights, and ASAP-policy declarations</li>
-                <li class="fragment">Once submitted. Curtain drafts the DOI with DataCite (status: <em>draft</em>) and locks the form pending review</li>
-            </ol>
+        <div>
+            <div style="padding: 8px 14px; border: 1px solid var(--dx-gold-dim); background: var(--dx-problem-bg); border-bottom: none; font-family: monospace; color: var(--dx-problem); letter-spacing: 1px; font-weight: bold;">USER · SUBMITTING</div>
+            <div class="fragment" style="border: 1px solid var(--dx-gold-dim); background: var(--dx-holo-bg); padding: 8px 14px;">
+                <strong style="color: var(--dx-gold);">1.</strong> From an owned session, open <strong>Register DOI</strong>
+            </div>
+            <div class="fragment" style="border: 1px solid var(--dx-gold-dim); border-top: none; background: var(--dx-holo-bg); padding: 8px 14px;">
+                <strong style="color: var(--dx-gold);">2.</strong> Fill in the DataCite form: title, creators &amp; contributors (auto-filled from ORCID), publisher, license, abstract/methods, subjects, and related IDs (e.g. PRIDE, SDRF-Proteomics); optionally attach a session collection
+            </div>
+            <div class="fragment" style="border: 1px solid var(--dx-gold-dim); border-top: none; background: var(--dx-holo-bg); padding: 8px 14px;">
+                <strong style="color: var(--dx-gold);">3.</strong> Give a contact email and PII statement, and confirm the info-is-accurate, publication-rights, and ASAP-policy declarations
+            </div>
+            <div class="fragment" style="border: 1px solid var(--dx-gold-dim); border-top: none; background: var(--dx-holo-bg); padding: 8px 14px;">
+                <strong style="color: var(--dx-gold);">4.</strong> Once submitted, Curtain drafts the DOI with DataCite (status: <em>draft</em>) and locks the form pending review
+            </div>
         </div>
-        <div style="border: 1px solid var(--dx-gold-dim); background: var(--dx-holo-bg); overflow: hidden;">
-            <div style="padding: 8px 14px; background: var(--dx-solution-bg); font-family: monospace; color: var(--dx-solution); letter-spacing: 1px; font-weight: bold;">ADMIN · APPROVING</div>
-            <ol style="margin: 0; padding: 10px 16px 12px 30px; color: var(--dx-text-secondary); line-height: 1.6;">
-                <li class="fragment">Open the DOI admin queue, filtered to submissions in <em>draft</em> status</li>
-                <li class="fragment">Review the submitted metadata, the linked dataset/collection, contact email, and PII statement</li>
-                <li class="fragment">Approve. Publishes the DOI on DataCite and marks the session/collection permanent or reject and send it back</li>
-                <li class="fragment">Curtain emails the submitter automatically with the final status</li>
-            </ol>
+        <div>
+            <div style="padding: 8px 14px; border: 1px solid var(--dx-gold-dim); background: var(--dx-solution-bg); border-bottom: none; font-family: monospace; color: var(--dx-solution); letter-spacing: 1px; font-weight: bold;">ADMIN · APPROVING</div>
+            <div class="fragment" style="border: 1px solid var(--dx-gold-dim); background: var(--dx-holo-bg); padding: 8px 14px;">
+                <strong style="color: var(--dx-gold);">1.</strong> Open the DOI admin queue, filtered to submissions in <em>draft</em> status
+            </div>
+            <div class="fragment" style="border: 1px solid var(--dx-gold-dim); border-top: none; background: var(--dx-holo-bg); padding: 8px 14px;">
+                <strong style="color: var(--dx-gold);">2.</strong> Review the submitted metadata, the linked dataset/collection, contact email, and PII statement
+            </div>
+            <div class="fragment" style="border: 1px solid var(--dx-gold-dim); border-top: none; background: var(--dx-holo-bg); padding: 8px 14px;">
+                <strong style="color: var(--dx-gold);">3.</strong> Approve. Publishes the DOI on DataCite and marks the session/collection permanent or reject and send it back
+            </div>
+            <div class="fragment" style="border: 1px solid var(--dx-gold-dim); border-top: none; background: var(--dx-holo-bg); padding: 8px 14px;">
+                <strong style="color: var(--dx-gold);">4.</strong> Curtain emails the submitter automatically with the final status
+            </div>
         </div>
     </div>
 </section>
