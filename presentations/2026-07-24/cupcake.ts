@@ -33,7 +33,7 @@ export const section = {
 </section>
 
 <section>
-    <h2>Protocols and ontology lookup, offline on iPad</h2>
+    <h2>Offline protocols and ontology lookup</h2>
     ${HoloImage('assets/ipad.preview.protocol.and.ontology.browser.png', 'iPad preview of the offline protocol list and ontology browser, with an Offline/Online toggle', '520px')}
 </section>
 `
